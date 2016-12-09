@@ -1,0 +1,234 @@
+
+
+.g-container .m-order{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.m-order .m-head{
+    height: 60px;
+    border-bottom:2px solid #dfdfdf ;
+}
+
+.m-order .m-head .c-item{
+    height: 100%;
+    line-height: 60px;
+}
+
+.m-order .m-list{
+    width: 100%;
+}
+.m-order .m-list .c-item{
+    position: relative;
+   padding: 10px 0;
+    border-bottom:2px solid #dfdfdf ;
+}
+.m-order .m-list .c-desc{
+    text-align: left;
+}
+
+.m-order .img{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+.m-order .m-list .profile{
+    height: 100%;
+}
+.m-order .m-list .name{
+    font-size: 14px;
+}
+.m-order .m-list .fold{
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    color: #bd3337;
+    margin: 0;
+}
+.m-order .m-list .c-price{
+    font-size: 15px;
+}
+
+.m-order .c-price .additionPirce{
+    color: #be1919;
+    margin-top: 30px
+}
+.m-order .additionPirce .add{
+    position: absolute;
+    color: #be1919;
+    left: 15%;
+}
+
+.m-order .f-txtverCen{
+    height: 80px;
+    line-height: 80px;
+}
+.m-order .m-list .num,
+.m-order .m-list .bianhao{
+    font-size: 16px;
+}
+.m-order .m-list .status{
+    font-size: 14px;
+}
+.m-order .m-list .total{
+    font-size: 18px;
+}
+
+.m-order .m-list .handle{
+    margin-top: 20px;
+
+}
+
+.m-order .handle .flow,
+.m-order .handle .other{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 14px;
+    color: #ff4400;
+    cursor: pointer;
+}
+.m-order .handle .flow:hover,
+.m-order .handle .other:hover{
+    text-decoration: underline;
+}
+.m-order .m-page{
+    margin-top: 10px;
+    color: #898989;
+    font-size: 12px;
+}
+.m-order .m-page .totalPage{
+    color: #898989;
+    font-size: 12px;
+    padding: 0 5px;
+}
+.m-order .m-page .pre,
+.m-order .m-page .next{
+    color: #898989;
+    font-size: 12px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.m-order .m-page .pre:hover,
+.m-order .m-page .next:hover{
+    text-decoration: underline;
+}
+.m-order .m-page .cur{
+    color: #898989;
+}
+/*物流信息*/
+.m-flowMsg{
+    display: none;
+    position: absolute;
+    padding: 16px 28px;
+    width: 450px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 220px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #888;
+}
+
+.m-flowMsg .m-head{
+    height: 38px;
+    border-bottom: 1px solid #969696;
+    line-height: 38px;
+
+}
+
+.m-flowMsg .title,
+.m-flowMsg .bianhao{
+    font-size: 16px;
+}
+
+.m-flowMsg .m-body{
+    padding: 50px 0 25px 0;
+    font-size: 16px;
+    line-height: 2.0;
+}
+.m-flowMsg .copy{
+    font-size: 16px;
+    color: #ff4400;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.m-flowMsg .copy:hover{
+    text-decoration: underline;
+}
+
+/*订单详情*/
+.m-ordDetail{
+    position: absolute;
+    width: 450px;
+    top:180px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 38px 28px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #888;
+    /*display: none;*/
+}
+.m-ordDetail .img{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+.m-ordDetail .m-head{
+    border-bottom: 1px solid #969696;
+    height: auto;
+    line-height: normal;
+    padding-bottom: 5px
+}
+.m-ordDetail .title{
+    font-size: 16px;
+}
+.m-ordDetail .preview{
+    margin-left: 10px;
+    color: #ff4400;
+    font-size: 14px;
+}
+.m-ordDetail .total{
+    font-size: 16px;
+}
+.m-ordDetail .price{
+    color: #be1919;
+}
+.m-ordDetail .m-details{
+    width: auto;
+    height: 340px;
+    overflow: hidden;
+}
+.m-ordDetail:hover .m-details{
+    overflow: auto;
+}
+.m-ordDetail .c-item{
+    padding: 7px 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.m-ordDetail .desc{
+    font-size: 14px;
+}
+.m-ordDetail .name,
+.m-ordDetail .delete{
+    color: #015b8a;
+}
+
+.m-ordDetail .subtotal{
+    color: #be1919;
+}
+
+.m-ordDetail .m-footer{
+    margin-top: 5px;
+    font-size: 11px;
+    color: #898989;
+    line-height: 1.5;
+}
+
+
+

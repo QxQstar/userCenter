@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>我的订单</title>
+    <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="./css/base.css" rel="stylesheet">
+
+    <link type="text/css" href="./css/order.css" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    <div class="g-container">
+        <!--二级导航-->
+        <ul class="m-subNav f-marTop-120 f-clearfix f-marBom-66">
+            <li class="c-item on f-float-l">我的订单</li>
+            <li class="c-item f-float-l">优惠券</li>
+            <li class="c-item f-float-l">通知</li>
+            <li class="c-item f-float-l last">个人设置</li>
+        </ul>
+        <!--订单-->
+        <div class="container m-order" id="order">
+            <!--三级导航-->
+            <div class="row m-navThird">
+                <div class="container m-navContent f-pm-0">
+                    <div class="row f-pm-0">
+                        <ul class="f-pm-0 col-md-11 f-clearfix">
+                            <!--三级导航中的导航项-->
+                            <li class="c-item f-float-l on">全部订单</li>
+                            <li class="c-item f-float-l">已购买</li>
+                            <li class="c-item f-float-l last">未付款</li>
+                        </ul>
+                        <div class="f-pm-0 col-md-1 handle">
+                            <a href="#">私信客服</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--表头-->
+            <ul class="row m-head">
+                <li class="f-pm-0 col-md-3 c-item f-center">商品</li>
+                <li class="f-pm-0 col-md-2 c-item f-center">单价(元)</li>
+                <li class="f-pm-0 col-md-1 c-item f-center">数量</li>
+                <li class="f-pm-0 col-md-2 c-item f-center">订单编号</li>
+                <li class="f-pm-0 col-md-2 c-item f-center">订单金额(元)</li>
+                <li class="f-pm-0 col-md-1 c-item f-center">交易状态</li>
+                <li class="f-pm-0 col-md-1 c-item f-center">操作</li>
+            </ul>
+            <!--订单列表-->
+            <div class="row f-clearfix">
+                <ul class="container m-list f-pm-0">
+                    <!--订单项-->
+                    <li class="row c-item f-center f-pm-0">
+                        <div class="f-clearfix f-pm-0 col-md-3 c-desc">
+                            <div class="img f-float-l">
+                                <img src="./img/testImg.jpg">
+                            </div>
+                            <div class="profile f-float-l">
+                                <div class="name">HIMETAL纳斯光择缓温杯</div>
+                                <p class="fold">
+                                    印图:1<br/>
+                                    TORCHWOOD
+                                </p>
+                            </div>
+                        </div>
+                        <div class=" f-pm-0 col-md-2 c-price">
+                            <div class="mainPrice">
+                                58.90
+                            </div>
+                            <div class="additionPirce">
+                                <span class="add"> + </span>
+                                5.00
+                            </div>
+                        </div>
+                        <div class=" f-pm-0 col-md-1 f-txtverCen num">
+                            1
+                        </div>
+                        <div class=" f-pm-0 col-md-2 f-txtverCen bianhao">
+                            124463768343
+                        </div>
+                        <div class="f-pm-0 col-md-2 f-txtverCen total">
+                            64.80
+                        </div>
+                        <div class="f-pm-0 col-md-1 f-txtverCen status">
+                            未付款
+                        </div>
+                        <div class="f-pm-0 col-md-1 handle">
+                            <div class="flow">
+                                查看物流
+                            </div>
+                            <div class="other">
+                                取消订单
+                            </div>
+                        </div>
+                    </li>
+                    <li class="row c-item f-center f-pm-0">
+                        <div class="f-clearfix f-pm-0 col-md-3 c-desc">
+                            <div class="img f-float-l">
+                                <img src="./img/testImg.jpg">
+                            </div>
+                            <div class="profile f-float-l">
+                                <div class="name">HIMETAL纳斯光择缓温杯</div>
+                                <p class="fold">
+                                    印图:1<br/>
+                                    TORCHWOOD
+                                </p>
+                            </div>
+                        </div>
+                        <div class="f-pm-0 col-md-2 c-price">
+                            <div class="mainPrice">
+                                58.90
+                            </div>
+                            <div class="additionPirce">
+                                <span class="add"> + </span>
+                                5.00
+                            </div>
+                        </div>
+                        <div class="f-pm-0 col-md-1 f-txtverCen num">
+                            1
+                        </div>
+                        <div class="f-pm-0 col-md-2 f-txtverCen bianhao">
+                            124463768343
+                        </div>
+                        <div class="f-pm-0 col-md-2 f-txtverCen total">
+                            64.80
+                        </div>
+                        <div class="f-pm-0 col-md-1 f-txtverCen status">
+                            已付款
+                        </div>
+                        <div class="f-pm-0 col-md-1  handle">
+                            <div class="flow">
+                                查看物流
+                            </div>
+                            <div class="other">
+                                申请售后
+                            </div>
+                        </div>
+                    </li>
+                    <li class="row c-item f-center f-pm-0">
+                        <div class="f-clearfix f-pm-0 col-md-3 c-desc">
+                            <div class="img f-float-l">
+                                <img src="./img/testImg.jpg">
+                            </div>
+                            <div class="profile f-float-l">
+                                <div class="name">HIMETAL纳斯光择缓温杯</div>
+                                <p class="fold">
+                                    印图:1<br/>
+                                    TORCHWOOD
+                                </p>
+                            </div>
+                        </div>
+                        <div class="f-pm-0 col-md-2 c-price">
+                            <div class="mainPrice">
+                                58.90
+                            </div>
+                            <div class="additionPirce">
+                                <span class="add"> + </span>
+                                5.00
+                            </div>
+                        </div>
+                        <div class="f-pm-0 col-md-1 f-txtverCen num">
+                            1
+                        </div>
+                        <div class="f-pm-0 col-md-2 f-txtverCen bianhao">
+                            124463768343
+                        </div>
+                        <div class="f-pm-0 col-md-2 f-txtverCen total">
+                            64.80
+                        </div>
+                        <div class="f-pm-0 col-md-1 f-txtverCen status">
+                            已付款
+                        </div>
+                        <div class="f-pm-0 col-md-1  handle">
+                            <div class="flow">
+                                查看物流
+                            </div>
+                            <div class="other">
+                                申请售后
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--翻页-->
+                <div class="m-page f-float-r">
+                    共<span class="totalPage">3</span>条记录
+                    <span class="pre" id="pre">上一页</span>
+                    <span class="cur">1/1</span>
+                    <span class="next" id="next">下一页</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!--物流信息-->
+        <!--<div class="f-mask">-->
+            <!--<div id='flowMag' class="m-flowMsg">-->
+                <!--<div class="m-head f-clearfix">-->
+                    <!--<p class="title f-float-l">物流信息</p>-->
+                    <!--<p class="bianhao f-float-r">-->
+                        <!--订单编号：12434567876-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<p class="m-body f-center">-->
+
+                    <!--快递公司：韵达<br>-->
+                    <!--物流编号：12234468563633   <span class="copy" id="copy">复制</span>-->
+
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--订单详情-->
+        <!--<div class="f-mask">-->
+            <!--<div class="m-ordDetail" id="ordDetail">-->
+                <!--<div class="m-head f-clearfix">-->
+                    <!--<div class="title f-float-l">-->
+                        <!--已选印图-->
+                        <!--<span class="preview">预览</span>-->
+                    <!--</div>-->
+                    <!--<div class="f-float-r total">-->
+                        <!--小计（<span>4</span>件商品）：-->
+                        <!--<span class="price">¥ 5.00</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<ul class="container m-details">-->
+                    <!--<li class="row c-item">-->
+                        <!--<div class="f-pm-0 col-md-10 f-clearfix">-->
+                            <!--<div class="img f-float-l">-->
+                                <!--<img src="./img/testImg.jpg">-->
+                            <!--</div>-->
+                            <!--<div class="desc f-float-l">-->
+                                <!--<p class="name">小豌豆Chicharito</p>-->
+                                <!--<p class="num">数量:1</p>-->
+                                <!--<p class="subtotal">单价:2.00</p>-->
+                                <!--<p class="delete">-->
+                                    <!--删除-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="f-pm-0 col-md-2 subtotal">$2.00</div>-->
+                    <!--</li>-->
+                    <!--<li class="row c-item">-->
+                        <!--<div class="f-pm-0 col-md-10 f-clearfix">-->
+                            <!--<div class="img f-float-l">-->
+                                <!--<img src="./img/testImg.jpg">-->
+                            <!--</div>-->
+                            <!--<div class="desc f-float-l">-->
+                                <!--<p class="name">小豌豆Chicharito</p>-->
+                                <!--<p class="num">数量:1</p>-->
+                                <!--<p class="subtotal">单价:2.00</p>-->
+                                <!--<p class="delete">-->
+                                    <!--删除-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="f-pm-0 col-md-2 subtotal">$2.00</div>-->
+                    <!--</li>-->
+                    <!--<li class="row c-item">-->
+                        <!--<div class="f-pm-0 col-md-10 f-clearfix">-->
+                            <!--<div class="img f-float-l">-->
+                                <!--<img src="./img/testImg.jpg">-->
+                            <!--</div>-->
+                            <!--<div class="desc f-float-l">-->
+                                <!--<p class="name">小豌豆Chicharito</p>-->
+                                <!--<p class="num">数量:1</p>-->
+                                <!--<p class="subtotal">单价:2.00</p>-->
+                                <!--<p class="delete">-->
+                                    <!--删除-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="f-pm-0 col-md-2 subtotal">$2.00</div>-->
+                    <!--</li>-->
+                    <!--<li class="row c-item">-->
+                        <!--<div class="f-pm-0 col-md-10 f-clearfix">-->
+                            <!--<div class="img f-float-l">-->
+                                <!--<img src="./img/testImg.jpg">-->
+                            <!--</div>-->
+                            <!--<div class="desc f-float-l">-->
+                                <!--<p class="name">小豌豆Chicharito</p>-->
+                                <!--<p class="num">数量:1</p>-->
+                                <!--<p class="subtotal">单价:2.00</p>-->
+                                <!--<p class="delete">-->
+                                    <!--删除-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="f-pm-0 col-md-2 subtotal">$2.00</div>-->
+                    <!--</li>-->
+                    <!--<li class="row c-item">-->
+                        <!--<div class="f-pm-0 col-md-10 f-clearfix">-->
+                            <!--<div class="img f-float-l">-->
+                                <!--<img src="./img/testImg.jpg">-->
+                            <!--</div>-->
+                            <!--<div class="desc f-float-l">-->
+                                <!--<p class="name">小豌豆Chicharito</p>-->
+                                <!--<p class="num">数量:1</p>-->
+                                <!--<p class="subtotal">单价:2.00</p>-->
+                                <!--<p class="delete">-->
+                                    <!--删除-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="f-pm-0 col-md-2 subtotal">$2.00</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<p class="m-footer">-->
+                    <!--支持两面印图和多个图案组合。<br>-->
+                    <!--印图实际是金属颜色，图中只是为了方便辨识，请以实物颜色为准-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+    </div>
+</body>
+</html>
