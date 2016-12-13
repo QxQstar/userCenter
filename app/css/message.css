@@ -5,9 +5,14 @@
 .m-message .m-navThird .c-item:after{
     content: "";
 }
-.m-message .m-navThird .handle a{
-    padding-left: 20px;
+.m-message .m-navThird .handle .icon{
+    display: inline-block;
+    width: 27px;
+    height: 17px;
     background: #ffffff url("./../img/userIcon.png") no-repeat 0 0 ;
+}
+.m-message .m-navThird .handle a{
+    background-color: #ffffff;
     color: #606060;
 }
 .m-message .m-content{
@@ -58,58 +63,6 @@
     }
 }
 
-.m-message .m-address .desc{
-   width: 220px;
-    min-height: 170px;
-    border: 1px solid #797979;
-    padding: 22px 9px;
-    margin-top: 15px;
-}
-.m-message .m-address .desc+.desc{
-    margin-left: 25px;
-}
-@media all and (max-width: 1100px) {
-    .m-message .m-address .desc.addDesc{
-        margin-left: 0;
-    }
-}
-.m-message .m-address .title{
-    border-bottom: 1px solid #d1d1d1;
-    padding-bottom: 6px;
-
-}
-.m-message .m-address .name{
-    color: #242424;
-    font-size: 14px;
-}
-
-.m-message .m-address .detail{
-    margin-top: 15px;
-    height: 80px;
-}
-
-.m-message .m-address .bigAddr,
-.m-message .m-address .smallAddr{
-    line-height: 2.0;
-}
-.m-message .m-address .delete{
-    margin-left: 5px;
-    color: #242424;
-    cursor: pointer;
-}
-.m-message .m-address .edit{
-    color: #242424;
-    cursor: pointer;
-}
-.m-message .m-address .delete:hover,
-.m-message .m-address .edit:hover{
-    text-decoration: underline;
-}
-.m-message .m-address .status{
-    color: #ff4400;
-}
-
-
 /*设置信息的样式*/
 .m-message input{
     height: 20px;
@@ -117,62 +70,3 @@
     padding: 0 5px;
 }
 
-.m-message .m-address .setDefault .status{
-    color: #242424;
-    cursor: pointer;
-}
-.m-message .m-address .setDefault .status:hover{
-    text-decoration: underline;
-}
-.m-message .m-address .addDesc{
-    position: relative;
-    height: 183px;
-
-}
-
-.m-message .addDesc .detail{
-    position: absolute;
-    height: auto;
-    left: 0;
-    right: 0;
-    bottom: 54px;
-    color: #5e5e5e;
-    font-size: 15px;
-}
-
-.m-message .addDesc .add{
-    color: #5e5e5e;
-    font-size: 80px;
-}
-
- .m-newAddress{
-    position: absolute;
-    width: 450px;
-    margin: auto;
-    top: 220px;
-    left: 0;
-    right: 0;
-    padding: 15px 30px;
-    box-shadow: 0 0 10px #888;
-    background-color: #fff
-}
-.m-newAddress .m-head{
-    color: #ff4400;
-    font-size: 17px;
-    margin-bottom: 25px;
-}
-
-.m-newAddress .m-body .c-item{
-    height: 35px;
-    line-height: 35px;
-}
-.m-newAddress .c-item .detail{
-    width: 100%;
-}
-.m-newAddress .m-footer .btn{
-    border: 1px solid #ff4400;
-    color: #ff4400;
-    height: auto;
-    border-radius: 0;
-    padding: 0 10px;
-}
