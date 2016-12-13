@@ -13,7 +13,7 @@
 body{
     position: relative;
     width: 100%;
-    overflow-x: hidden;
+
 }
 p,ul{
     padding: 0;
@@ -79,6 +79,14 @@ header{
 .f-marBom-66{
     margin-bottom: 66px;
 }
+.f-marBom-40{
+    margin-bottom: 40px;
+}
+.f-borTB-5{
+    border: 5px solid #dddddd;
+    border-right:none ;
+    border-left: none;
+}
 .f-float-l{
     float: left;
 }
@@ -94,6 +102,14 @@ header{
     width: 70%;
     max-width: 1300px;
     margin: 0 auto;
+}
+@media all and (max-width: 1100px) {
+    .g-container{
+        min-width: auto;
+        width: 95%;
+        max-width: none;
+        margin: 0 auto;
+    }
 }
 .g-container .container{
     width: 100%;
@@ -111,6 +127,7 @@ header{
     position: relative;
     padding: 0 10px 0 0;
     font-size: 18px;
+    cursor: pointer;
 
 }
 .m-subNav .c-item + .c-item{
@@ -120,6 +137,7 @@ header{
     position: relative;
     padding: 0;
     margin: 0 20px 0 0;
+    cursor: pointer;
 }
 .m-subNav .c-item:after,
 .m-navThird .c-item:after {
@@ -153,10 +171,39 @@ header{
     background-color: #898989;
 }
 .m-navThird{
-    border-bottom: 5px #dddddd solid;
+    /*border-bottom: 5px #dddddd solid;*/
+    border-top: none;
     padding-bottom: 15px;
 }
 .g-container .m-navContent{
     width: 100%;
 }
 /*二级导航和三级导航结束*/
+
+
+/*翻页*/
+.m-page{
+    margin-top: 10px;
+    color: #898989;
+    font-size: 12px;
+}
+.m-page .totalPage{
+    color: #898989;
+    font-size: 12px;
+    padding: 0 5px;
+}
+.m-page .pre,
+.m-page .next{
+    color: #898989;
+    font-size: 12px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.m-page .pre:hover,
+.m-page .next:hover{
+    text-decoration: underline;
+}
+.m-page .cur{
+    color: #898989;
+}
+/*翻页结束*/

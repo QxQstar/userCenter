@@ -38,6 +38,7 @@
 .m-order .m-list .profile{
     height: 100%;
 }
+
 .m-order .m-list .name{
     font-size: 14px;
 }
@@ -47,6 +48,18 @@
     font-size: 12px;
     color: #bd3337;
     margin: 0;
+}
+@media all and (max-width: 1100px) {
+    .m-order .m-list .profile{
+        margin-top: 10px;
+    }
+    .m-order .m-list .fold{
+        position: static;
+        font-size: 12px;
+        color: #bd3337;
+        margin: 0;
+    }
+
 }
 .m-order .m-list .c-price{
     font-size: 15px;
@@ -95,30 +108,7 @@
 .m-order .handle .other:hover{
     text-decoration: underline;
 }
-.m-order .m-page{
-    margin-top: 10px;
-    color: #898989;
-    font-size: 12px;
-}
-.m-order .m-page .totalPage{
-    color: #898989;
-    font-size: 12px;
-    padding: 0 5px;
-}
-.m-order .m-page .pre,
-.m-order .m-page .next{
-    color: #898989;
-    font-size: 12px;
-    padding: 0 5px;
-    cursor: pointer;
-}
-.m-order .m-page .pre:hover,
-.m-order .m-page .next:hover{
-    text-decoration: underline;
-}
-.m-order .m-page .cur{
-    color: #898989;
-}
+
 /*物流信息*/
 .m-flowMsg{
     display: none;
@@ -171,7 +161,7 @@
     padding: 38px 28px;
     background-color: #ffffff;
     box-shadow: 0 0 10px #888;
-    /*display: none;*/
+    display: none;
 }
 .m-ordDetail .img{
     width: 80px;
