@@ -86,7 +86,9 @@ header{
 .f-marTop-80{
     margin-top: 80px;
 }
-
+.f-marTop-60{
+    margin-top: 60px;
+}
 .f-borTB-5{
     border: 5px solid #dddddd;
     border-right:none ;
@@ -108,6 +110,7 @@ header{
 .f-text-r{
     text-align: right;
 }
+
 .g-container .f-pm-0{
     padding: 0;
     margin: 0;
@@ -432,4 +435,101 @@ header{
     font-size: 11px;
     color: #898989;
     line-height: 1.5;
+}
+/*确认订单*/
+.m-sure .m-head{
+    font-size: 18px;
+    color: #404040;
+    padding-bottom: 20px;
+
+}
+.m-sure .m-body{
+    border: 1px solid #656565;
+    border-left: none;
+    border-right: none;
+}
+.m-sure .m-body .c-item{
+    padding: 50px 0;
+}
+.m-sure .m-body .c-item+.c-item{
+    border-top: 2px solid #dfdfdf;
+}
+.m-sure .m-body .img{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.m-sure .m-body .profile .name{
+    font-size: 15px;
+    color: #404040;
+}
+.m-sure .m-body .profile .fold{
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    color: #be1919;
+}
+@media all and (max-width: 1100px) {
+    .m-sure .m-body .profile{
+        margin-top: 10px;
+    }
+    .m-sure .m-body .profile .fold{
+        position: relative;
+    }
+}
+
+.m-sure .m-body .c-price .mainPrice{
+    font-size: 15px;
+    color: #101010;
+}
+.m-sure .m-body .c-price .additionPirce{
+    position: relative;
+    font-size: 15px;
+    color: #be1919;
+    margin-top: 30px;
+}
+.m-sure .m-body .c-price .additionPirce .add{
+    color: #be1919;
+    position: absolute;
+    left: 15%;
+}
+.m-sure .m-body .subtotal{
+    font-size: 20px;
+    color: #101010;
+}
+
+.m-sure .m-footer{
+    margin-top: 30px;
+}
+
+.m-sure .m-footer .c-item{
+    margin-bottom: 10px;
+}
+.m-sure .m-footer .name{
+    font-size: 16px;
+    color: #101010;
+    padding-right: 3%;
+}
+.m-sure .m-footer .price{
+    font-size: 20px;
+    color: #ff4400;
+}
+.m-sure .m-footer .handle{
+    margin-top: 60px;
+}
+.m-sure .m-footer .totalPrice{
+    font-size: 20px;
+    color: #101010;
+    margin-bottom: 10px;
+}
+.m-sure .m-footer .totalPrice span{
+    font-size: 25px;
+    color: #ff4400;
+}
+.m-sure .m-footer .submit{
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #ff4400;
+    padding: 0 60px;
 }
