@@ -82,6 +82,10 @@ header{
 .f-marBom-40{
     margin-bottom: 40px;
 }
+.f-marTop-80{
+    margin-top: 80px;
+}
+
 .f-borTB-5{
     border: 5px solid #dddddd;
     border-right:none ;
@@ -207,3 +211,29 @@ header{
     color: #898989;
 }
 /*翻页结束*/
+
+/*进度*/
+.m-progress .c-item.on{
+    color: #ff4400;
+}
+.m-progress .c-item{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 18px;
+    color: #404040;
+    margin-left: 25px;
+}
+.m-progress .c-item:after{
+    position: absolute;
+    right: -15px;
+    vertical-align: middle;
+    content: "-";
+    color: #404040;
+
+}
+.m-progress .c-item.last:after{
+    content: "";
+}
+/*进度结束*/
