@@ -126,3 +126,101 @@ Ajax.prototype.changeNum = function(data){
         }
     });
 };
+/**
+ * 设置默认地址
+ * @param data
+ */
+Ajax.prototype.setAdd = function (data) {
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/message/setadd',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                alert(result.msg);
+                location.reload();
+            }
+        }
+    });
+};
+/**
+ * 删除地址
+ * @param data
+ */
+Ajax.prototype.deleteAdd = function (data) {
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/message/deleteadd',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                alert(result.msg);
+                location.reload();
+            }
+        }
+    });
+};
+/**
+ *  添加新地址
+ * @param data 新地址的数据 一个对象
+ */
+Ajax.prototype.newAdd = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/message/insertadd',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                alert(result.msg);
+//                location.reload();
+            }
+        }
+    });
+};
+/**
+ * 修改资料
+ * @param data
+ */
+Ajax.prototype.updateMessage = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/message/setuser',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                location.href = result.data;
+            }
+        }
+    });
+};
+/**
+ *  发送修改地址的请求
+ * @param data 发给后台的数据
+ * @param addMask 编辑地址的窗口
+ */
+Ajax.prototype.editAdd = function(data,addMask){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/message/getadd',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                var name,detail,tel;
+                name = addMask.find('#name');
+                detail = addMask.find('#detail');
+                tel = addMask.find('#tel');
+                name.val(result.data.shoujianrenxingming);
+                detail.val(result.data.jiedaodizhi);
+                tel.val(result.data.shoujihaoma);
+                _init_area(result.data.suozaidiqu,"-");
+                addMask.attr('data-id',result.data.id);
+                addMask.show();
+            }
+        }
+    });
+};
