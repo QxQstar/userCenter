@@ -8,23 +8,57 @@
     font-size: 16px;
 }
 
-.m-order .m-head{
-    height: 60px;
-    border-bottom:2px solid #dfdfdf ;
-}
 
-.m-order .m-head .c-item{
-    height: 100%;
-    line-height: 60px;
-}
 
 .m-order .m-list{
+    margin-top: 20px;
     width: 100%;
 }
 .m-order .m-list .c-item{
     position: relative;
-   padding: 10px 0;
-    border-bottom:2px solid #dfdfdf ;
+    border: 1px solid #999999;
+    border-radius: 3px;
+}
+.m-order .m-list .c-item+.c-item{
+    margin-top: 20px;
+}
+.m-order .m-list .m-head{
+    padding: 10px 5%;
+    border-bottom: 1px solid #bebebe;
+}
+.m-order .m-list .status{
+    font-size: 16px;
+    color: #606060;
+    line-height: 1.7;
+}
+.m-order .m-list .info .item{
+    font-size: 12px;
+    color: #404040;
+}
+.m-order .m-list .info .item+.item{
+    position: relative;
+    margin-left: 10px;
+}
+.m-order .m-list .info .item+.item:before{
+    content: '|';
+    position: absolute;
+    color: #202020;
+    font-size: 12px;
+    left: -8px;
+}
+.m-order .m-list .c-item .m-body{
+    padding: 20px 5%;
+}
+.m-order .m-list .right{
+    width: 20%;
+    font-size: 14px;
+    color: #404040;
+}
+.m-order .m-list .c-subtotal{
+    font-size: 16px;
+}
+.m-order .m-list .left{
+    width: 80%;
 }
 .m-order .m-list .c-desc{
     text-align: left;
@@ -48,6 +82,7 @@
     font-size: 12px;
     color: #bd3337;
     margin: 0;
+    cursor: pointer;
 }
 @media all and (max-width: 1100px) {
     .m-order .m-list .profile{
@@ -63,30 +98,29 @@
 }
 .m-order .m-list .c-price{
     font-size: 15px;
+    padding-left: 5%;
 }
 
 .m-order .c-price .additionPirce{
+    position: absolute;
     color: #be1919;
-    margin-top: 30px
+    bottom: 0;
 }
 .m-order .additionPirce .add{
     position: absolute;
     color: #be1919;
-    left: 15%;
+    left: -150%;
 }
 
 
-.m-order .m-list .num,
-.m-order .m-list .bianhao{
+.m-order .m-list .num{
     font-size: 16px;
 }
-.m-order .m-list .status{
-    font-size: 14px;
+@media all and (max-width: 1440px) {
+    .m-order .m-list .num{
+        font-size: 14px;
+    }
 }
-.m-order .m-list .total{
-    font-size: 18px;
-}
-
 .m-order .m-list .handle{
     margin-top: 20px;
 
@@ -108,7 +142,6 @@
 
 /*物流信息*/
 .m-flowMsg{
-    display: none;
     position: absolute;
     padding: 16px 28px;
     width: 450px;
