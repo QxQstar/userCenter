@@ -331,14 +331,23 @@ Base.prototype.saveMessage = function(){
  * 关闭修改地址的弹窗
  */
 Base.prototype.closePop = function(){
-    var addressPoP;
+    var addressPoP,name,detail,tel;
     addressPoP= this.addressPoP;
+    name = addressPoP.find('#name');
+    detail = addressPoP.find('#detail');
+    tel = addressPoP.find('#tel');
     if(addressPoP){
         addressPoP
             .find('#maskDelate')
             .unbind('click')
             .on('click',function(){
                 event.stopPropagation();
+                //在隐藏之前先将表单中的值清空
+                name.val('');
+                tel.val('');
+                detail.val('');
+                _init_area("", "-");
+
                 addressPoP.hide();
             });
     }
