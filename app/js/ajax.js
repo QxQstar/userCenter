@@ -322,3 +322,22 @@ Ajax.prototype.preview = function(data){
         }
     }
 };
+/**
+ * 请求运费
+ *  @param data 地址的id
+ */
+Ajax.prototype.getFlowMoney = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/so/luggage',
+        data:data,
+        dataType:'json',
+        success:function(result){
+           var flowMoney;
+            if(result.status){
+                flowMoney = $('#flowMoney');
+                flowMoney.html('￥' + parseFloat( result.data ).toFixed(2))
+            }
+        }
+    });
+};

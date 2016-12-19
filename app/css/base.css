@@ -279,6 +279,8 @@ header{
     zoom: 1;
     font-size: 18px;
     color: #404040;
+}
+.m-progress .c-item+.c-item{
     margin-left: 25px;
 }
 @media all and (max-width: 1440px) {
@@ -359,6 +361,7 @@ header{
     border: 1px solid #797979;
     padding: 22px 9px;
     margin-top: 15px;
+    cursor: pointer;
 }
 .m-address .desc+.desc{
     margin-left: 25px;
@@ -383,10 +386,6 @@ header{
     height: 80px;
 }
 
-/*.m-address .bigAddr,*/
-/*.m-address .smallAddr{*/
-    /*line-height: 2.0;*/
-/*}*/
 .m-address .delete{
     margin-left: 5px;
     color: #242424;
@@ -414,7 +413,7 @@ header{
 }
 .m-address .addDesc{
     position: relative;
-    height: 197px;
+    height: 186px;
 
 }
 
@@ -431,6 +430,15 @@ header{
     color: #5e5e5e;
     font-size: 80px;
     cursor: pointer;
+}
+.m-address .selected{
+    -webkit-box-shadow: 0 0 15px #ff4400;
+    -moz-box-shadow: 0 0 15px #ff4400;
+    box-shadow: 0 0 15px #ff4400;
+    border: 1px solid #ff4400;
+}
+.m-sureAdd .desc:hover{
+    border: 1px solid #ff4400;
 }
 /*收货地址结束*/
 
@@ -585,7 +593,7 @@ header{
 }
 @media all and (max-width: 1440px) {
     .m-sure .m-body .c-item{
-        padding: 20px;
+        padding: 20px 0;
     }
 }
 .m-sure .m-body .c-item+.c-item{
@@ -604,7 +612,7 @@ header{
 .m-sure .m-body .profile .fold{
     position: absolute;
     bottom: 0;
-    font-size: 12px;
+    font-size: 15px;
     color: #be1919;
 }
 @media all and (max-width: 1100px) {
@@ -624,19 +632,18 @@ header{
     position: relative;
     font-size: 15px;
     color: #be1919;
-    margin-top: 30px;
 }
 .m-sure .m-body .c-price .additionPirce .add{
     color: #be1919;
     position: absolute;
     left: 15%;
 }
-.m-sure .m-body .subtotal{
+.m-sure .m-body .c-subtotal{
     font-size: 20px;
     color: #101010;
 }
 @media all and (max-width: 1440px) {
-    .m-sure .m-body .subtotal{
+    .m-sure .m-body .c-subtotal{
         font-size: 16px;
     }
 }

@@ -79,7 +79,6 @@ Base.prototype.init = function(){
             });
         }
     }
-
     return this;
 };
 /**
@@ -333,10 +332,13 @@ Base.prototype.saveMessage = function(){
 Base.prototype.closePop = function(){
     var addressPoP,name,detail,tel;
     addressPoP= this.addressPoP;
-    name = addressPoP.find('#name');
-    detail = addressPoP.find('#detail');
-    tel = addressPoP.find('#tel');
+
     if(addressPoP){
+
+        name = addressPoP.find('#name');
+        detail = addressPoP.find('#detail');
+        tel = addressPoP.find('#tel');
+
         addressPoP
             .find('#maskDelate')
             .unbind('click')
@@ -397,7 +399,43 @@ Base.prototype.setDefault = function(){
     }
     return this;
 };
+/**
+ * 设置小计
+ */
+Base.prototype.setSubtotal = function(){
+    var parent;
+    if($('#cart').length >= 1){
+        parent = $('#cart');
+    }else if($('#sure').length >= 1){
+        parent = $('#sure');
+    }
+    if(parent){
+        var items = parent.find('.c-item');
+        items.each(function(index,elem){
+            var $elem,subtotal,zpPrice,mainPrice,num;
+            $elem = $(elem);
+            subtotal = $elem.find('.c-subtotal');
+            //作品的价格
+            zpPrice = $elem.find('.zpPrice');
+            //产品的数量
+            if(parent.attr('id') === 'cart') {
+                num = $elem.find('.num').val();
+            }else{
+                num = $elem.find('.num').html();
+            }
 
+            if(zpPrice.length > 0){
+                zpPrice = parseFloat( zpPrice.html() );
+            }else{
+                zpPrice = 0;
+            }
+
+            mainPrice = parseFloat( $elem.find('.mainPrice').html() );
+            subtotal.html( zpPrice + mainPrice*num );
+        });
+    }
+    return this;
+};
 //发送ajax的对象
 var ajaxObj = new Ajax();
 
@@ -405,6 +443,7 @@ var baseObj = new Base();
 
 baseObj
     .init()
+    .setSubtotal()
     .switchAdd()
     .lookDetail()
     .newAdd()
