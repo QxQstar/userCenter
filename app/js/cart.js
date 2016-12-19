@@ -64,8 +64,6 @@ Cart.prototype.deleteItem = function(){
     });
     return this;
 };
-var ajaxObj = new Ajax();
-var cartObj = new Cart();
 /**
  * 选择与全选
  */
@@ -201,6 +199,10 @@ Cart.prototype.setNum = function(){
     }
     return this;
 };
+
+
+var ajaxObj = new Ajax();
+var cartObj = new Cart();
 cartObj
     .setSubtotal()
     .deleteItem()

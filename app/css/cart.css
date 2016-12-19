@@ -11,9 +11,19 @@
     font-size: 16px;
     color: #404040;
 }
+@media all and (max-width: 1440px) {
+    .m-cart .m-head div{
+        font-size: 14px;
+    }
+}
 .m-cart .m-body .c-item{
-    padding: 50px 0;
+    padding: 30px 0;
     border-bottom: 2px #dfdfdf solid;
+}
+@media all and (max-width: 1440px) {
+    .m-cart .m-body .c-item{
+        padding: 20px 0;
+    }
 }
 .m-cart .m-body .img{
     width: 80px;
@@ -66,15 +76,16 @@
     top:4px;
     margin-left: 2px;
 }
+.m-cart .m-body .c-price{
+    position: relative;
+}
 .m-cart .m-body .c-price .mainPrice{
     font-size: 15px;
     color: #101010;
 }
 .m-cart .m-body .c-price .additionPirce{
-    position: relative;
     font-size: 15px;
     color: #be1919;
-    margin-top: 30px;
 }
 .m-cart .m-body .c-price .additionPirce .add{
     color: #be1919;
@@ -88,6 +99,13 @@
     height: 80px;
     line-height: 80px;
     color: #1d1d1d;
+}
+@media all and (max-width: 1440px) {
+    .m-cart .m-body .c-subtotal,
+    .m-cart .m-body .c-handle,
+    .m-cart .m-body .c-handle .delete{
+        font-size: 16px;
+    }
 }
 .m-cart .m-body .c-handle .delete{
     color: #ff4400;

@@ -32,9 +32,9 @@ Ajax.prototype.cartDelete = function(data){
 };
 /**
  * 订单详情
- * @param data 购物车号或者id 对象
  */
 Ajax.prototype.detail = function(data){
+    var me = this;
     $.ajax({
         type:'post',
         url:'/pw/index.php/api/cart/detailData',
@@ -43,9 +43,9 @@ Ajax.prototype.detail = function(data){
         success:function(result){
             if(result.status){
 
-                var html,num,price,container;
+                var html,num,price,container,preview;
                 container = $('#container');
-                var mask = $('<div class="f-mask"></div>');
+                var mask = $('<div class="f-mask" id="maskDetail"></div>');
 
                 html = '<div class="m-ordDetail" id="ordDetail">' +
                             '<span class="f-maskDelate" id="delete">'+
@@ -53,7 +53,7 @@ Ajax.prototype.detail = function(data){
                             '<div class="m-head f-clearfix">'+
                                 '<div class="title f-float-l">'+
                                     ' 已选印图' +
-                                    '<span class="preview">预览</span>'+
+                                    '<span class="preview" id="preview">预览</span>'+
                                 '</div>'+
                                 '<div class="f-float-r total">'+
                                         '小计（<span class="num" id="num">4</span>件商品）：'+
@@ -89,10 +89,10 @@ Ajax.prototype.detail = function(data){
                                     '<div class="desc f-float-l">' +
                                         '<p class="name">'+ cur.biaoti +'</p>' +
                                         '<p class="num"> 数量:'+cur.shuliang+'</p>' +
-                                        '<p class="subtotal">单价:￥'+cur.danjia+'</p>' +
+                                        '<p class="subtotal">单价:￥'+parseFloat(cur.danjia).toFixed(2)+'</p>' +
                                     '</div>' +
                                 '</div>' +
-                                '<div class="f-pm-0 col-md-2 col-sm-2 subtotal">￥'+cur.xiaoji+'</div>' +
+                                '<div class="f-pm-0 col-md-2 col-sm-2 subtotal">￥'+parseFloat(cur.xiaoji).toFixed(2)+'</div>' +
                             '</li>';
 
                     price = ( parseFloat(price) + parseFloat( cur.xiaoji ) ).toFixed(2);
@@ -103,8 +103,12 @@ Ajax.prototype.detail = function(data){
                 num.html(result.data.length);
                 mask.find('#price').html(price);
                 container.append(mask);
-            }else{
-
+                //给预览绑定事件
+                preview = mask.find('#preview');
+                preview.on('click',function(event){
+                    event.stopPropagation();
+                    me.preview(data);
+                });
             }
         }
     });
@@ -175,7 +179,7 @@ Ajax.prototype.newAdd = function(data){
         success:function(result){
             if(result.status){
                 alert(result.msg);
-//                location.reload();
+                location.reload();
             }
         }
     });
@@ -223,4 +227,98 @@ Ajax.prototype.editAdd = function(data,addMask){
             }
         }
     });
+};
+/**
+ * 预览
+ * @param data
+ */
+Ajax.prototype.preview = function(data){
+    if(data.type === '相框'){
+        $.ajax({
+            type:'post',
+            url:'/pw/index.php/api/show/pics',
+            data:{
+                cart_code:data.gouwuchehao
+            },
+            dataType:'json',
+            success:success
+        });
+    }else if(data.type ==='产品'){
+        $.ajax({
+            type:'post',
+            url:'/pw/index.php/api/show/product',
+            data:{
+                cart_code:data.gouwuchehao
+            },
+            dataType:'json',
+            success:success
+        });
+    }
+
+    //请求成功的回调函数
+    function success(result) {
+        if (result.status) {
+            var previewBox, html,body,deleteNode,ratio;
+            var maskDetail = $('#maskDetail');
+            var mask = $('<div class="f-mask"></div>');
+
+            html = '<div class="m-previewBox" id="previewBox">' +
+                        '<span class="f-maskDelate" id="delete">' +
+                        '</span>' +
+                        '<div class="body">' +
+                        '</div>' +
+                '</div>';
+
+            mask.html(html);
+            previewBox = mask.find('#previewBox');
+            body = mask.find('.body');
+            html = "";
+            if (data.type === '产品') {
+                previewBox.addClass('m-previewBoxCP');
+                previewBox.css({
+                    'backgroundImage':"url("+result.data.bg+")",
+                    'backgroundSize':'100% 100%'
+                });
+                $.each(result.data.data,function(index,item){
+                    html += '<img ' +
+                        'src="'+ item.z_img +
+                        '" style="position: absolute;' +
+                        'top:'+ item.y *567/335+'px;' +
+                        'left:'+ item.x *567/335+'px; ' +
+                        'height:'+ item.height/3 +'px;' +
+                        'width:'+ item.width/3 +'px "/>';
+                });
+
+            } else if (data.type === '相框') {
+                previewBox.addClass('m-previewBoxXK');
+                previewBox
+                    .addClass('bg-'+ result.data.bg)
+                    .width($(window).height() * 0.9 * result.data.ratio);
+                //从原来到现在的比例
+                ratio = result.data.screen_height / ( $(window).height() * 0.9 );
+                console.log(ratio);
+                $.each(result.data.data,function(index,item){
+                    console.log(item.m_x);
+
+                    html+= '<div class="picGroup" style="top:'+ item.m_y / ratio +'px; left:'+ item.m_x /ratio +'px">'+
+                                '<img class="frame" src="'+ item.pic_src +'" style="width:'+ item.pic_width / ratio +'px; height: '+ item.pic_height/ ratio+'px"/>'+
+                                '<img class="pic" src="'+ item.ma_src +'"/>' +
+                            '</div>'
+                })
+
+            }
+
+
+            body.html(html);
+            maskDetail.remove();
+            $('#container').append(mask);
+            deleteNode = mask.find('#delete');
+            deleteNode.on('click',function(event){
+                event.stopPropagation();
+                mask.remove();
+            });
+        }else{
+
+        }
+    }
 };
