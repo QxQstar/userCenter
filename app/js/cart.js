@@ -6,33 +6,7 @@ function Cart(){
     this.cartModule = $('#cart');
 
 }
-/**
- * 设置小计
- */
-Cart.prototype.setSubtotal = function(){
-    var cart = this.cartModule;
 
-    var cartItem = cart.find('.c-item');
-    cartItem.each(function(index,elem){
-        var $elem,subtotal,zpPrice,mainPrice,num;
-        $elem = $(elem);
-        subtotal = $elem.find('.c-subtotal');
-        //作品的价格
-        zpPrice = $elem.find('.zpPrice');
-        //产品的数量
-        num = $elem.find('.num').val();
-
-        if(zpPrice.length > 0){
-            zpPrice = parseFloat( zpPrice.html() );
-        }else{
-            zpPrice = 0;
-        }
-
-        mainPrice = parseFloat( $elem.find('.mainPrice').html() );
-        subtotal.html( zpPrice + mainPrice*num );
-    });
-    return this
-};
 /**
  * 删除
  */
@@ -108,7 +82,7 @@ Cart.prototype.selection = function(){
                     .find('.c-subtotal')
                     .html() );
             });
-            selectPrice.html('￥'+price);
+            selectPrice.html('￥'+price.toFixed(2));
         };
 
         //如果是全选
@@ -199,15 +173,49 @@ Cart.prototype.setNum = function(){
     }
     return this;
 };
+/**
+ * 立即结算
+ */
+Cart.prototype.pay = function(){
+    var cart,parent,codeArr,idArr,submit,checked,search;
+    cart = this.cartModule;
+    codeArr = [];
+    idArr = [];
+    submit = $('#submit');
 
+    submit.on('click',function(event){
+        event.stopPropagation();
+        //获取被选择的复选框
+        checked = cart.find('input[type=checkbox]').filter(function(){
+            return $(this).prop('checked');
+        });
 
+        if(checked.length <= 0){
+        alert('请选择要结算的商品');
+            return this
+        }
+
+        checked.each(function(index,item){
+            parent = $(item).parents('.c-item');
+            if(parent.attr('data-code')) {
+                codeArr.push( "'" + parent.attr('data-code') + "'");
+            }else if( parent.attr('data-id') ){
+                idArr.push( "'" + parent.attr('data-id') +"'" );
+            }
+        });
+        search = "cart="+codeArr+"&id="+idArr ;
+        location.href = 'http://www.xiaoyu4.com/Single.aspx?m=sureOrder&'+search;
+    });
+
+    return this;
+};
 var ajaxObj = new Ajax();
 var cartObj = new Cart();
 cartObj
-    .setSubtotal()
     .deleteItem()
     .selection()
-    .setNum();
+    .setNum()
+    .pay();
 
 
 
