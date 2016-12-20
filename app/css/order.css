@@ -109,7 +109,7 @@
 .m-order .additionPirce .add{
     position: absolute;
     color: #be1919;
-    left: -150%;
+    left: -50px;
 }
 
 
@@ -126,8 +126,7 @@
 
 }
 
-.m-order .handle .flow,
-.m-order .handle .other{
+.m-order .handle .item{
     display: inline-block;
     *display: inline;
     zoom: 1;
@@ -135,11 +134,15 @@
     color: #ff4400;
     cursor: pointer;
 }
-.m-order .handle .flow:hover,
-.m-order .handle .other:hover{
+.m-order .handle .item:hover{
     text-decoration: underline;
 }
-
+.m-order .handle .item.write:hover{
+    text-decoration: none;
+}
+.m-order .m-list .u-item +.u-item{
+    margin-top: 20px;
+}
 /*物流信息*/
 .m-flowMsg{
     position: absolute;

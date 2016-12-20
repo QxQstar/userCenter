@@ -317,8 +317,6 @@ Ajax.prototype.preview = function(data){
                 event.stopPropagation();
                 mask.remove();
             });
-        }else{
-
         }
     }
 };
@@ -337,6 +335,84 @@ Ajax.prototype.getFlowMoney = function(data){
             if(result.status){
                 flowMoney = $('#flowMoney');
                 flowMoney.html('￥' + parseFloat( result.data ).toFixed(2))
+            }
+        }
+    });
+};
+/**
+ *获取印图数量
+ * @param num 接受数量的元素 jquery对象
+ */
+Ajax.prototype.getNum = function(num){
+    var url,data,cart_code;
+    url = '/pw/index.php/api/cart/countart';
+    num.each(function(index,elem){
+        cart_code = $(elem).attr('data-code');
+        data = {
+            cart_code:cart_code
+        };
+        (function(elem){
+
+            $.post(url,data, function (result) {
+                if(result.status){
+                    elem.html(result.data);
+                }
+            },'JSON')
+
+        })($(elem));
+
+    });
+};
+/**
+ * 取消订单
+ * @param data
+ */
+Ajax.prototype.deleteOrder = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/removeorder',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            alert(result.msg);
+            if(result.status){
+              location.reload();
+            }
+        }
+    });
+};
+/**
+ * 查看物流
+ * @param data
+ */
+Ajax.prototype.lookFlow = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/wuliu',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                var flowMask,maskDelate,compamy,flowCode,orderCode,copy;
+
+                flowMask = $('#flowMask');
+                maskDelate = flowMask.find('#maskDelate');
+                flowCode = flowMask.find('#flowCode');
+                compamy = flowMask.find('#company');
+                orderCode = flowMask.find('#orderCode');
+                copy = flowMask.find('#copy');
+                flowCode.html(result.data.kuaididanhao);
+                copy.attr('data-clipboard-text',result.data.kuaididanhao);
+                compamy.html(result.data.kuaidigongsi);
+                orderCode.html(result.data.dingdanhao);
+                flowMask.show();
+                maskDelate
+                    .unbind('click')
+                    .on('click',function(event){
+                        event.stopPropagation();
+                        flowMask.hide();
+                    });
+
             }
         }
     });

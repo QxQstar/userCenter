@@ -158,12 +158,14 @@ Base.prototype.lookDetail = function(){
         lookOrder.on('click', function (event) {
             event.stopPropagation();
             var data, parent;
-            parent = $(event.target).parents('.c-item');
+            parent = $(event.target).parents('.u-item');
+            if(parent.length <= 0){
+                parent = $(event.target).parents('.c-item');
+            }
             data = {};
 
             data.gouwuchehao = parent.attr('data-code');
             data.type = parent.attr('data-type');
-
             ajaxObj.detail(data);
         });
     }
