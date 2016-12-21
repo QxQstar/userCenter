@@ -42,8 +42,9 @@ Cart.prototype.deleteItem = function(){
  * 选择与全选
  */
 Cart.prototype.selection = function(){
-    var cart,selects;
-    cart = this.cartModule;
+    var cart,selects,me;
+    me = this;
+    cart = me.cartModule;
     selects = $('.select');
     //给所有的选择框绑定事件
     selects
@@ -54,36 +55,10 @@ Cart.prototype.selection = function(){
         });
 
     function selectHandle($target,allSelect){
-        var all,selectNum,setNumPrice,selectPrice,getSelected;
+        var all,selectNum,selectPrice;
         all = $('#all');
         selectNum = $('#selectNum');
         selectPrice = $('#selectPrice');
-        //得到被选择的元素
-        getSelected = function(){
-            var selected;
-            selected = $('#cart')
-                .find('input[type="checkbox"]')
-                .filter(function(index){
-                    return $(this).prop('checked');
-                });
-            return selected;
-        };
-        //设置选择的数量和价格
-        setNumPrice = function(){
-            var selected,price;
-            price = 0;
-            //得到被选择的checkbox
-            selected = getSelected();
-            selectNum.html(selected.length);
-            selected.each(function(index,elem){
-                var parent = $(elem)
-                    .parents('.c-item');
-                price += parseFloat( parent
-                    .find('.c-subtotal')
-                    .html() );
-            });
-            selectPrice.html('￥'+price.toFixed(2));
-        };
 
         //如果是全选
         if( typeof $target.attr('id') === 'string'){
@@ -98,17 +73,53 @@ Cart.prototype.selection = function(){
 
         }else{
             $target.attr('checked',!$target.attr('checked'));
-            if(getSelected().length === cart.find('.c-item').length){
+            if(me.getSelected().length === cart.find('.c-item').length){
                 all.prop('checked',true);
             }else{
                 all.prop('checked',false);
             }
         }
-        setNumPrice();
+        me.setNumPrice();
 
 
     }
     return this;
+};
+/**
+ * 设置选择的数量和价格
+ * @returns {Cart}
+ */
+Cart.prototype.setNumPrice = function(){
+    var selected,price,selectPrice,selectNum;
+    price = 0;
+    selectPrice = $('#selectPrice');
+    selectNum = $('#selectNum');
+    //得到被选择的checkbox
+    selected = this.getSelected();
+    selectNum.html(selected.length);
+    selected.each(function(index,elem){
+        var parent = $(elem)
+            .parents('.c-item');
+        price += parseFloat( parent
+            .find('.c-subtotal')
+            .html() );
+    });
+    selectPrice.html('￥'+price.toFixed(2));
+   return this;
+};
+/**
+ * 得到被选择的元素
+ * @returns {*|jQuery}
+ */
+Cart.prototype.getSelected = function(){
+    var selected,cart;
+    cart = this.cartModule;
+    selected = cart
+        .find('input[type="checkbox"]')
+        .filter(function(){
+            return $(this).prop('checked');
+        });
+    return selected;
 };
 /**
  *  加减数量
@@ -212,6 +223,7 @@ Cart.prototype.pay = function(){
 var ajaxObj = new Ajax();
 var cartObj = new Cart();
 cartObj
+    .setNumPrice()
     .deleteItem()
     .selection()
     .setNum()
