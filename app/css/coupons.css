@@ -48,7 +48,7 @@
     position: relative;
     width: 222px;
     height: 100%;
-    padding: 20px 66px 0 29px;
+    padding: 20px 55px 0 15px;
 }
 .m-coupons .couponBox .title{
     font-size: 16px;
@@ -56,6 +56,7 @@
 }
 .m-coupons .couponBox .title .money{
     font-size: 22px;
+    vertical-align: 0;
 }
 .m-coupons .unused .title{
     color: #ff4144;
@@ -72,7 +73,7 @@
 .m-coupons .m-body .notice{
     position: absolute;
     bottom: 5px;
-    right: 60px;
+    right: 55px;
 }
 .m-coupons .unused .notice{
     color: #ff4144;
@@ -83,7 +84,9 @@
 .m-coupons .overdue .notice{
     color: #999999;
 }
-.m-coupons .m-body .notice div{
+.m-coupons .m-body .notice div,
+.m-coupons .m-body .product_cont
+{
     font-size: 11px;
     line-height: 1.5;
 }
