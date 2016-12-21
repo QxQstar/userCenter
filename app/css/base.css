@@ -6,9 +6,9 @@
     box-sizing: border-box;
     font:14px arial,'\5FAE\8F6F\96C5\9ED1',sans-serif;
 }
-/*.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{*/
-    /*position: static;*/
-/*}*/
+html,body{
+    height: 100%;
+}
 body{
     position: relative;
     width: 100%;
@@ -158,14 +158,9 @@ header{
     background: url(./../img/userIcon.png) no-repeat -49px 0;
     cursor: pointer;
 }
-/*@media all and (max-width: 1100px) {*/
-    /*.g-container{*/
-        /*min-width: auto;*/
-        /*width: 95%;*/
-        /*max-width: none;*/
-        /*margin: 0 auto;*/
-    /*}*/
-/*}*/
+.g-container{
+    min-height: 100%;
+}
 .g-container .container{
     width: 100%;
 }
@@ -198,12 +193,16 @@ header{
     padding: 0;
     margin: 0 20px 0 0;
     cursor: pointer;
-}
+}.m-navThird .c-item a{
+    color: inherit;
+    font-size: inherit;
+ }
 .m-subNav .c-item:after,
 .m-navThird .c-item:after {
     position: absolute;
     content: "|";
     color: #404040;
+    top:0;
     right: 0;
 }
 .m-navThird .c-item:after{
@@ -439,6 +438,9 @@ header{
 }
 .m-sureAdd .desc:hover{
     border: 1px solid #ff4400;
+}
+.m-address .addDesc:hover{
+    border: 1px solid #797979;
 }
 /*收货地址结束*/
 
@@ -681,6 +683,25 @@ header{
     color: #ffffff;
     background-color: #ff4400;
     padding: 0 60px;
+}
+.m-sure .m-footer .reduce,
+.m-sure .m-footer .orderyhq,
+.m-sure .m-footer .productyhq{
+    display: none;
+}
+.m-sure .m-footer .orderyhq .item div,
+.m-sure .m-footer .productyhq .item div{
+    padding: 3px 0;
+    border: 1px solid #888888;
+    cursor: pointer;
+}
+.m-sure .m-footer .orderyhq .item .on,
+.m-sure .m-footer .productyhq .item .on{
+    border: 1px solid #ff4400;
+}
+.m-sure .m-footer .orderyhq .item div+div,
+.m-sure .m-footer .productyhq .item div+div{
+    margin-left: 5px;
 }
 @media all and (max-width: 1440px) {
     .m-sure .m-footer .name{

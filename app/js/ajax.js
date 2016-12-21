@@ -417,3 +417,130 @@ Ajax.prototype.lookFlow = function(data){
         }
     });
 };
+/**
+ * 得到商品的简称
+ * @param condition jquery类数组
+ */
+Ajax.prototype.getShortName = function(condition){
+    condition.each(function(index,item){
+        var $item = $(item);
+        (function(item){
+            var id = item.attr('data-id');
+            if(id){
+                $.ajax({
+                    type:'post',
+                    url:'/pw/index.php/api/coupons/pr',
+                    data:{
+                        id:id
+                    },
+                    dataType:'json',
+                    success:function(result){
+                        if(result.status){
+                            item
+                                .find('.product_cont')
+                                .html('仅限'+result.data.fubiaoti);
+                        }
+                    }
+                });
+            }
+
+        })($item);
+
+    });
+};
+/**
+ * 获取优惠券
+ * @param data 传递到后端的数据
+ */
+Ajax.prototype.getCoupons =  function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/getyhq',
+        data:data,
+        dataType:'json',
+        success:function(result){
+                var productyhq,orderyhq,reduce,items,order,product,bianhao;
+                productyhq= $('#productyhq');
+                orderyhq = $('#orderyhq');
+                reduce = $('#reduce');
+                items='';
+                order = 0;
+                product = 0;
+                bianhao = [];
+
+                if(result.data.order !== null){
+                    orderyhq.show();
+                    reduce.show();
+                    order = parseFloat( result.data.order.mianzhi);
+                    items = '<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ order +'" data-bianhao="'+ result.data.order.youhuiquanbianhao +'"> '+ result.data.order.biaoti + order +'</div>';
+                    orderyhq.find('.item').html(items);
+                    items = '';
+                }
+
+
+                if(result.data.product){
+                    productyhq.show();
+                    reduce.show();
+                    product = parseFloat( result.data.product.sum );
+
+                    $.each(result.data.product.data,function(index,item){
+                        bianhao.push( item.youhuiquanbianhao );
+                    });
+                    items +='<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ product +'" data-bianhao="'+ bianhao +'">'+ '组合优惠' + product +'</div>';
+                    productyhq.find('.item').html(items);
+
+                }
+                if(order > product){
+                    productyhq.find('.on').removeClass('on');
+                }else{
+                    orderyhq.find('.on').removeClass('on');
+                }
+                setReduce();
+
+                productyhq
+                    .find('.item')
+                    .find('div')
+                    .unbind('click')
+                    .on('click',clickHandle);
+                orderyhq
+                    .find('.item')
+                    .find('div')
+                    .unbind('click')
+                    .on('click',clickHandle);
+                function clickHandle(event){
+                    var $target = $(event.target);
+                    event.stopPropagation();
+                    $target.toggleClass('on');
+                    if($target.parents('#productyhq').length > 0){
+                        orderyhq.find('.item div').removeClass('on');
+                    }
+                    if($target.parents('#orderyhq').length > 0){
+                        productyhq.find('.item div').removeClass('on');
+                    }
+                    setReduce();
+                }
+                //设置优惠券减免
+                function setReduce(){
+                    var on,reduceMoney,data;
+                    reduceMoney = reduce.find('#reduceMoney');
+                    on = $('#orderFooter').find('.on');
+                    if(on.length > 0){
+                        data = on.attr('data-price');
+                    }else{
+                        data = 0;
+                    }
+                    reduceMoney.html('￥'+data);
+                    finalPrice();
+                }
+                //最终的价格
+                function finalPrice(){
+                    var totalPrice,flowMoney,reduceMoney,allMoney;
+                    totalPrice = $('#totalPrice');
+                    flowMoney = parseFloat($('#flowMoney').html().slice(1));
+                    reduceMoney = parseFloat($('#reduceMoney').html().slice(1));
+                    allMoney = parseFloat($('#allMoney').html().slice(1));
+                    totalPrice.html('￥' + (allMoney - reduceMoney + flowMoney).toFixed(2));
+                }
+        }
+    });
+};
