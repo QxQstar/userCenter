@@ -101,7 +101,7 @@ Order.prototype.copy = function(){
         swfPath: "ZeroClipboard.swf"
     });
     client.on('load',function(client){
-        ZeroClipboard.on('wrongflash',function(){
+        client.on('wrongflash',function(){
             alert("你的flash版本太老,不能自动复制");
         });
         client.on( 'complete', function() {
