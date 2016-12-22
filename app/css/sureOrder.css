@@ -1,52 +1,151 @@
-.m-address .m-head{
+.m-sure .m-head{
     font-size: 18px;
     color: #404040;
     padding-bottom: 20px;
-    border-bottom: 1px solid #656565;
+
 }
-.m-address .m-body{
+@media all and (max-width: 1440px) {
+    .m-sure .m-head{
+        font-size: 16px;
+
+    }
+}
+.m-sure .m-body{
+    border: 1px solid #656565;
+    border-left: none;
+    border-right: none;
+}
+.m-sure .m-body .c-item{
+    padding: 30px 0;
+}
+@media all and (max-width: 1440px) {
+    .m-sure .m-body .c-item{
+        padding: 20px 0;
+    }
+}
+.m-sure .m-body .c-item+.c-item{
+    border-top: 2px solid #dfdfdf;
+}
+.m-sure .m-body .img{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.m-sure .m-body .profile .name{
+    font-size: 15px;
+    color: #404040;
+}
+.m-sure .m-body .profile .fold{
+    position: absolute;
+    bottom: 0;
+    font-size: 15px;
+    color: #be1919;
+}
+@media all and (max-width: 1100px) {
+    .m-sure .m-body .profile{
+        margin-top: 10px;
+    }
+    .m-sure .m-body .profile .fold{
+        position: relative;
+    }
+}
+
+.m-sure .m-body .c-price .mainPrice{
+    font-size: 15px;
+    color: #101010;
+}
+.m-sure .m-body .c-price .additionPirce{
     position: relative;
+    font-size: 15px;
+    color: #be1919;
+}
+.m-sure .m-body .c-price .additionPirce .add{
+    color: #be1919;
+    position: absolute;
+    left: 15%;
+}
+.m-sure .m-body .c-subtotal{
+    font-size: 20px;
+    color: #101010;
+}
+@media all and (max-width: 1440px) {
+    .m-sure .m-body .c-subtotal{
+        font-size: 16px;
+    }
+}
+.m-sure .m-footer{
     margin-top: 30px;
 }
-.m-address .m-body .pre,
-.m-address .m-body .next{
-    position: absolute;
-    height: 100%;
-    width: 5%;
-    z-index: 10;
+
+.m-sure .m-footer .c-item{
+    margin-bottom: 10px;
+}
+.m-sure .m-footer .name{
+    font-size: 16px;
+    color: #101010;
+    padding-right: 3%;
+}
+.m-sure .m-footer .price{
+    font-size: 20px;
+    color: #ff4400;
+}
+.m-sure .m-footer .handle{
+    margin-top: 50px;
+}
+
+.m-sure .m-footer .totalPrice{
+    font-size: 20px;
+    color: #101010;
+    margin-bottom: 10px;
+}
+.m-sure .m-footer .totalPrice span{
+    font-size: 25px;
+    color: #ff4400;
+}
+.m-sure .m-footer .submit{
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #ff4400;
+    padding: 0 60px;
+}
+.m-sure .m-footer .reduce,
+.m-sure .m-footer .orderyhq,
+.m-sure .m-footer .productyhq{
+    display: none;
+}
+.m-sure .m-footer .orderyhq .item div,
+.m-sure .m-footer .productyhq .item div{
+    padding: 3px 0;
+    border: 1px solid #888888;
     cursor: pointer;
 }
-.m-address .m-body .pre{
-    left: 0;
+.m-sure .m-footer .orderyhq .item .on,
+.m-sure .m-footer .productyhq .item .on{
+    border: 1px solid #ff4400;
 }
-.m-address .m-body .next{
-    right: 0;
+.m-sure .m-footer .orderyhq .item div+div,
+.m-sure .m-footer .productyhq .item div+div{
+    margin-left: 5px;
 }
-.m-address .m-body .pre span,
-.m-address .m-body .next span{
-    position: absolute;
-    top:0;
-    bottom: 0;
-    margin: auto 0;
-    display: block;
-    width: 11px;
-    height: 20px;
-    background: url('./../img/userIcon.png') no-repeat center;
+@media all and (max-width: 1440px) {
+    .m-sure .m-footer .name{
+        font-size: 14px;
+    }
+    .m-sure .m-footer .price{
+        font-size: 18px;
+    }
+    .m-sure .m-footer .handle{
+        margin-top: 30px;
+    }
+    .m-sure .m-footer .totalPrice{
+        font-size: 16px;
+    }
+    .m-sure .m-footer .totalPrice span{
+        font-size: 18px;
+    }
+    .m-sure .m-footer .submit{
+        font-size: 16px;
+        padding: 0 50px;
+    }
 }
-.m-address .m-body .pre span{
-    background-position: -27px 0;
-}
-.m-address .m-body .next span{
-    background-position: -38px 0;
-    right: 0;
-}
-.m-address .m-body .m-main{
-    position: relative;
-    z-index: 8;
-    margin:0 5%;
-    width: 90%;
-    height: 200px;
-}
-
-
-

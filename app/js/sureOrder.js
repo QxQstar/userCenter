@@ -14,7 +14,7 @@ SureOrder.prototype.init = function(){
     var addressList,$target;
     addressList = $('#addressList');
     $target = addressList.find('.selected');
-    ajaxObj.getFlowMoney({id:$target.attr('data-id')});
+    ajaxObj.getFlowMoney({id:$target.attr('data-id')},this);
     return this;
 };
 
@@ -93,9 +93,110 @@ SureOrder.prototype.getCoupons = function(){
             }
         }
     });
-    ajaxObj.getCoupons(data);
+    ajaxObj.getCoupons(data,this);
     return this;
 };
+/**
+ * 根据得到的优惠券数据，生成优惠券
+ * @param result 返回的优惠券数据
+ * @returns {SureOrder}
+ */
+SureOrder.prototype.setCoupons = function(result){
+    var productyhq,orderyhq,reduce,items,order,product,bianhao,me;
+    productyhq= $('#productyhq');
+    orderyhq = $('#orderyhq');
+    reduce = $('#reduce');
+    items='';
+    order = 0;
+    product = 0;
+    bianhao = [];
+    me = this;
+
+    if(result.data.order !== null){
+        orderyhq.show();
+        reduce.show();
+        order = parseFloat( result.data.order.mianzhi);
+        items = '<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ order.toFixed(2) +'" data-bianhao="'+ result.data.order.youhuiquanbianhao +'"> '+ result.data.order.biaoti + order +'</div>';
+        orderyhq.find('.item').html(items);
+        items = '';
+    }
+
+
+    if(result.data.product){
+        productyhq.show();
+        reduce.show();
+        product = parseFloat( result.data.product.sum );
+
+        $.each(result.data.product.data,function(index,item){
+            bianhao.push( item.youhuiquanbianhao );
+        });
+        items +='<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ product.toFixed(2) +'" data-bianhao="'+ bianhao +'">'+ '组合优惠' + product +'</div>';
+        productyhq.find('.item').html(items);
+
+    }
+    if(order > product){
+        productyhq.find('.on').removeClass('on');
+    }else{
+        orderyhq.find('.on').removeClass('on');
+    }
+    me.setReduce(reduce);
+
+    productyhq
+        .find('.item')
+        .find('div')
+        .unbind('click')
+        .on('click',clickHandle);
+    orderyhq
+        .find('.item')
+        .find('div')
+        .unbind('click')
+        .on('click',clickHandle);
+    function clickHandle(event){
+        var $target = $(event.target);
+        event.stopPropagation();
+        $target.toggleClass('on');
+        if($target.parents('#productyhq').length > 0){
+            orderyhq.find('.item div').removeClass('on');
+        }
+        if($target.parents('#orderyhq').length > 0){
+            productyhq.find('.item div').removeClass('on');
+        }
+        me.setReduce(reduce);
+    }
+   return this;
+};
+/**
+ * 显示优惠券减免
+ * @param reduce 优惠券减免 jquery节点
+ * @returns {SureOrder}
+ */
+SureOrder.prototype.setReduce = function(reduce){
+    var on,reduceMoney,data;
+    reduceMoney = reduce.find('#reduceMoney');
+    on = $('#orderFooter').find('.on');
+    if(on.length > 0){
+        data = on.attr('data-price');
+    }else{
+        data = 0;
+    }
+    reduceMoney.html('￥'+data);
+    this.finalPrice();
+    return this;
+};
+/**
+ * 订单需要结算的价格
+ * @returns {SureOrder}
+ */
+SureOrder.prototype.finalPrice = function(){
+    var totalPrice,flowMoney,reduceMoney,allMoney;
+    totalPrice = $('#totalPrice');
+    flowMoney = parseFloat($('#flowMoney').html().slice(1)) || 0;
+    reduceMoney = parseFloat($('#reduceMoney').html().slice(1)) || 0;
+    allMoney = parseFloat($('#allMoney').html().slice(1)) || 0;
+    totalPrice.html('￥' + (allMoney - reduceMoney + flowMoney).toFixed(2));
+    return this;
+};
+
 var ajaxObj = new Ajax();
 var orderObj = new SureOrder();
 orderObj
