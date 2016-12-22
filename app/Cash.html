@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>现金券</title>
+    <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="./css/base.css" rel="stylesheet">
+    <link type="text/css" href="./css/cash.css" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    <div class="g-container" id="container">
+        <!--二级导航-->
+        <ul class="m-subNav f-marTop-120 f-clearfix f-marBom-40">
+            <li class="c-item f-float-l">我的订单</li>
+            <li class="c-item f-float-l">优惠券</li>
+            <li class="c-item f-float-l on">现金券</li>
+            <li class="c-item  f-float-l">通知</li>
+            <li class="c-item f-float-l last">个人设置</li>
+        </ul>
+        <div class="m-cash f-borTB-5 container f-pm-0" id="cash">
+            <div class="m-head f-clearfix row f-pm-0">
+                <div class="col-md-10 col-sm-9 f-pm-0 total">
+                    当前余额:<span class="sum">￥98.00</span>
+                </div>
+                <div class="col-md-2 col-sm-3 f-pm-0 f-text-r">
+                    <button class="handle" id='chongzhi' type="button">充值</button>
+                </div>
+            </div>
+            <!--明细-->
+            <div class="m-body row f-pm-0" id="record">
+                <div class="title">明细</div>
+                <div class="container f-pm-0 ">
+                    <div class="row f-pm-0 m-head ">
+                        <div class="col-md-2 col-sm-2 f-pm-0">时间</div>
+                        <div class="col-md-1 col-sm-1 f-pm-0">事件</div>
+                        <div class="col-md-3 col-sm-4 f-pm-0">描述</div>
+                        <div class="col-md-2 col-sm-2 f-pm-0">金额</div>
+                        <div class="col-md-2 col-sm-2 f-pm-0">剩余金额</div>
+                    </div>
+                    <div class="row f-pm-0 recordList">
+                        <ul class="container f-pm-0 recordList">
+                            <li class="row f-pm-0 c-item">
+                                <div class="col-md-2 col-sm-2 f-pm-0">
+                                    2016-3-23
+                                </div>
+                                <div class="col-md-1 col-sm-1 f-pm-0">
+                                    充值
+                                </div>
+                                <div class="col-md-3 col-sm-4 f-pm-0">
+                                    的回复电话快点减肥的
+                                </div>
+                                <div class="col-md-2 col-sm-2 f-pm-0">￥45.00</div>
+                                <div class="col-md-2 col-sm-2 f-pm-0 remain">
+                                    ￥45.10
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--翻页-->
+        <div class="m-page f-float-r">
+            共<span class="totalPage">3</span>条记录
+            <span class="pre" id="pre">上一页</span>
+            <span class="cur">1/1</span>
+            <span class="next" id="next">下一页</span>
+        </div>
+    </div>
+    <!--充值-->
+    <div class="f-mask m-recharge" id="recharge">
+
+        <div class="m-content">
+            <span class="f-maskDelate" id="maskDelate"></span>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs m-head" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#home" role="tab" data-toggle="tab">输码充值</a>
+                </li>
+                <li role="presentation">
+                    <a href="#profile" role="tab" data-toggle="tab">现金充值</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content m-body">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="codePay f-marTop-60 f-center">
+                        <input type="text" placeholder="输入码" class="code">
+                        <button type="button" id="submit" class="button">确认</button>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile">
+                    <div class="cashPay" id="payMethod">
+                        <!--支付宝和微信支付-->
+                        <ul class="m-default f-marTop-60 f-center">
+                            <li class="c-item">
+                                <div class="icon" id="alipay"></div>
+                                <p class="desc">进入支付宝界面进行支付</p>
+                                <p class="title">支付宝支付</p>
+                            </li>
+                            <li class="c-item last">
+                                <div class="icon"></div>
+                                <p class="desc">扫描微信二维码进行支付</p>
+                                <p class="title">微信支付</p>
+                            </li>
+                        </ul>
+                        <!--网银支付-->
+                        <div class="m-bank f-marTop-60">
+                            <div class="m-head f-center">
+                                使用网银支付
+                                <button type="button" class="status" id="status">
+                                    <span class="info">展开</span>
+                                    <span class="statusIcon off"></span>
+                                </button>
+                            </div>
+                            <ul class="m-body f-clearfix f-overHidden f-center" id="bank">
+                                <li class="c-item">
+                                    <a class="link">
+                                        <img src="./img/back.jpg">
+                                    </a>
+                                </li>
+                                <li class="c-item">
+                                    <a class="link">
+                                        <img src="./img/back.jpg">
+                                    </a>
+                                </li>
+                                <li class="c-item">
+                                    <a class="link">
+                                        <img src="./img/back.jpg">
+                                    </a>
+                                </li>
+                                <li class="c-item">
+                                    <a class="link">
+                                        <img src="./img/back.jpg">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/ajax.js"></script>
+    <script type="text/javascript" src="./js/cash.js"></script>
+    <script type="text/javascript" src="./js/pay.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+
+.m-cash{
+    border-bottom: none;
+}
+.m-cash .m-head{
+    margin: 20px 0;
+}
+.m-cash .m-head .handle{
+    background-color: #ff4400;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 30px;
+}
+.m-cash .m-head .handle:hover{
+    text-decoration: underline;
+}
+.m-cash .m-head .total{
+    font-size: 16px;
+}
+.m-cash .m-head .total .sum{
+    font-size: 16px;
+    color: #ff4400;
+}
+.m-cash .m-body .title{
+    line-height: 2.0;
+    font-size: 16px;
+}
+.m-cash .m-body .m-head{
+    margin: 0;
+    padding: 0  0 10px 0;
+    border-bottom: 1px solid #999999;
+}
+.m-cash .m-body .c-item{
+    padding: 10px 0;
+}
+.m-cash .m-body .c-item .remain{
+    color: #ff4400;
+}
+
+.m-recharge{
+    display: none;
+}
+.m-recharge .m-content{
+    position: absolute;
+    width: 80%;
+    max-width: 800px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    top:100px;
+    margin: auto;
+
+}
+.m-recharge .m-head a{
+    color: #555555;
+}
+.m-recharge .m-content .m-body{
+    padding:  0 0 20px 0;
+}
+/*现金支付*/
+.m-recharge .m-default .c-item{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0 20px;
+}
+.m-recharge .m-default .c-item.last:before{
+    position: absolute;
+    content: ' ';
+    height: 100%;
+    width: 2px;
+    top: 0;
+    left: -20px;
+    background-color: #dfdfdf;
+}
+.m-recharge .m-default .icon{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    border: 2px solid #b2b2b2;
+    cursor: pointer;
+}
+.m-recharge .m-default .desc{
+    margin-top: 20px;
+    font-size: 12px;
+    color: #898989;
+}
+.m-recharge .m-default .title{
+    color: #2d2d2d;
+    font-weight: bold;
+    line-height: 2.0;
+}
+
+.m-recharge .m-bank .status{
+    margin-left: 20px;
+    color: #ff4400;
+    font-size: 14px;
+}
+.m-recharge .m-bank .statusIcon{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    vertical-align:middle;
+}
+.m-recharge .m-bank .statusIcon.off{
+    border-width: 10px 10px 0;
+    border-color: #ff4400 transparent transparent ;
+}
+.m-recharge .m-bank .statusIcon.on{
+    border-width: 0 10px 10px;
+    border-color: transparent transparent #ff4400;
+}
+.m-recharge .m-bank .m-body{
+    margin-top: 30px;
+    height: 0;
+    padding: 0;
+    font-size: 0;
+}
+.m-recharge .m-bank .c-item{
+    margin: 0 12px 15px ;
+    padding: 7px 10px;
+    border: 1px solid #d8d8d8;
+    cursor: pointer;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.m-recharge .m-bank .link{
+    display: block;
+}
+
+
+/*输码支付*/
+.m-recharge .codePay{
+    height: 200px;
+}
+.m-recharge .codePay .code{
+    font-size: 15px;
+    color: #7a7a7a;
+    height: 30px;
+    width: 45%;
+    padding: 0 5px;
+}
+.m-recharge .codePay .button{
+    background-color: #ff4400;
+    color: #ffffff;
+    font-size: 15px;
+    height: 30px;
+    padding: 0 20px;
+    }
+.m-recharge .codePay .button:hover{
+    text-decoration: underline;
+}
