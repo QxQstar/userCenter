@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>结算</title>
+    <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="./css/base.css" rel="stylesheet">
+
+    <link type="text/css" href="./css/pay.css" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    <div class="g-container" id="container">
+        <!--进度-->
+        <ul class="m-progress f-marTop-120 f-center">
+            <li class="c-item">购物车</li>
+            <li class="c-item">确认订单</li>
+            <li class="c-item last on">结算</li>
+        </ul>
+        <!--订单信息-->
+        <div class="m-sure f-marTop-80" >
+            <div class="m-head">收银台</div>
+            <ul class="container f-pm-0 m-body" id="sure" order-code="{fzw:url:order/}">
+                {fzw:for:sql="select * from sl_cart where dingdanbianhao = '{fzw:url:order/}' and leixing='产品'" id="p1"}
+                <li class="c-item row f-pm-0" data-code="{fzw:p1:gouwuchehao/}">
+                    <div class="col-md-5 col-sm-5 f-pm-0 c-desc">
+                        <div class="img f-float-l">
+                            <img src="{fzw:p1:laiyuanbianhao sql="sl_product|where&nbsp;id=&dangqian|suoluetu" string="zutu"/}">
+                        </div>
+                        <div class="profile f-float-l">
+                            <div class="name">{fzw:p1:biaoti/}</div>
+                            <p class="fold">
+                                印图:<span class="shuliang"></span><br/>
+                                TORCHWOOD
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 f-pm-0 f-txtverCen">
+                        X <span class="num">{fzw:p1:shuliang/}</span>
+                    </div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 c-price f-center">
+                        <div class="mainPrice f-txtverCen">
+                            {fzw:p1:danjia/}
+                        </div>
+                        <div class="additionPirce">
+                            {fzw:for:sql="select sum(xiaoji) as xiaoji from sl_cart where gouwuchehao = '{fzw:p1:gouwuchehao/}' and leixing='作品'" id="p2"}
+                            {if value1="{fzw:p2:xiaoji/}" value2="" bi="=="}
+                            {else}
+                            <span class="add"> + </span>
+                            <span class='zpPrice'>{fzw:p2:xiaoji/}</span>
+                            {/if}
+                            {/fzw:for:sql}
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen c-subtotal">65.00</div>
+                </li>
+                {/fzw:for:sql}
+            </ul>
+            {fzw:sql="select * from sl_order where dingdanhao = '{fzw:url:order/}'" id="p1"}
+            <div class="container f-pm-0 m-footer">
+                <div class="row f-pm-0">
+                    <div class="col-md-8 col-sm-8 f-pm-0">
+                        <div class="row f-pm-0 c-item">
+                            <div class="col-md-2 col-sm-3 f-pm-0 f-text-r name">{fzw:p1:shoujianrenxingming/}</div>
+                            <div class="col-md-5 col-sm-7 f-pm-0">
+                                {fzw:p1:suozaidiqu/},{fzw:p1:jiedaodizhi/}
+                            </div>
+                            <div class="col-md-5 col-sm-2 f-pm-0">{fzw:p1:shoujihaoma/}</div>
+                        </div>
+                        <div class="row f-pm-0 c-item">
+                            <div class="col-md-2 col-sm-3 f-pm-0 f-text-r name">留言:</div>
+                            <div class="col-md-10 col-sm-9 f-pm-0">{fzw:p1:beizhu/}</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 f-pm-0">
+                        <div class="row f-pm-0 c-item">
+                            <div class="col-md-3 col-sm-5 f-pm-0 f-text-r name">运费:</div>
+                            <div class="col-md-9 col-sm-7 f-pm-0 price">￥{fzw:p1:yunfei/}</div>
+                        </div>
+                        {if value1="{fzw:p1:yhq_id/}" value2="" bi="=="}
+                        {else}
+                        <div class="row f-pm-0 c-item">
+                            <div class="col-md-3 col-sm-5 f-pm-0 f-text-r name">优惠金额:</div>
+                            <div class="col-md-9 col-sm-7 f-pm-0 price">￥{fzw:p1:youhuiquan/}</div>
+                        </div>
+                        {/if}
+                        <div class="row f-pm-0 c-item">
+                            <div class="col-md-3 col-sm-5 f-pm-0 f-text-r name">应付金额:</div>
+                            <div class="col-md-9 col-sm-7 f-pm-0 price" id="jine">￥{fzw:p1:zhifujine/}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/fzw:sql}
+        </div>
+        <!--支付方式-->
+        <div class="m-pay f-marTop-60" id="payMethod">
+            <div class="m-head f-center">选择支付方式</div>
+            <!--微信和支付宝-->
+            <ul class="m-default f-marTop-60 f-center">
+                <li class="c-item">
+                    <div class="icon" id="alipay"></div>
+                    <p class="desc">进入支付宝界面进行支付</p>
+                    <p class="title">支付宝支付</p>
+                </li>
+                <li class="c-item last">
+                    <div class="icon" id="weixinpay"></div>
+                    <p class="desc">扫描微信二维码进行支付</p>
+                    <p class="title">微信支付</p>
+                </li>
+            </ul>
+            <!--网银支付-->
+            <div class="m-bank f-marTop-60">
+                <div class="m-head f-center">
+                    使用网银支付
+                    <button type="button" class="status" id="status">
+                        <span class="info">展开</span>
+                        <span class="statusIcon off"></span>
+                    </button>
+                </div>
+                <ul class="m-body f-clearfix f-overHidden" id="bank">
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a class="link">
+                            <img src="./img/back.jpg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="./js/ajax.js"></script>
+    <script type="text/javascript" src="./js/base.js"></script>
+    <script type="text/javascript" src="./js/pay.js"></script>
+</body>
+</html>

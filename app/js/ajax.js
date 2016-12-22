@@ -486,3 +486,37 @@ Ajax.prototype.submitOrder = function(data){
         }
     });
 };
+/**
+ * 使用支付宝支付
+ * @param data
+ */
+Ajax.prototype.aliPay = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/orderpay',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                location.href = 'http://www.xiaoyu4.com/pay/alipay/alipayapi.php'
+            }
+        }
+    });
+};
+/**
+ * 使用微信支付
+ * @param data
+ */
+Ajax.prototype.weixinPay = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/wxpay',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                location.href = '/inc/weixinpay/demo/native_dynamic_qrcode.php?dingdanhao='+result.data.order_code +'&bodystr='+result.data.order_code + '&jine='+result.data.price;
+            }
+        }
+    });
+};
