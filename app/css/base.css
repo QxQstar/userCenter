@@ -1,3 +1,6 @@
+/* ********************
+    ========重置=========
+* *********************/
 *{
     padding: 0;
     margin: 0;
@@ -50,6 +53,9 @@ a:focus{
 ul ,li {
     list-style: none;
 }
+/* ******************
+    ======功能类=======
+* ***************/
 .f-clearfix:after{
     content: " ";
     height: 0;
@@ -60,10 +66,6 @@ ul ,li {
     visibility: hidden;
 }
 
-header{
-    height: 60px;
-    background-color: #000000;
-}
 .f-mask{
     position: fixed;
     top: 0;
@@ -127,28 +129,6 @@ header{
 .f-text-r{
     text-align: right;
 }
-
-.g-container .f-pm-0{
-    padding: 0;
-    margin: 0;
-}
-.g-container{
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.addressMask{
-    display: none;
-}
-.orderMask{
-    display: none;
-}
-.flowMask{
-    display: none;
-}
-.delete{
-    cursor: pointer;
-}
 .f-maskDelate{
     position: absolute;
     right: -10px;
@@ -157,6 +137,18 @@ header{
     width: 32px;
     background: url(./../img/userIcon.png) no-repeat -49px 0;
     cursor: pointer;
+}
+/* ****************
+    =======布局=========
+* ***************/
+.g-container .f-pm-0{
+    padding: 0;
+    margin: 0;
+}
+.g-container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .g-container{
     min-height: 100%;
@@ -172,7 +164,20 @@ header{
     margin: 0;
 }
 
-/*三级菜单和二级菜单*/
+.addressMask{
+    display: none;
+}
+.flowMask{
+    display: none;
+}
+.delete{
+    cursor: pointer;
+}
+
+
+/* *******************
+    =三级菜单和二级菜单=
+* ********************/
 .m-subNav .c-item{
     position: relative;
     padding: 0 10px 0 0;
@@ -230,17 +235,15 @@ header{
     background-color: #898989;
 }
 .m-navThird{
-    /*border-bottom: 5px #dddddd solid;*/
     border-top: none;
     padding-bottom: 15px;
 }
 .g-container .m-navContent{
     width: 100%;
 }
-/*二级导航和三级导航结束*/
-
-
-/*翻页*/
+/* *******************
+    ======翻页========
+* ********************/
 .m-page{
     margin-top: 10px;
     color: #898989;
@@ -265,9 +268,11 @@ header{
 .m-page .cur{
     color: #898989;
 }
-/*翻页结束*/
 
-/*进度*/
+/* *******************
+    ======进度========
+* ********************/
+
 .m-progress .c-item.on{
     color: #ff4400;
 }
@@ -298,9 +303,10 @@ header{
 .m-progress .c-item.last:after{
     content: "";
 }
-/*进度结束*/
 
-/*收货地址*/
+/* *******************
+    ======收货地址========
+* ********************/
 .m-address .m-head{
     font-size: 18px;
     color: #404040;
@@ -442,9 +448,10 @@ header{
 .m-address .addDesc:hover{
     border: 1px solid #797979;
 }
-/*收货地址结束*/
 
-/*新地址*/
+/* *******************
+    ======新地址========
+* ********************/
 .m-newAddress{
     position: absolute;
     width: 450px;
@@ -488,91 +495,9 @@ header{
 .m-newAddress .c-item .areaItem select{
     width: 175px;
 }
-/*订单详情*/
-.m-ordDetail{
-    position: absolute;
-    width: 450px;
-    top:100px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding: 38px 28px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px #888;
-}
-@media all and (max-width: 1460px){
-    .m-ordDetail{
-        width: 400px;
-        padding: 30px 20px;
-    }
-
-}
-.m-ordDetail .img{
-    width: 80px;
-    height: 80px;
-    margin-right: 20px;
-}
-.m-ordDetail .m-head{
-    border-bottom: 1px solid #969696;
-    height: auto;
-    line-height: normal;
-    padding-bottom: 5px
-}
-.m-ordDetail .title{
-    font-size: 16px;
-}
-.m-ordDetail .preview{
-    margin-left: 10px;
-    color: #ff4400;
-    font-size: 14px;
-    cursor: pointer;
-}
-.m-ordDetail .preview:hover{
-    text-decoration: underline;
-}
-.m-ordDetail .total{
-    font-size: 16px;
-}
-.m-ordDetail .price{
-    color: #be1919;
-}
-.m-ordDetail .m-details{
-    width: auto;
-    height: 340px;
-    overflow: hidden;
-}
-@media all and (max-width: 1440px) {
-    .m-ordDetail .m-details{
-        height: 280px;
-    }
-}
-.m-ordDetail:hover .m-details{
-    overflow: auto;
-}
-.m-ordDetail .c-item{
-    padding: 7px 0;
-    border-bottom: 1px solid #dddddd;
-}
-
-.m-ordDetail .desc{
-    font-size: 14px;
-}
-.m-ordDetail .name,
-.m-ordDetail .delete{
-    color: #015b8a;
-}
-
-.m-ordDetail .subtotal{
-    color: #be1919;
-}
-
-.m-ordDetail .m-footer{
-    margin-top: 5px;
-    font-size: 11px;
-    color: #898989;
-    line-height: 1.5;
-}
-/*确认订单*/
+/* *******************
+    ======订单列表========
+* ********************/
 .m-sure .m-head{
     font-size: 18px;
     color: #404040;
@@ -724,6 +649,96 @@ header{
         padding: 0 50px;
     }
 }
+/* *******************
+    ======订单详情========
+* ********************/
+.m-ordDetail{
+    position: absolute;
+    width: 450px;
+    top:100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 38px 28px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #888;
+}
+@media all and (max-width: 1460px){
+    .m-ordDetail{
+        width: 400px;
+        padding: 30px 20px;
+    }
+
+}
+.m-ordDetail .img{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+.m-ordDetail .m-head{
+    border-bottom: 1px solid #969696;
+    height: auto;
+    line-height: normal;
+    padding-bottom: 5px
+}
+.m-ordDetail .title{
+    font-size: 16px;
+}
+.m-ordDetail .preview{
+    margin-left: 10px;
+    color: #ff4400;
+    font-size: 14px;
+    cursor: pointer;
+}
+.m-ordDetail .preview:hover{
+    text-decoration: underline;
+}
+.m-ordDetail .total{
+    font-size: 16px;
+}
+.m-ordDetail .price{
+    color: #be1919;
+}
+.m-ordDetail .m-details{
+    width: auto;
+    height: 340px;
+    overflow: hidden;
+}
+@media all and (max-width: 1440px) {
+    .m-ordDetail .m-details{
+        height: 280px;
+    }
+}
+.m-ordDetail:hover .m-details{
+    overflow: auto;
+}
+.m-ordDetail .c-item{
+    padding: 7px 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.m-ordDetail .desc{
+    font-size: 14px;
+}
+.m-ordDetail .name,
+.m-ordDetail .delete{
+    color: #015b8a;
+}
+
+.m-ordDetail .subtotal{
+    color: #be1919;
+}
+
+.m-ordDetail .m-footer{
+    margin-top: 5px;
+    font-size: 11px;
+    color: #898989;
+    line-height: 1.5;
+}
+
+/* *******************
+    ======预览========
+* ********************/
 /*产品预览*/
 .m-previewBoxCP{
     position: absolute;

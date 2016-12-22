@@ -336,7 +336,10 @@ Ajax.prototype.getFlowMoney = function(data,sureOrder){
             if(result.status){
                 flowMoney = $('#flowMoney');
                 flowMoney.html('£§' + parseFloat( result.data ).toFixed(2));
-                sureOrder.finalPrice();
+                if(sureOrder){
+                    sureOrder.finalPrice();
+                }
+
             }
         }
     });
@@ -463,6 +466,23 @@ Ajax.prototype.getCoupons =  function(data,sureOrder){
         dataType:'json',
         success:function(result){
             sureOrder.setCoupons(result);
+        }
+    });
+};
+/**
+ * Ã·Ωª∂©µ•
+ * @param data
+ */
+Ajax.prototype.submitOrder = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/suborder',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                location.href = 'http://www.xiaoyu4.com/Single.aspx?m=pay1&order='+result.data;
+            }
         }
     });
 };

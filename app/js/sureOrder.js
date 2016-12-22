@@ -8,13 +8,14 @@
 function SureOrder(){
     this.sure = $('#sure');
     this.footer = $('#orderFooter');
+    this.addressList = $('#addressList');
     return this;
 }
 SureOrder.prototype.init = function(){
     var addressList,$target;
     addressList = $('#addressList');
     $target = addressList.find('.selected');
-    ajaxObj.getFlowMoney({id:$target.attr('data-id')},this);
+    ajaxObj.getFlowMoney({id:$target.attr('data-id')});
     return this;
 };
 
@@ -23,8 +24,9 @@ SureOrder.prototype.init = function(){
  * @returns {SureOrder}
  */
 SureOrder.prototype.selectAdd = function(){
-    var addressList,item;
-    addressList = $('#addressList');
+    var addressList,item,me;
+    me = this;
+    addressList = this.addressList;
     item = addressList.children().not(function(){
         return $(this).attr('class').indexOf('addDesc') >= 0;
     });
@@ -35,7 +37,7 @@ SureOrder.prototype.selectAdd = function(){
             var $target = $(this);
             $target.siblings().removeClass('selected');
             $target.addClass('selected');
-            ajaxObj.getFlowMoney({id:$target.attr('data-id')});
+            ajaxObj.getFlowMoney({id:$target.attr('data-id')},me);
         });
 
     return this;
@@ -194,9 +196,55 @@ SureOrder.prototype.finalPrice = function(){
     reduceMoney = parseFloat($('#reduceMoney').html().slice(1)) || 0;
     allMoney = parseFloat($('#allMoney').html().slice(1)) || 0;
     totalPrice.html('£§' + (allMoney - reduceMoney + flowMoney).toFixed(2));
+    this.submitOrder();
     return this;
 };
+/**
+ * Ã·Ωª∂©µ•
+ * @returns {SureOrder}
+ */
+SureOrder.prototype.submitOrder = function(){
+    var submit,selectedAdd,order,data,footer,items,cart_id,cart_code;
+    submit= $('#submitOrder');
+    selectedAdd = this.addressList.find('.selected');
+    order = this.sure;
+    footer = this.footer;
+    data={};
+    items = order.find('.c-item');
+    data = {
+        name:selectedAdd.find('.name').html(),
+        phone_num:selectedAdd.find('.tel').html(),
+        street:selectedAdd.find('.smallAddr').html(),
+        area :selectedAdd.find('.bigAddr').html(),
+        yunfei:footer.find('#flowMoney').html().slice(1)
+    };
+    data.order_code = order.attr('data-code');
+    cart_id=[];
+    cart_code =[];
+    items.each(function(index,item){
+        var $item,data;
+        $item = $(item);
+        data = $item.attr('data-code');
+        if(data){
+            cart_code.push(data);
+        }else{
+            cart_id.push($item.attr('data-id'));
+        }
 
+    });
+    data.cart_code = cart_code.join(',');
+    data.cart_id = cart_id.join(',');
+    data.yhq_id = footer.find('.on').attr('data-bianhao');
+    submit
+        .unbind('click')
+        .on('click',function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            data.note = footer.find('#message').val();
+            ajaxObj.submitOrder(data);
+        });
+    return this;
+};
 var ajaxObj = new Ajax();
 var orderObj = new SureOrder();
 orderObj
