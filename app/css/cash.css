@@ -58,6 +58,13 @@
     padding:  0 0 20px 0;
 }
 /*ÏÖ½ðÖ§¸¶*/
+.m-recharge .inputBox .jine{
+    font-size: 15px;
+    color: #7a7a7a;
+    height: 30px;
+    width: 45%;
+    padding: 0 5px;
+}
 .m-recharge .m-default .c-item{
     position: relative;
     display: inline-block;

@@ -520,3 +520,43 @@ Ajax.prototype.weixinPay = function(data){
         }
     });
 };
+/**
+ * 输入码充值现金券
+ * @param data
+ */
+Ajax.prototype.codeRecharge = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/cash/cash',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                alert(result.msg);
+                location.reload();
+            }
+        }
+    });
+};
+/**
+ *  现金充值
+ * @param data
+ */
+Ajax.prototype.cashRecharge = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/cash/recharge',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            var type = data.type;
+            if(result.status){
+                if(type === 'alipay'){
+                    location.href = 'http://www.xiaoyu4.com/pay/alipay/alipayapi.php'
+                }else if(type === 'weixinpay'){
+                    location.href = '/inc/weixinpay/demo/native_dynamic_qrcode.php?dingdanhao='+result.data.order_code +'&bodystr='+result.data.order_code + '&jine='+result.data.price*100;
+                }
+            }
+        }
+    });
+};
