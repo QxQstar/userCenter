@@ -39,11 +39,11 @@ Order.prototype.setHandle = function(){
                 handle.html('<a href="/single.aspx?m=shaidan&id='+ code +'"class="item shaidan">前往晒单</a><a href="/single.aspx?m=cont&cust_id='+ $item.attr('data-statusid') +'" class="item process">查看进度</a>');
             }
         }else if(status === '已发件'){
-            handle.html('<div class="item lookFlow">查看物流</div>');
+            handle.html('<div class="item lookFlow">查看物流</div><div class="item shouhuo">确认收货</div>');
         }else if(status === '已付款'){
             handle.html('<div class="item write">等待发货</div>');
         }else if(status === '未付款'){
-            handle.html('<div class="item pay">去付款</div><div class="item deleteOrder">取消订单</div>')
+            handle.html('<a href="/single.aspx?m=pay1&order='+ code +'"  class="item pay">去付款</a><div class="item deleteOrder">取消订单</div>')
         }
     });
     return this;
@@ -111,6 +111,28 @@ Order.prototype.copy = function(){
 
     return this;
 };
+/**
+ * 确认收货
+ * @returns {Order}
+ */
+Order.prototype.shouhuo = function(){
+    var orders;
+    orders = this.order;
+    orders
+        .find('.shouhuo')
+        .unbind('click')
+        .on('click',function(event){
+            var $target,data,parent;
+            event.stopPropagation();
+            $target = $(event.target);
+            parent = $target.parents('.c-item');
+            data = {
+                code:parent.attr('data-id')
+            };
+            ajaxObj.shouhuo(data);
+        });
+    return this;
+};
 var ajaxObj = new Ajax();
 var orderObj = new Order();
 orderObj
@@ -118,5 +140,6 @@ orderObj
     .setHandle()
     .deleteOrder()
     .lookFlow()
-    .copy();
+    .copy()
+    .shouhuo();
 

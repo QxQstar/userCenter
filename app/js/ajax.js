@@ -345,6 +345,24 @@ Ajax.prototype.getFlowMoney = function(data,sureOrder){
     });
 };
 /**
+ * 确认收货
+ * @param data
+ */
+Ajax.prototype.shouhuo = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/sure',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                alert(result.msg);
+                location.reload();
+            }
+        }
+    });
+};
+/**
  *获取印图数量
  * @param num 接受数量的元素 jquery对象
  */
@@ -531,8 +549,8 @@ Ajax.prototype.cashPay = function(data){
         data:data,
         dataType:'json',
         success:function(result){
+            alert(result.msg);
             if(result.status){
-                alert(result.msg);
                 location.href ='/search.aspx?m=order1'
             }
         }
