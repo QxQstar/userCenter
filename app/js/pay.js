@@ -4,6 +4,7 @@
 
 function Pay(){
     this.payMethod = null;
+    this.sure = null;
     if($('#payMethod').length > 0){
         this.payMethod = $('#payMethod');
     }
@@ -27,8 +28,6 @@ Pay.prototype.isSpread = function(){
         status
             .unbind('click')
             .on('click',function(event){
-                var $target;
-                $target= $(event.target);
                 event.preventDefault();
                 event.stopPropagation();
                 if(bank.data('status') === 'off'){
@@ -117,10 +116,34 @@ Pay.prototype.weixinPay = function(){
     }
     return this;
 };
+/**
+ * 使用现金券支付
+ * @returns {Pay}
+ */
+Pay.prototype.cashPay = function(){
+    var sure,data,code,icon,payMethod;
+    sure= this.sure;
+    payMethod = this.payMethod;
+    icon = payMethod.find('#cashpay');
+    if(sure && payMethod && icon.length > 0){
+        code = sure.attr('order-code');
+        data = {
+            code: code
+        };
+        icon
+            .unbind('click')
+            .on('click',function(event){
+                event.stopPropagation();
+                ajaxObj.cashPay(data);
+            });
+    }
+    return this;
+};
 var ajaxObj = new Ajax();
 var payObj = new Pay();
 
 payObj
     .isSpread()
     .aliPay()
-    .weixinPay();
+    .weixinPay()
+    .cashPay();

@@ -34,6 +34,9 @@
         left: -60px;
     }
 }
+.m-pay .icon{
+    cursor: pointer;
+}
 .m-pay .m-default .icon{
     display: inline-block;
     *display: inline;
@@ -73,7 +76,6 @@
     border-color: transparent transparent #ff4400;
 }
 .m-pay .m-bank .m-body{
-    margin-top: 30px;
     height: 0;
 }
 .m-pay .m-bank .c-item{
@@ -84,4 +86,11 @@
 }
 .m-pay .m-bank .link{
     display: block;
+}
+.m-pay .m-cash .icon{
+    width: 350px;
+    height: 130px;
+    margin-right:auto ;
+    margin-left: auto;
+   border: 2px solid #b2b2b2;;
 }

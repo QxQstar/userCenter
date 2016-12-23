@@ -521,6 +521,24 @@ Ajax.prototype.weixinPay = function(data){
     });
 };
 /**
+ * 使用现金券支付
+ * @param data
+ */
+Ajax.prototype.cashPay = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/cash/pay',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+                alert(result.msg);
+                location.href ='/search.aspx?m=order1'
+            }
+        }
+    });
+};
+/**
  * 输入码充值现金券
  * @param data
  */

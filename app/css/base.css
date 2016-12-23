@@ -91,6 +91,9 @@ ul ,li {
 .f-marTop-60{
     margin-top: 60px;
 }
+.f-marTop-20{
+    margin-top: 20px;
+}
 @media all and (max-width: 1440px) {
     .f-marTop-120{
         margin-top: 90px;
@@ -149,14 +152,15 @@ ul ,li {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-}
-.g-container{
     min-height: 100%;
 }
 .g-container .container{
     width: 100%;
 }
 .g-container .f-center{
+    text-align: center;
+}
+.f-center {
     text-align: center;
 }
 .row{
