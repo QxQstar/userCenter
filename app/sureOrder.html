@@ -1,244 +1,310 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta charset="gb2312">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>Á°ÆËÆ§ËÆ¢Âçï</title>
+    <title>»∑»œ∂©µ•</title>
     <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="./css/base.css" rel="stylesheet">
-
-    <link type="text/css" href="./css/sureOrder.css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-    <header></header>
+{fzw:inside src="Õ∑≤ø.html"/}
     <div class="g-container">
-        <!--ËøõÂ∫¶-->
+        <!--Ω¯∂»-->
         <ul class="m-progress f-marTop-120 f-center">
-            <li class="c-item">Ë¥≠Áâ©ËΩ¶</li>
-            <li class="c-item on">Á°ÆËÆ§ËÆ¢Âçï</li>
-            <li class="c-item last">ÁªìÁÆó</li>
+            <li class="c-item">π∫ŒÔ≥µ</li>
+            <li class="c-item on">»∑»œ∂©µ•</li>
+            <li class="c-item last">Ω·À„</li>
         </ul>
-        <!--Êî∂Ë¥ßÂú∞ÂùÄ-->
-        <div class="m-address f-marTop-80">
-            <div class="m-head">Êî∂Ë¥ßÂú∞ÂùÄ</div>
+        <!-- ’ªıµÿ÷∑-->
+        <div class="m-address f-marTop-80 m-sureAdd" id="address">
+            <div class="m-head"> ’ªıµÿ÷∑</div>
             <div class="m-body f-clearfix">
                 <div class="pre f-float-l" id="pre">
                     <span></span>
                 </div>
                 <div class="m-main f-overHidden f-float-l">
-                    <ul class="m-list  f-clearfix">
-                        <li class="c-item desc f-float-l">
-                            <div class="title f-clearfix">
-                                <div class="name f-float-l">dfhdj</div>
-                                <div class="tel f-float-r">12345678900</div>
-                            </div>
-                            <div class="detail">
-                                <p class="bigAddr">ÂõõÂ∑ùÊàêÈÉΩ</p>
-                                <p class="smallAddr">xxÂå∫xxxË∑ØxxxÂè∑</p>
-                            </div>
-                            <div class="footer f-clearfix">
-                                <div class="status f-float-l">ÈªòËÆ§Âú∞ÂùÄ</div>
-                                <div class="handle f-float-r">
-                                    <span class="edit">ÁºñËæë</span>
-                                    <span class="delete">Âà†Èô§</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="c-item desc f-float-l">
-                            <div class="title f-clearfix">
-                                <div class="name f-float-l">dfhdj</div>
-                                <div class="tel f-float-r">12345678900</div>
-                            </div>
-                            <div class="detail">
-                                <p class="bigAddr">ÂõõÂ∑ùÊàêÈÉΩ</p>
-                                <p class="smallAddr">xxÂå∫xxxË∑ØxxxÂè∑</p>
-                            </div>
-                            <div class="footer f-clearfix">
-                                <div class="status f-float-l">ÈªòËÆ§Âú∞ÂùÄ</div>
-                                <div class="handle f-float-r">
-                                    <span class="edit">ÁºñËæë</span>
-                                    <span class="delete">Âà†Èô§</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="c-item desc f-float-l">
-                            <div class="title f-clearfix">
-                                <div class="name f-float-l">dfhdj</div>
-                                <div class="tel f-float-r">12345678900</div>
-                            </div>
-                            <div class="detail">
-                                <p class="bigAddr">ÂõõÂ∑ùÊàêÈÉΩ</p>
-                                <p class="smallAddr">xxÂå∫xxxË∑ØxxxÂè∑</p>
-                            </div>
-                            <div class="footer f-clearfix">
-                                <div class="status f-float-l">ÈªòËÆ§Âú∞ÂùÄ</div>
-                                <div class="handle f-float-r">
-                                    <span class="edit">ÁºñËæë</span>
-                                    <span class="delete">Âà†Èô§</span>
-                                </div>
-                            </div>
-                        </li>
+                    {fzw:sql="select count(*) as tongji from sl_add where yonghuming = '{fzw:cookie name="user_name" /}'" id="p1"}
+                    <ul class="m-list  f-clearfix" id="addressList" data-count="{fzw:p1:tongji/}">
+                        {/fzw:sql}
                         <li class=" c-item desc addDesc f-float-l">
                             <div class="detail f-center">
-                                <span class="add">+</span><br>
-                                Ê∑ªÂä†Êñ∞Âú∞ÂùÄ
+                                <span class="add" id="addAddr">+</span><br>
+                                ÃÌº”–¬µÿ÷∑
                             </div>
                         </li>
+                        {fzw:sql="select * from sl_add where yonghuming = '{fzw:cookie name="user_name" /}' order by moren desc" id="p1"}
+                        {if value1="{fzw:p1:moren/}" value2=" «" bi="=="}
+                        <li class="c-item desc f-float-l selected" data-id="{fzw:p1:id/}">
+                        {else}
+                        <li class="c-item desc f-float-l" data-id="{fzw:p1:id/}">
+                        {/if}
+                            <div class="title f-clearfix">
+                                <div class="name f-float-l">{fzw:p1:shoujianrenxingming/}</div>
+                                <div class="tel f-float-r">{fzw:p1:shoujihaoma/}</div>
+                            </div>
+                            <div class="detail">
+                                <p class="bigAddr">{fzw:p1:suozaidiqu/}</p>
+                                <p class="smallAddr">{fzw:p1:jiedaodizhi/}</p>
+                            </div>
+                            <div class="f-clearfix" data-id="{fzw:p1:id/}">
+                                {if value1="{fzw:p1:moren/}" value2=" «" bi="=="}
+                                <div class="f-float-l moren" style="color: #ff4400;">ƒ¨»œµÿ÷∑</div>
+                                {else}
+                                <!--<div class="status f-float-l">…ËŒ™ƒ¨»œµÿ÷∑</div>-->
+                                {/if}
+                                <div class="handle f-float-r">
+                                    <span class="edit">±‡º≠</span>
+                                    <span class="delete">…æ≥˝</span>
+                                </div>
+                            </div>
+                        </li>
+                        {/fzw:sql}
+
                     </ul>
+
                 </div>
                 <div class="next f-float-l" id="next">
                     <span></span>
                 </div>
             </div>
         </div>
-        <!--Á°ÆËÆ§ËÆ¢Âçï-->
+        <!--»∑»œ∂©µ•-->
         <div class="m-sure f-marTop-80">
-            <div class="m-head">Á°ÆËÆ§ËÆ¢Âçï</div>
-            <ul class="container f-pm-0 m-body">
-                <li class="c-item row f-pm-0">
+            <div class="m-head">»∑»œ∂©µ•</div>
+            <ul class="container f-pm-0 m-body" id="sure" data-code="{fzw:key:bianhao/}">
+                {fzw:for:sql="select gouwuchehao,count(*) as tongji,shuliang from sl_cart where gouwuchehao in ({fzw:url:cart/}) and leixing = 'œ‡øÚ' group by gouwuchehao,shuliang" id="p1"}
+                <li class="c-item row f-pm-0" data-code="{fzw:p1:gouwuchehao/}" data-type="œ‡øÚ">
                     <div class="col-md-5 col-sm-5 f-pm-0 c-desc">
                         <div class="img f-float-l">
                             <img src="./img/testImg.jpg">
                         </div>
                         <div class="profile f-float-l">
-                            <div class="name">HIMETALÁ∫≥ÊñØÂÖâÊã©ÁºìÊ∏©ÊùØ</div>
+                            <div class="name">’’∆¨«Ωdiy¥¥“‚</div>
                             <p class="fold">
-                                Âç∞Âõæ:1<br/>
-                                TORCHWOOD
+                                œ‡øÚ◊‹ ˝:{fzw:p1:tongji/}
                             </p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 f-pm-0 f-txtverCen">
-                        X <span class="num">1</span>
+                        X <span class="num">{fzw:p1:shuliang/}</span>
                     </div>
                     <div class="col-md-2 col-sm-2 f-pm-0 c-price f-center">
-                        <div class="mainPrice">
-                            58.90
+                        <div class="mainPrice f-txtverCen">
+                            {fzw:for:sql="select sum(danjia) as danjia from sl_cart where gouwuchehao = '{fzw:p1:gouwuchehao/}'" id="p2"}
+                            {fzw:p2:danjia/}
+                            {/fzw:for:sql}
                         </div>
                         <div class="additionPirce">
-                            <span class="add"> + </span>
-                            5.00
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen subtotal">65.00</div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen c-subtotal"></div>
                 </li>
-                <li class="c-item row f-pm-0">
+                {/fzw:for:sql}
+                {fzw:for:sql="select * from sl_cart where gouwuchehao in ({fzw:url:cart/}) and leixing = '≤˙∆∑'" id="p1"}
+                <li class="c-item row f-pm-0" data-code="{fzw:p1:gouwuchehao/}" data-type="≤˙∆∑" data-prid="{fzw:p1:laiyuanbianhao/}">
                     <div class="col-md-5 col-sm-5 f-pm-0 c-desc">
                         <div class="img f-float-l">
-                            <img src="./img/testImg.jpg">
+                            <img src="{fzw:p1:laiyuanbianhao sql="sl_product|where&nbsp;id=&dangqian|suoluetu" string="zutu"/}">
                         </div>
                         <div class="profile f-float-l">
-                            <div class="name">HIMETALÁ∫≥ÊñØÂÖâÊã©ÁºìÊ∏©ÊùØ</div>
+                            <div class="name">{fzw:p1:biaoti/}</div>
                             <p class="fold">
-                                Âç∞Âõæ:1<br/>
-                                TORCHWOOD
+                                ”°Õº:<span class="shuliang"></span>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3 f-pm-0 f-txtverCen">
-                        X <span class="num">1</span>
+                        X <span class="num">{fzw:p1:shuliang/}</span>
                     </div>
                     <div class="col-md-2 col-sm-2 f-pm-0 c-price f-center">
-                        <div class="mainPrice">
-                            58.90
+                        <div class="mainPrice f-txtverCen">
+                            {fzw:p1:danjia/}
                         </div>
                         <div class="additionPirce">
                             <span class="add"> + </span>
-                            5.00
+                            {fzw:for:sql="select sum(xiaoji) as xiaoji from sl_cart where gouwuchehao = '{fzw:p1:gouwuchehao/}' and leixing='◊˜∆∑'" id="p2"}
+                            {if value1="{fzw:p2:xiaoji/}" value2="" bi="=="}
+                            {else}
+                            <span class="add"> + </span>
+                            <span class='zpPrice'>{fzw:p2:xiaoji/}</span>
+                            {/if}
+                            {/fzw:for:sql}
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen subtotal">65.00</div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen c-subtotal"></div>
                 </li>
+                {/fzw:for:sql}
+                {fzw:sql="select * from sl_cart where id in ({fzw:url:id/})" id="p1"}
+                <li class="c-item row f-pm-0" data-id="{fzw:p1:id/}" data-type="≤˙∆∑" data-prid="{fzw:p1:laiyuanbianhao/}">
+                    <div class="col-md-5 col-sm-5 f-pm-0 c-desc">
+                        <div class="img f-float-l">
+                            <img src="{fzw:p1:laiyuanbianhao sql="sl_product|where&nbsp;id=&dangqian|suoluetu" string="zutu"/}">
+                        </div>
+                        <div class="profile f-float-l">
+                            <div class="name">{fzw:p1:biaoti/}</div>
+                            <p class="fold"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 f-pm-0 f-txtverCen">
+                        X <span class="num">{fzw:p1:shuliang/}</span>
+                    </div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 c-price f-center">
+                        <div class="mainPrice f-txtverCen">
+                            {fzw:p1:danjia/}
+                        </div>
+                        <div class="additionPirce">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen c-subtotal"></div>
+                </li>
+                {/fzw:sql}
             </ul>
-            <div class="container f-pm-0 m-footer">
+            <div class="container f-pm-0 m-footer" id="orderFooter">
                 <div class="row f-pm-0">
                     <div class="col-md-8 col-sm-8 f-pm-0">
                         <div class="row f-pm-0 c-item">
-                            <div class="col-md-2 col-sm-3 f-pm-0 f-text-r name">Ë°•ÂÖÖËØ¥Êòé:</div>
+                            <div class="col-md-2 col-sm-3 f-pm-0 f-text-r name">≤π≥‰Àµ√˜:</div>
                             <div class="col-md-10 col-sm-9 f-pm-0">
                                 <input type="text" id="message">
                             </div>
                         </div>
-                        <div class="row f-pm-0 c-item">
-                            <div class="col-md-2 col-sm-3 f-pm-0 f-text-r name">‰ºòÊÉ†Âà∏:</div>
-                            <div class="col-md-10 col-sm-9 f-pm-0">
-                                <select name="quan">
-                                    <option value="default">Êúâ‰∏§Âº†‰ºòÊÉ†Âà∏ÂèØÁî®</option>
-                                    <option value="20">‰ºòÊÉ†20ÂÖÉ</option>
-                                </select>
+                        <div class="row f-pm-0 c-item orderyhq" id="orderyhq">
+                            <div class="col-md-2 col-sm-3 f-pm-0 f-text-r name">∂©µ•”≈ª›:</div>
+                            <div class="col-md10 col-sm-9 f-pm-0 item">
+
                             </div>
 
                         </div>
+                        <div class="row f-pm-0 c-item productyhq" id="productyhq">
+                            <div class="col-md-2 col-sm-3 f-pm-0 f-text-r name">≤˙∆∑”≈ª›:</div>
+                            <div class="col-md10 col-sm-9 f-pm-0 item">
+
+                            </div>
+                        </div>
+
+
                     </div>
                     <div class="col-md-4 col-sm-4 f-pm-0">
                         <div class="row f-pm-0 c-item">
-                            <div class="col-md-4 col-sm-5 f-pm-0 f-text-r name">ÂïÜÂìÅÂêàËÆ°:</div>
-                            <div class="col-md-8 col-sm-7 f-pm-0 price">Ôø•159.00</div>
+                            <div class="col-md-4 col-sm-5 f-pm-0 f-text-r name">…Ã∆∑∫œº∆:</div>
+                            <div class="col-md-8 col-sm-7 f-pm-0 price" id="allMoney"></div>
+                        </div>
+                        <div class="row f-pm-0 c-item reduce" id="reduce">
+                            <div class="col-md-4 col-sm-5 f-pm-0 f-text-r name">”≈ª›»Øºı√‚:</div>
+                            <div class="col-md-8 col-sm-7 f-pm-0 price" id="reduceMoney"></div>
                         </div>
                         <div class="row f-pm-0 c-item">
-                            <div class="col-md-4 col-sm-5 f-pm-0 f-text-r name">‰ºòÊÉ†Âà∏ÂáèÂÖç:</div>
-                            <div class="col-md-8 col-sm-7 f-pm-0 price">Ôø•2.00</div>
-                        </div>
-                        <div class="row f-pm-0 c-item">
-                            <div class="col-md-4 col-sm-5 f-pm-0 f-text-r name">ËøêË¥π:</div>
-                            <div class="col-md-8 col-sm-7 f-pm-0 price">Ôø•5.00</div>
+                            <div class="col-md-4 col-sm-5 f-pm-0 f-text-r name">‘À∑—:</div>
+                            <div class="col-md-8 col-sm-7 f-pm-0 price" id="flowMoney"></div>
                         </div>
                     </div>
                 </div>
                 <div class="handle f-center">
-                    <div class="totalPrice">Â∫î‰ªòÈáëÈ¢ù:
-                        <span id="totalPrice">Ôø•165.00</span>
+                    <div class="totalPrice">”¶∏∂Ω∂Ó:
+                        <span id="totalPrice"></span>
                     </div>
-                    <button type="button" id="submit" class="submit">Êèê‰∫§ËÆ¢Âçï</button>
+                    <button type="button" id="submitOrder" class="submit">Ã·Ωª∂©µ•</button>
                 </div>
             </div>
         </div>
 
-        <!--Êñ∞Âú∞ÂùÄ-->
-        <!--<div class="f-mask">-->
-            <!--<div class="m-newAddress">-->
-                <!--<div class="m-head">-->
-                    <!--Ê∑ªÂä†Êñ∞Âú∞ÂùÄ-->
-                <!--</div>-->
-                <!--<ul class="m-body container">-->
-                    <!--<li class="row c-item f-pm-0">-->
-                        <!--<div class="col-md-3 col-sm-3 f-pm-0">Êî∂Ë¥ß‰∫∫ÂßìÂêç:</div>-->
-                        <!--<div class="col-md-9 col-sm-9 f-pm-0">-->
-                            <!--<input type="text" name="address">-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li class="row c-item f-pm-0">-->
-                        <!--<div class="col-md-3 col-sm-3 f-pm-0">ÁúÅ/Â∏Ç/Âå∫:</div>-->
-                        <!--<div class="col-md-9 col-sm-9 f-pm-0">-->
-                            <!--<select name="province">-->
-                                <!--<option value="default">ÁúÅ</option>-->
-                            <!--</select>-->
-                            <!--<select name="city">-->
-                                <!--<option value="default">Â∏Ç</option>-->
-                            <!--</select>-->
-                            <!--<select name="area">-->
-                                <!--<option value="default">Âå∫</option>-->
-                            <!--</select>-->
-                        <!--</div>-->
-                    <!--<li>-->
-                    <!--<li class="row c-item f-pm-0">-->
-                        <!--<div class="col-md-3 col-sm-3 f-pm-0">ËØ¶ÁªÜÂú∞ÂùÄ:</div>-->
-                        <!--<div class="col-md-9 col-sm-9 f-pm-0">-->
-                            <!--<input type="text" name="detail" id="detail" class="detail">-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    <!--<li class="row c-item f-pm-0">-->
-                        <!--<div class="col-md-3 col-sm-3 f-pm-0">ËÅîÁ≥ªÁîµËØù:</div>-->
-                        <!--<div class="col-md-9 col-sm-9 f-pm-0">-->
-                            <!--<input type="text" name="tel" id="tel">-->
-                        <!--</div>-->
-                    <!--</li>-->
-                <!--</ul>-->
-                <!--<div class="m-footer f-center">-->
-                    <!--<button type="button" class="btn">‰øùÂ≠òÂú∞ÂùÄ</button>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+        <!--–¬µÿ÷∑-->
+        <div class="f-mask addressMask" id="mask">
+            <div class="m-newAddress" id="newAddress">
+                <span class="f-maskDelate " id="maskDelate"></span>
+                <div class="m-head">
+                    ÃÌº”–¬µÿ÷∑
+                </div>
+                <ul class="m-body container">
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0"> ’ªı»À–’√˚:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="address" id="name">
+                        </div>
+                    </li>
+                    <li class="row c-item f-pm-0 c-areaMenu">
+                        <div class="col-md-3 col-sm-3 f-pm-0"> °/ –/«¯:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <div class="areaItem">
+                                <select id="DropDownList1" name="area">
+
+                                </select>
+                            </div>
+                            <div class="areaItem">
+                                <select id="DropDownList2" name="city">
+
+                                </select>
+                            </div>
+                            <div class="areaItem">
+                                <select id="DropDownList3" name="county">
+
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" name="suozaidiqu" id="suozaidiqu" />
+                    <li>
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">œÍœ∏µÿ÷∑:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="detail" id="detail" class="detail">
+                        </div>
+                    </li>
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">¡™œµµÁª∞:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="tel" id="tel">
+                        </div>
+                    </li>
+                </ul>
+                <div class="m-footer f-center">
+                    <button type="button" class="btn" id="submit">±£¥Êµÿ÷∑</button>
+                </div>
+            </div>
+        </div>
     </div>
+{fzw:inside src="µ◊≤ø.html"/}
+    <script type="text/javascript" src="/inc/area.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var s = ["DropDownList1", "DropDownList2", "DropDownList3"]; //»˝∏ˆselectµƒname
+        var opt0 = [" °∑›", "µÿº∂ –", " –°¢œÿº∂ –"]; //≥ı º÷µ
+        // »Áπ˚”–ƒ¨»œ÷µ µ⁄“ª∏ˆ≤Œ ˝ «ƒ¨»œ÷µ£¨
+        // µ⁄∂˛∏ˆ≤Œ ˝ «ƒ¨»œ÷µ“‘ ≤√¥∑÷∏Ó ƒ¨»œŒ™“ª∏ˆø’∏Ò
+        function _init_area(def, spstr) {  //≥ı ºªØ∫Ø ˝
+            for (i = 0; i < s.length - 1; i++) {
+                document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ")");
+            }
+            if (def != null && def.length > 0) {
+                if (spstr == null || spstr.length < 1) { spstr = ' '; }
+                var areadata = def.split(spstr);
+                if (def.length > 0) {
+                    for (var areai = 0; areai < areadata.length; areai++) {
+                        change(areai);
+                        document.getElementById(s[areai]).value = areadata[areai];
+                    }
+                }
+            } else {
+                change(0);
+            }
+        }
+
+        _init_area("", "-");
+
+    </script>
+    <script type="text/javascript" src="./js/ajax.js"></script>
+    <script type="text/javascript" src="./js/base.js"></script>
+    <script type="text/javascript" src="./js/sureOrder.js"></script>
+<script>
+    var cart = $("#sure");
+    var code = cart.find('.c-item');
+    code.each(function () {
+        {fzw:sql="select gouwuchehao,count(*) as tongji  from sl_cart where yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='') and leixing='◊˜∆∑' group by gouwuchehao" id="p1"}
+        if($(this).attr('data-code') == '{fzw:p1:gouwuchehao/}'){
+            $(this).find('.shuliang').html('{fzw:p1:tongji/}');
+        }
+        {/fzw:sql}
+    })
+</script>
 </body>
 </html>

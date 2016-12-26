@@ -31,12 +31,12 @@
     width: 100%;
     height: 100%;
 }
-.m-message .m-detail .m-head{
-    margin-bottom: 25px;
-}
-.m-message .m-detail .name{
-    font-size: 18px;
-}
+/*.m-message .m-detail .m-head{*/
+    /*margin-bottom: 25px;*/
+/*}*/
+/*.m-message .m-detail .name{*/
+    /*font-size: 18px;*/
+/*}*/
 
 .m-message .m-detail .integral{
     font-size: 16px;
@@ -50,7 +50,6 @@
 .m-message .m-detail .m-body{
 
 }
-.m-message .m-body .tel,
 .m-message .m-body .email,
 .m-message .m-body .sex,
 .m-message .m-body .birth{
@@ -68,5 +67,8 @@
     height: 20px;
     width: 200px;
     padding: 0 5px;
+}
+.m-address .moren{
+    color: #ff4400;
 }
 

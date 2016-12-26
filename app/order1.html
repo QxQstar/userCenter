@@ -6,164 +6,167 @@
     <meta charset="gb2312">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>我的订单</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="./css/base.css" rel="stylesheet">
 
     <link type="text/css" href="./css/order.css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-<header></header>
-<div class="g-container">
+{fzw:inside src="头部.html"/}
+<div class="g-container" id="container">
 <!--二级导航-->
-<ul class="m-subNav f-marTop-120 f-clearfix f-marBom-66">
-    <li class="c-item on f-float-l">我的订单</li>
-    <li class="c-item f-float-l">优惠券</li>
-    <li class="c-item f-float-l">通知</li>
-    <li class="c-item f-float-l last">个人设置</li>
-</ul>
+    <ul class="m-subNav f-marTop-120 f-clearfix f-marBom-40">
+        <li class="c-item f-float-l on"><a href="/search.aspx?m=order1">我的订单</a></li>
+        <li class="c-item f-float-l"><a href="/search.aspx?m=coupons">优惠券</a></li>
+        <li class="c-item f-float-l"><a href="/search.aspx?m=cash">现金券</a></li>
+        <li class="c-item  f-float-l"><a href="/search.aspx?m=inform">通知</a></li>
+        <li class="c-item f-float-l last"><a href="/single.aspx?m=message">个人设置</a></li>
+    </ul>
 <!--订单-->
-<div class="container m-order" id="order">
+<div class="container m-order" >
     <!--三级导航-->
     <div class="row m-navThird f-borTB-5">
         <div class="container m-navContent f-pm-0">
             <div class="row f-pm-0">
                 <ul class="f-pm-0 col-md-11 f-clearfix">
                     <!--三级导航中的导航项-->
-                    <li class="c-item f-float-l on">全部订单</li>
-                    <li class="c-item f-float-l">已购买</li>
-                    <li class="c-item f-float-l last">未付款</li>
+                    {if value1="{fzw:url:zhuangtai/}" value2="" bi="=="}
+                    <li class="c-item f-float-l on">
+                        <a href="/search.aspx?m=order1">全部订单</a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a href="/search.aspx?m=order1&zhuangtai=订单完成">已购买</a>
+                    </li>
+                    <li class="c-item f-float-l last">
+                        <a href="/search.aspx?m=order1&zhuangtai=未付款">未付款</a>
+                    </li>
+                    {else}{/if}
+                    {if value1="{fzw:url:zhuangtai/}" value2="订单完成" bi="=="}
+                    <li class="c-item f-float-l">
+                        <a href="/search.aspx?m=order1">全部订单</a>
+                    </li>
+                    <li class="c-item f-float-l on">
+                        <a href="/search.aspx?m=order1&zhuangtai=订单完成">已购买</a>
+                    </li>
+                    <li class="c-item f-float-l last">
+                        <a href="/search.aspx?m=order1&zhuangtai=未付款">未付款</a>
+                    </li>
+                    {else}{/if}
+                    {if value1="{fzw:url:zhuangtai/}" value2="未付款" bi="=="}
+                    <li class="c-item f-float-l">
+                        <a href="/search.aspx?m=order1">全部订单</a>
+                    </li>
+                    <li class="c-item f-float-l">
+                        <a href="/search.aspx?m=order1&zhuangtai=订单完成">已购买</a>
+                    </li>
+                    <li class="c-item f-float-l on last">
+                        <a href="/search.aspx?m=order1&zhuangtai=未付款">未付款</a>
+                    </li>
+                    {else}{/if}
                 </ul>
                 <div class="f-pm-0 col-md-1 handle">
-                    <a href="#">私信客服</a>
+                    <a href="http://www.xiaoyu4.com/Single.aspx?m=help#BDBridgeFixedWrap">私信客服</a>
                 </div>
             </div>
         </div>
     </div>
     <!--订单列表-->
     <div class="row f-clearfix">
-        <ul class="container m-list f-pm-0">
+        <ul class="container m-list f-pm-0" id="order">
+            {fzw:search table="sl_order" sqlvalue="yonghuming='{fzw:cookie name="user_name" /}'" number="15" order="dtime" orderby="desc" id="p1"}
             <!--订单项-->
-            <li class="row c-item  f-pm-0">
+            <li class="row c-item f-pm-0" data-status="{fzw:p1:dingdanhao sql="sl_cust|where&nbsp;order_code=&dangqian|status"/}"
+                    data-statusid="{fzw:p1:dingdanhao sql="sl_cust|where&nbsp;order_code=&dangqian&nbsp;and&nbsp;status=0|id"/}"
+                    data-id="{fzw:p1:dingdanhao/}">
                 <div class="m-head f-clearfix">
                     <div class="left f-float-l">
-                        <span class="status">已付款</span>
+                        <span class="status">{fzw:p1:zhuangtai /}</span>
                         <div class="info">
-                            <span class="time item">2016年6月8日</span>
-                            <span class="code item">订单号:2456765648</span>
+                            <span class="time item">{fzw:p1:dtime datetime="yyyy-MM-dd" /}</span>
+                            <span class="code item">订单号:{fzw:p1:dingdanhao/}</span>
                         </div>
                     </div>
                     <div class="right f-float-l f-text-r">
-                        订单金额:<span class="c-subtotal">￥67.00</span>
+                        订单金额:<span class="c-subtotal">￥{fzw:p1:jine  string="￥"/}</span>
                     </div>
                 </div>
-                <div class="m-body f-clearfix">
-                    <div class="f-clearfix f-pm-0 col-md-4 col-sm-4 c-desc">
-                        <div class="img f-float-l">
-                            <img src="./img/testImg.jpg">
+                <div class="m-body f-clearfix container f-pm-0" >
+                    <div class="row f-pm-0">
+                        <div class="col-md-11 col-sm-11">
+                            {fzw:for:sql="select * from sl_cart where  yonghuming='{fzw:cookie name="user_name" /}' and dingdanbianhao='{fzw:p1:dingdanhao /}' and leixing='产品' order by id desc" id="p2"}
+                            <div class="row f-pm-0 u-item" data-code="{fzw:p2:gouwuchehao/}" data-type="产品">
+                                <div class="f-clearfix f-pm-0 col-md-4 col-sm-4 c-desc">
+                                    <div class="img f-float-l">
+                                        <img src="{fzw:p2:laiyuanbianhao sql="sl_product|where&nbsp;id=&dangqian|suoluetu" string="zutu"/}">
+                                    </div>
+                                    <div class="profile f-float-l">
+                                        <div class="name">{fzw:p2:biaoti/}</div>
+                                        {if value1="{fzw:p2:gouwuchehao/}" value2!='' bi="=="}
+                                        {else}
+                                        <p class="fold">
+                                            印图:<span class="shuliang" data-code="{fzw:p2:gouwuchehao/}">
+                                            </span> <span class="detail lookOrder">查看详情</span>
+                                        </p>
+                                        {/if}
+                                    </div>
+                                </div>
+                                <div class=" f-pm-0 col-md-7 col-sm-7 c-price ">
+                                    <div class="mainPrice f-txtverCen">
+                                        {fzw:p2:danjia/}
+                                    </div>
+                                    <div class="additionPirce">
+                                        {fzw:for:sql="select sum(xiaoji) as xiaoji from sl_cart where gouwuchehao = '{fzw:p2:gouwuchehao/}' and leixing='作品'" id="p3"}
+                                        {if value1="{fzw:p3:xiaoji/}" value2="" bi="=="}
+                                        {else}
+                                        <span class="add"> + </span>
+                                        <span class='zpPrice'>{fzw:p3:xiaoji/}</span>
+                                        {/if}
+                                        {/fzw:for:sql}
+                                    </div>
+                                </div>
+                            </div>
+                            {/fzw:for:sql}
+                            {fzw:for:sql="select gouwuchehao,count(*) as tongji,shuliang from sl_cart where  yonghuming='{fzw:cookie name="user_name" /}' and dingdanbianhao='{fzw:p1:dingdanhao /}' and leixing='相框' group by gouwuchehao,shuliang" id="p2"}
+                            <div class="row f-pm-0 u-item" data-code="{fzw:p2:gouwuchehao/}" data-type="相框">
+                                <div class="f-clearfix f-pm-0 col-md-4 col-sm-4 c-desc">
+                                    <div class="img f-float-l">
+                                        <img src="./img/testImg.jpg">
+                                    </div>
+                                    <div class="profile f-float-l">
+                                        <div class="name">照片墙diy创意</div>
+                                        <p class="fold">
+                                            相框总数:{fzw:p2:tongji/} <span class="detail lookOrder">查看详情</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class=" f-pm-0 col-md-7 col-sm-7 c-price ">
+                                    <div class="mainPrice f-txtverCen">
+                                        {fzw:for:sql="select sum(danjia) as danjia from sl_cart where gouwuchehao = '{fzw:p2:gouwuchehao/}'" id="p3"}
+                                        {fzw:p3:danjia/}
+                                        {/fzw:for:sql}
+                                    </div>
+                                    <div class="additionPirce">
+                                    </div>
+                                </div>
+                            </div>
+                            {/fzw:for:sql}
                         </div>
-                        <div class="profile f-float-l">
-                            <div class="name">HIMETAL纳斯光择缓温杯</div>
-                            <p class="fold lookOrder">
-                                印图:1 查看详情
-                            </p>
-                        </div>
-                    </div>
-                    <div class=" f-pm-0 col-md-7 col-sm-7 c-price ">
-                        <div class="mainPrice f-txtverCen">
-                            58.90
-                        </div>
-                        <div class="additionPirce">
-                            <span class="add"> + </span>
-                            <span class="zpPrice">5.00</span>
-                        </div>
-                    </div>
-                    <div class="f-pm-0 col-md-1 col-sm-1 handle f-center">
-                        <div class="flow lookFlow">
-                            查看物流
-                        </div>
-                        <div class="other">
-                            取消订单
-                        </div>
-                    </div>
-                </div>
-                <!--<div class=" f-pm-0 col-md-1 col-sm-1 f-txtverCen num">-->
-                    <!--1-->
-                <!--</div>-->
-                <!--<div class=" f-pm-0 col-md-2 col-sm-2 f-txtverCen bianhao">-->
-                    <!--124463768343-->
-                <!--</div>-->
-                <!--<div class="f-pm-0 col-md-2 col-sm-2 f-txtverCen total">-->
-                    <!--64.80-->
-                <!--</div>-->
-                <!--<div class="f-pm-0 col-md-1 col-sm-1 f-txtverCen status">-->
-                    <!--未付款-->
-                <!--</div>-->
+                        <div class="f-pm-0 col-md-1 col-sm-1 handle f-center">
+                           
 
-            </li>
-            <li class="row c-item  f-pm-0">
-                <div class="m-head f-clearfix">
-                    <div class="left f-float-l">
-                        <span class="status">已付款</span>
-                        <div class="info">
-                            <span class="time item">2016年6月8日</span>
-                            <span class="code item">订单号:2456765648</span>
-                        </div>
-                    </div>
-                    <div class="right f-float-l f-text-r">
-                        订单金额:<span class="c-subtotal">￥67.00</span>
-                    </div>
-                </div>
-                <div class="m-body f-clearfix">
-                    <div class="f-clearfix f-pm-0 col-md-4 col-sm-4 c-desc">
-                        <div class="img f-float-l">
-                            <img src="./img/testImg.jpg">
-                        </div>
-                        <div class="profile f-float-l">
-                            <div class="name">HIMETAL纳斯光择缓温杯</div>
-                            <p class="fold lookOrder">
-                                印图:1 查看详情
-                            </p>
-                        </div>
-                    </div>
-                    <div class=" f-pm-0 col-md-7 col-sm-7 c-price ">
-                        <div class="mainPrice f-txtverCen">
-                            58.90
-                        </div>
-                        <div class="additionPirce">
-                            <span class="add"> + </span>
-                            <span class="zpPrice">5.00</span>
-                        </div>
-                    </div>
-                    <div class="f-pm-0 col-md-1 col-sm-1 handle f-center">
-                        <div class="flow lookFlow">
-                            查看物流
-                        </div>
-                        <div class="other">
-                            取消订单
                         </div>
                     </div>
                 </div>
-                <!--<div class=" f-pm-0 col-md-1 col-sm-1 f-txtverCen num">-->
-                <!--1-->
-                <!--</div>-->
-                <!--<div class=" f-pm-0 col-md-2 col-sm-2 f-txtverCen bianhao">-->
-                <!--124463768343-->
-                <!--</div>-->
-                <!--<div class="f-pm-0 col-md-2 col-sm-2 f-txtverCen total">-->
-                <!--64.80-->
-                <!--</div>-->
-                <!--<div class="f-pm-0 col-md-1 col-sm-1 f-txtverCen status">-->
-                <!--未付款-->
-                <!--</div>-->
-
             </li>
+            {/fzw:search}
         </ul>
         <!--翻页-->
         <div class="m-page f-float-r">
-            共<span class="totalPage">3</span>条记录
-            <span class="pre" id="pre">上一页</span>
-            <span class="cur">1/1</span>
-            <span class="next" id="next">下一页</span>
+            <div class="page">
+                {fzw:search:page id="p1" size="8"/}
+            </div>
         </div>
     </div>
 
@@ -172,17 +175,17 @@
 <!--物流信息-->
 <div class="f-mask flowMask" id="flowMask">
     <div id='flowMag' class="m-flowMsg">
-        <span class="f-maskDelate"></span>
+        <span class="f-maskDelate" id="maskDelate"></span>
         <div class="m-head f-clearfix">
             <p class="title f-float-l">物流信息</p>
             <p class="bianhao f-float-r">
-                订单编号：12434567876
+                订单编号：<span id="orderCode">12434567876</span>
             </p>
         </div>
         <p class="m-body f-center">
 
-            快递公司：韵达<br>
-            物流编号：12234468563633   <span class="copy" id="copy">复制</span>
+            快递公司：<span id="company">韵达</span><br>
+            物流编号：<span id="flowCode">12234468563633</span>   <span class="copy" id="copy">复制</span>
 
         </p>
     </div>
@@ -194,8 +197,10 @@
 
 
 </div>
-<script type="text/javascript" src="./js/jquery.min.js"></script>
+{fzw:inside src="底部.html"/}
+<script type="text/javascript" src="./js/ZeroClipboard.min.js"></script>
 <script type="text/javascript" src="./js/ajax.js"></script>
 <script type="text/javascript" src="./js/base.js"></script>
+<script type="text/javascript" src="./js/order1.js"></script>
 </body>
 </html>

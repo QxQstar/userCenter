@@ -185,12 +185,17 @@ ul ,li {
 .m-subNav .c-item{
     position: relative;
     padding: 0 10px 0 0;
-    font-size: 18px;
+    /*font-size: 18px;*/
     cursor: pointer;
 
 }
+.m-subNav .c-item a{
+    font-size: 18px;
+    color: #404040;
+}
 @media all and (max-width: 1440px) {
-    .m-subNav .c-item{
+
+    .m-subNav .c-item a{
         font-size: 16px;
     }
 }
@@ -202,7 +207,8 @@ ul ,li {
     padding: 0;
     margin: 0 20px 0 0;
     cursor: pointer;
-}.m-navThird .c-item a{
+}
+.m-navThird .c-item a{
     color: inherit;
     font-size: inherit;
  }
@@ -221,7 +227,7 @@ ul ,li {
 .m-navThird .c-item.last:after{
     content: "";
 }
-.m-subNav .on{
+.m-subNav .on a{
     color: #ff4400;
 }
 .m-navThird .on{

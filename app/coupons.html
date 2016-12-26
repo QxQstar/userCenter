@@ -4,97 +4,80 @@
     <meta charset="gb2312">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>优惠券</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="./css/base.css" rel="stylesheet">
 
     <link type="text/css" href="./css/coupons.css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-    <header></header>
-    <div class="g-container">
+{fzw:inside src="头部.html"/}
+    <div class="g-container" id="container">
         <!--二级导航-->
         <ul class="m-subNav f-marTop-120 f-clearfix f-marBom-40">
             <li class="c-item f-float-l">我的订单</li>
-            <li class="c-item f-float-l">优惠券</li>
-            <li class="c-item on f-float-l">通知</li>
+            <li class="c-item f-float-l on">优惠券</li>
+            <li class="c-item  f-float-l">通知</li>
             <li class="c-item f-float-l last">个人设置</li>
         </ul>
         <!--优惠券列表-->
-        <ul class="m-coupons f-borTB-5 f-clearfix">
-            <li class="c-item f-float-l ">
+        <ul class="m-coupons f-borTB-5 f-clearfix" id="coupons">
+            {fzw:search table="sl_user_yhq" sqlvalue="yonghuming='{fzw:cookie name="user_name" /}'" number="15" order="dtime" orderby="desc" id="p1"}
+            <li class="c-item f-float-l">
+                {fzw:sql="select * from sl_youhuiquan where youhuiquanbianhao='{fzw:p1:youhuiquanbianhao/}'" id="p2"}
+                {if value1="{fzw:p1:zhuangtai/}" value2="未使用" bi="=="}
                 <div class="couponBox unused f-clearfix">
+                    {else}{/if}
+                {if value1="{fzw:p1:zhuangtai/}" value2="已使用" bi="=="}
+                    <div class="couponBox used f-clearfix">
+                        {else}{/if}
+                {if value1="{fzw:p1:zhuangtai/}" value2="过期" bi="=="}
+                        <div class="couponBox overdue f-clearfix">
+                            {else}{/if}
                     <div class="status f-float-l f-center">
-                        <span>未使用</span>
+                        <span>{fzw:p1:zhuangtai/}</span>
                     </div>
                     <div class="m-body f-float-l">
                         <div class="title">
-                            <span class="money">￥20</span>优惠券
+                            <span class="money">￥{fzw:p2:mianzhi/}</span>
+                            <span>{fzw:p2:biaoti/}</span>
                         </div>
                         <div class="notice f-text-r">
-                            <div class="condition">条件条件条件条件条件</div>
-                            <div class="time">有效期:2017.1.1-2017.2.1</div>
+                            <div class="condition" data-id="{fzw:p2:pr_id/}">
+                                {if value1="{fzw:p2:suoxuxiaofeijine/}" value2="0" bi="=="}
+                                {else}
+                                满{fzw:p2:suoxuxiaofeijine/}即可使用,
+                                {/if}
+                                {if value1="{fzw:p2:pr_type/}" value2="相框" bi="=="}
+                                仅限diy相框
+                                {else}
+                                <span class="product_cont"></span>
+                                {/if}
+                            </div>
+                            <div class="time">截止日期:{fzw:p2:youxiaoqi datetime="yyyy-MM-dd HH:ii:ss"/}</div>
                         </div>
                     </div>
                 </div>
+                {/fzw:sql}
             </li>
-            <li class="c-item f-float-l ">
-                <div class="couponBox used f-clearfix">
-                    <div class="status f-float-l f-center">
-                        <span>已使用</span>
-                    </div>
-                    <div class="m-body f-float-l">
-                        <div class="title">
-                            <span class="money">￥20</span>优惠券
-                        </div>
-                        <div class="notice f-text-r">
-                            <div class="condition">件条件条件条件条件条件</div>
-                            <div class="time">有效期:2017.1.1-2017.2.1</div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="c-item f-float-l ">
-                <div class="couponBox overdue f-clearfix">
-                    <div class="status f-float-l f-center">
-                        <span>已过期</span>
-                    </div>
-                    <div class="m-body f-float-l">
-                        <div class="title">
-                            <span class="money">￥20</span>优惠券
-                        </div>
-                        <div class="notice f-text-r">
-                            <div class="condition">条件条件条件条件条件</div>
-                            <div class="time">有效期:2017.1.1-2017.2.1</div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="c-item f-float-l ">
-                <div class="couponBox unused f-clearfix">
-                    <div class="status f-float-l f-center">
-                        <span>未使用</span>
-                    </div>
-                    <div class="m-body f-float-l">
-                        <div class="title">
-                            <span class="money">￥20</span>优惠券
-                        </div>
-                        <div class="notice f-text-r">
-                            <div class="condition">条件条件条件条件条件</div>
-                            <div class="time">有效期:2017.1.1-2017.2.1</div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            {/fzw:search}
         </ul>
 
         <!--翻页-->
         <div class="m-page f-float-r">
-            共<span class="totalPage">3</span>条记录
-            <span class="pre" id="pre">上一页</span>
-            <span class="cur">1/1</span>
-            <span class="next" id="next">下一页</span>
+            <!--共<span class="totalPage">3</span>条记录-->
+            <!--<span class="pre" id="pre">上一页</span>-->
+            <!--<span class="cur">1/1</span>-->
+            <!--<span class="next" id="next">下一页</span>-->
+            <div class="page">
+                {fzw:search:page id="p1" size="8"/}
+            </div>
         </div>
 
     </div>
+{fzw:inside src="底部.html"/}
+<script type="text/javascript" src="./js/ajax.js"></script>
+<script type="text/javascript" src="./js/coupons.js"></script>
 </body>
 </html>
