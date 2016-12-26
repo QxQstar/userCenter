@@ -438,6 +438,30 @@ Base.prototype.setSubtotal = function(){
     }
     return this;
 };
+/**
+ * 获取印图数量
+ * @returns {Base}
+ */
+Base.prototype.getNum = function(){
+    var cart,order,sure,container,num,curWarp;
+    container = $('#container');
+    cart = container.find('#cart');
+    order = container.find('#order');
+    sure = container.find('#sure');
+
+    if(sure.length > 0){
+        curWarp = sure;
+    }else if(order.length > 0){
+        curWarp = order;
+    }else if(cart.length > 0){
+        curWarp = cart;
+    }else{
+        return this;
+    }
+    num = curWarp.find('.shuliang');
+    ajaxObj.getNum(num);
+    return this;
+};
 //发送ajax的对象
 var ajaxObj = new Ajax();
 
@@ -445,6 +469,7 @@ var baseObj = new Base();
 
 baseObj
     .init()
+    .getNum()
     .setSubtotal()
     .switchAdd()
     .lookDetail()

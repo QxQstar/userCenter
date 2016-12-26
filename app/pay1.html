@@ -32,7 +32,7 @@
                         <div class="profile f-float-l">
                             <div class="name">{fzw:p1:biaoti/}</div>
                             <p class="fold">
-                                印图:<span class="shuliang"></span><br/>
+                                印图:<span class="shuliang" data-code="{fzw:p1:gouwuchehao/}"></span><br/>
                                 TORCHWOOD
                             </p>
                         </div>
@@ -54,7 +54,36 @@
                             {/fzw:for:sql}
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen c-subtotal">65.00</div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen c-subtotal"></div>
+                </li>
+                {/fzw:for:sql}
+                {fzw:for:sql="select gouwuchehao,count(*) as tongji,shuliang from sl_cart where dingdanbianhao = '{fzw:url:order/}' and leixing='相框' group by shuliang,gouwuchehao" id="p1"}
+                <li class="c-item row f-pm-0" data-code="{fzw:p1:gouwuchehao/}">
+                    <div class="col-md-5 col-sm-5 f-pm-0 c-desc">
+                        <div class="img f-float-l">
+                            <img src="./img/testImg.jpg">
+                        </div>
+                        <div class="profile f-float-l">
+                            <div class="name">照片墙diy创意</div>
+                            <p class="fold">
+                                相框总数:{fzw:p1:tongji/} </span><br/>
+                                TORCHWOOD
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 f-pm-0 f-txtverCen">
+                        X <span class="num">{fzw:p1:shuliang/}</span>
+                    </div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 c-price f-center">
+                        <div class="mainPrice f-txtverCen">
+                            {fzw:for:sql="select sum(danjia) as danjia from sl_cart where gouwuchehao = '{fzw:p1:gouwuchehao/}'" id="p2"}
+                            {fzw:p2:danjia/}
+                            {/fzw:for:sql}
+                        </div>
+                        <div class="additionPirce">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 f-pm-0 f-center f-txtverCen c-subtotal"></div>
                 </li>
                 {/fzw:for:sql}
             </ul>
@@ -100,12 +129,17 @@
         <div class="m-pay f-marTop-60" id="payMethod">
             <!--<div class="m-head f-center">选择支付方式</div>-->
             <!--使用现金券支付-->
+            {fzw:sql="select Top 1 * from sl_ticket where yonghuming='{fzw:cookie name="user_name" /}' order by dtime desc" id="p1"}
+            {if value1="{fzw:p1:charge/}" value2="0" bi=">"}
             <div class="m-cash f-marTop-60 f-center">
                 <div class="m-head f-center">使用现金券支付</div>
                 <div class="m-body f-marTop-20">
                     <div class="icon" id="cashpay"></div>
                 </div>
             </div>
+            {else}
+            {/if}
+            {/fzw:sql}
             <!--微信和支付宝-->
             <div class="m-default f-marTop-60 f-center">
                 <div class="m-head f-center">使用支付宝或微信支付</div>

@@ -9,16 +9,16 @@ function Order(){
     this.order = $('#order');
 }
 /**
- *
+ * 获取印图数量
  * @returns {Order}
  */
-Order.prototype.getNum = function(){
-    var num ,order;
-    order = this.order;
-    num = order.find('.shuliang');
-    ajaxObj.getNum(num);
-    return this;
-};
+//Order.prototype.getNum = function(){
+//    var num ,order;
+//    order = this.order;
+//    num = order.find('.shuliang');
+//    ajaxObj.getNum(num);
+//    return this;
+//};
 /**
  *  根据订单的状态设计可进行的操作
  * @returns {Order}
@@ -136,7 +136,6 @@ Order.prototype.shouhuo = function(){
 var ajaxObj = new Ajax();
 var orderObj = new Order();
 orderObj
-    .getNum()
     .setHandle()
     .deleteOrder()
     .lookFlow()

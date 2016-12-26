@@ -9,17 +9,25 @@
     <link type="text/css" href="./css/base.css" rel="stylesheet">
     <link type="text/css" href="./css/cash.css" rel="stylesheet">
     <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+    <style>
+        .nav li {
+            float: left;
+            /* font-size: 16px; */
+             margin: 0;
+            /* line-height: 64px; */
+        }
+    </style>
 </head>
 <body>
 {fzw:inside src="头部.html"/}
     <div class="g-container" id="container">
         <!--二级导航-->
         <ul class="m-subNav f-marTop-120 f-clearfix f-marBom-40">
-            <li class="c-item f-float-l">我的订单</li>
-            <li class="c-item f-float-l">优惠券</li>
-            <li class="c-item f-float-l on">现金券</li>
-            <li class="c-item  f-float-l">通知</li>
-            <li class="c-item f-float-l last">个人设置</li>
+            <li class="c-item f-float-l"><a href="/search.aspx?m=order1">我的订单</a></li>
+            <li class="c-item f-float-l"><a href="/search.aspx?m=coupons">优惠券</a></li>
+            <li class="c-item f-float-l on"><a href="/search.aspx?m=cash">现金券</a></li>
+            <li class="c-item  f-float-l"><a href="/search.aspx?m=inform">通知</a></li>
+            <li class="c-item f-float-l last"><a href="/single.aspx?m=message">个人设置</a></li>
         </ul>
         <div class="m-cash f-borTB-5 container f-pm-0" id="cash">
             <div class="m-head f-clearfix row f-pm-0">
@@ -50,7 +58,7 @@
                             {fzw:search table="sl_ticket" sqlvalue="yonghuming='{fzw:cookie name="user_name" /}'" number="15" order="dtime" orderby="desc" id="p1"}
                             <li class="row f-pm-0 c-item">
                                 <div class="col-md-2 col-sm-2 f-pm-0">
-                                    {fzw:p1:dtime datetime="yyyy-MM-dd" /}
+                                    {fzw:p1:dtime /}
                                 </div>
                                 <div class="col-md-1 col-sm-1 f-pm-0">
                                     {fzw:p1:event/}
@@ -72,6 +80,10 @@
 
         <!--翻页-->
         <div class="m-page f-float-r">
+            <!--共<span class="totalPage">3</span>条记录-->
+            <!--<span class="pre" id="pre">上一页</span>-->
+            <!--<span class="cur">1/1</span>-->
+            <!--<span class="next" id="next">下一页</span>-->
             <div class="page">
                 {fzw:search:page id="p1" size="8"/}
             </div>

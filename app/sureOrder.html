@@ -6,11 +6,12 @@
     <title>确认订单</title>
     <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="./css/base.css" rel="stylesheet">
+    <link type="text/css" href="./css/sureOrder.css" rel="stylesheet">
     <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
 {fzw:inside src="头部.html"/}
-    <div class="g-container">
+    <div class="g-container" id="container">
         <!--进度-->
         <ul class="m-progress f-marTop-120 f-center">
             <li class="c-item">购物车</li>
@@ -111,7 +112,7 @@
                         <div class="profile f-float-l">
                             <div class="name">{fzw:p1:biaoti/}</div>
                             <p class="fold">
-                                印图:<span class="shuliang"></span>
+                                印图:<span class="shuliang" data-code="{fzw:p1:gouwuchehao/}"></span>
                             </p>
                         </div>
                     </div>
@@ -295,16 +296,5 @@
     <script type="text/javascript" src="./js/ajax.js"></script>
     <script type="text/javascript" src="./js/base.js"></script>
     <script type="text/javascript" src="./js/sureOrder.js"></script>
-<script>
-    var cart = $("#sure");
-    var code = cart.find('.c-item');
-    code.each(function () {
-        {fzw:sql="select gouwuchehao,count(*) as tongji  from sl_cart where yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='') and leixing='作品' group by gouwuchehao" id="p1"}
-        if($(this).attr('data-code') == '{fzw:p1:gouwuchehao/}'){
-            $(this).find('.shuliang').html('{fzw:p1:tongji/}');
-        }
-        {/fzw:sql}
-    })
-</script>
 </body>
 </html>

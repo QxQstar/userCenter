@@ -52,6 +52,10 @@
     </ul>
     <!--翻页-->
     <div class="m-page f-float-r">
+        <!--共<span class="totalPage">3</span>条记录-->
+        <!--<span class="pre" id="pre">上一页</span>-->
+        <!--<span class="cur">1/1</span>-->
+        <!--<span class="next" id="next">下一页</span>-->
         <div class="page">
             {fzw:search:page id="p1" size="8"/}
         </div>
@@ -64,7 +68,7 @@
         var url = '/pw/index.php/api/message/changeStatus';
         var data = {
             'username':username
-        };
+        }
         $.post(url,data, function (result) {
             if(result.status){
 
