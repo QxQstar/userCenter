@@ -596,3 +596,22 @@ Ajax.prototype.cashRecharge = function(data){
         }
     });
 };
+/**
+ * 使用快钱支付
+ * @param data
+ */
+Ajax.prototype.bankPay = function(data){
+    $.ajax({
+        type:'post',
+        url:'/pw/index.php/api/order/kuaiqian',
+        data:data,
+        dataType:'json',
+        success:function(result){
+            if(result.status){
+               location.href = 'http://www.xiaoyu4.com/pay/rmb_demo_php/send.php';
+            }else{
+                alert(result.msg);
+            }
+        }
+    });
+};

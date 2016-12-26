@@ -139,6 +139,37 @@ Pay.prototype.cashPay = function(){
     }
     return this;
 };
+/**
+ * 使用快钱支付
+ * @returns {Pay}
+ */
+Pay.prototype.bankPay = function(){
+    var bank,items,sure,link,data,name;
+    bank = $('#bank');
+    sure = this.sure;
+    items = sure.find('.c-item');
+    name = [];
+    items.each(function (index, item) {
+        var $item;
+        $item = $(item);
+        name.push($item.find('.name').html());
+    });
+    data = {
+        code: sure.attr('order-code'),
+        name: name.join(',')
+    };
+    link = bank.find('.c-item');
+    link
+        .unbind('click')
+        .on('click',function(){
+            var $this;
+            $this = $(this);
+            data.bank_id = $this.attr('data-id');
+            ajaxObj.bankPay(data);
+
+        });
+    return this;
+};
 var ajaxObj = new Ajax();
 var payObj = new Pay();
 
@@ -146,4 +177,5 @@ payObj
     .isSpread()
     .aliPay()
     .weixinPay()
-    .cashPay();
+    .cashPay()
+    .bankPay();

@@ -167,86 +167,13 @@
                     </button>
                 </div>
                 <ul class="m-body f-clearfix f-overHidden f-marTop-20" id="bank">
-                    <li class="c-item f-float-l">
+                    {fzw:sql="select * from sl_bank order by id asc" id="p1"}
+                    <li class="c-item f-float-l" data-id="{fzw:p1:daima/}" data-name="ÒøÐÐ¿¨_{fzw:p1:yinxingmingcheng/}">
                         <a class="link">
-                            <img src="./img/back.jpg">
+                            <img src="{fzw:p1:tubiao/}">
                         </a>
                     </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
-                    <li class="c-item f-float-l">
-                        <a class="link">
-                            <img src="./img/back.jpg">
-                        </a>
-                    </li>
+                    {/fzw:sql}
                 </ul>
             </div>
 

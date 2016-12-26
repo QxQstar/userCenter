@@ -80,12 +80,14 @@
 }
 .m-pay .m-bank .c-item{
     margin: 0 12px 15px ;
-    padding: 15px 20px;
+    padding: 10px;
     border: 1px solid #d8d8d8;
     cursor: pointer;
 }
 .m-pay .m-bank .link{
     display: block;
+    height: 39px;
+    width: 120px;
 }
 .m-pay .m-cash .icon{
     width: 350px;
@@ -94,3 +96,4 @@
     margin-left: auto;
    border: 2px solid #b2b2b2;;
 }
+
