@@ -117,28 +117,40 @@ Cash.prototype.codeRecharge = function(){
  * @returns {Cash}
  */
 Cash.prototype.cashRecharge = function(){
-    var aliPay,weixinpay,recharge,jine;
+    var aliPay,weixinpay,recharge,jine,bank;
     recharge = this.recharge;
     aliPay = recharge.find('#alipay');
     weixinpay = recharge.find('#weixinpay');
     jine = recharge.find('#jine');
+    bank = recharge.find('#bank');
     aliPay
         .unbind('click')
         .on('click',payHandle);
     weixinpay
         .unbind('click')
         .on('click',payHandle);
-
+    bank
+        .find('.c-item')
+        .unbind('click')
+        .on('click',payHandle);
     function payHandle(event){
         event.stopPropagation();
         var jineVal,$target;
         jineVal= jine.val().trim();
         $target = $(this);
         if(/^\d+\.?\d*$/.test(jineVal)){
-            ajaxObj.cashRecharge({
-                type:$target.attr('id'),
-                price:  parseFloat( jineVal )
-            });
+            if($target.attr('id')) {
+                ajaxObj.cashRecharge({
+                    type: $target.attr('id'),
+                    price: parseFloat(jineVal)
+                });
+            }else{
+                ajaxObj.cashRecharge({
+                    type:'bank',
+                    bank_id:$target.attr('data-id'),
+                    price: parseFloat(jineVal)
+                });
+            }
         }
 
     }
