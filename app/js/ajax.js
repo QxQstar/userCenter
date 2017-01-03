@@ -22,10 +22,12 @@ Ajax.prototype.cartDelete = function(data){
         dataType:'json',
         success:function(result){
             if(result.status){
-                alert(result.msg);
-                location.reload();
+                layer.alert(result.msg,function(){
+                    location.reload();
+                });
+
             }else{
-                alert(result.msg);
+                layer.alert(result.msg);
             }
         }
     });
@@ -142,8 +144,9 @@ Ajax.prototype.setAdd = function (data) {
         dataType:'json',
         success:function(result){
             if(result.status){
-                alert(result.msg);
-                location.reload();
+                layer.alert(result.msg,function(){
+                    location.reload();
+                });
             }
         }
     });
@@ -160,8 +163,9 @@ Ajax.prototype.deleteAdd = function (data) {
         dataType:'json',
         success:function(result){
             if(result.status){
-                alert(result.msg);
-                location.reload();
+                layer.alert(result.msg,function(){
+                    location.reload();
+                });
             }
         }
     });
@@ -178,8 +182,9 @@ Ajax.prototype.newAdd = function(data){
         dataType:'json',
         success:function(result){
             if(result.status){
-                alert(result.msg);
-                location.reload();
+                layer.alert(result.msg,function(){
+                    location.reload();
+                });
             }
         }
     });
@@ -356,8 +361,10 @@ Ajax.prototype.shouhuo = function(data){
         dataType:'json',
         success:function(result){
             if(result.status){
-                alert(result.msg);
-                location.reload();
+                layer.alert(result.msg,function(){
+                    location.reload();
+                });
+
             }
         }
     });
@@ -397,9 +404,12 @@ Ajax.prototype.deleteOrder = function(data){
         data:data,
         dataType:'json',
         success:function(result){
-            alert(result.msg);
             if(result.status){
-              location.reload();
+                layer.alert(result.msg,function(){
+                    location.reload();
+                });
+            }else{
+                layer.alert(result.msg);
             }
         }
     });
@@ -549,9 +559,13 @@ Ajax.prototype.cashPay = function(data){
         data:data,
         dataType:'json',
         success:function(result){
-            alert(result.msg);
             if(result.status){
-                location.href ='/search.aspx?m=order1'
+                layer.alert(result.msg,function(){
+                    location.href ='/search.aspx?m=order1'
+                });
+
+            }else{
+                layer.alert(result.msg);
             }
         }
     });
@@ -568,8 +582,10 @@ Ajax.prototype.codeRecharge = function(data){
         dataType:'json',
         success:function(result){
             if(result.status){
-                alert(result.msg);
-                location.reload();
+                layer.alert(result.msg,function(){
+                    location.reload();
+                });
+
             }
         }
     });
@@ -591,6 +607,8 @@ Ajax.prototype.cashRecharge = function(data){
                     location.href = 'http://www.xiaoyu4.com/pay/alipay/alipayapi.php'
                 }else if(type === 'weixinpay'){
                     location.href = '/inc/weixinpay/demo/native_dynamic_qrcode.php?dingdanhao='+result.data.order_code +'&bodystr='+result.data.order_code + '&jine='+result.data.price*100;
+                }else{
+                    location.href = 'http://www.xiaoyu4.com/pay/rmb_demo_php/send.php';
                 }
             }
         }
@@ -610,7 +628,7 @@ Ajax.prototype.bankPay = function(data){
             if(result.status){
                location.href = 'http://www.xiaoyu4.com/pay/rmb_demo_php/send.php';
             }else{
-                alert(result.msg);
+                layer.alert(result.msg);
             }
         }
     });

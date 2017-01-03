@@ -9,14 +9,7 @@
     <link type="text/css" href="./css/base.css" rel="stylesheet">
     <link type="text/css" href="./css/cash.css" rel="stylesheet">
     <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
-    <style>
-        .nav li {
-            float: left;
-            /* font-size: 16px; */
-             margin: 0;
-            /* line-height: 64px; */
-        }
-    </style>
+    <script src="/inc/layer/layer.js" type="text/javascript"></script>
 </head>
 <body>
 {fzw:inside src="头部.html"/}
@@ -119,7 +112,7 @@
 
                     <div class="cashPay" id="payMethod">
                         <!--支付宝和微信支付-->
-                        <ul class="m-default f-marTop-60 f-center">
+                        <ul class="m-default f-marTop-20 f-center">
                             <li class="c-item">
                                 <div class="icon" id="alipay"></div>
                                 <p class="desc">进入支付宝界面进行支付</p>
@@ -141,26 +134,13 @@
                                 </button>
                             </div>
                             <ul class="m-body f-clearfix f-overHidden f-center" id="bank">
-                                <li class="c-item">
+                                {fzw:sql="select * from sl_bank order by id asc" id="p1"}
+                                <li class="c-item f-float-l" data-id="{fzw:p1:daima/}" data-name="银行卡_{fzw:p1:yinxingmingcheng/}">
                                     <a class="link">
-                                        <img src="./img/back.jpg">
+                                        <img src="{fzw:p1:tubiao/}">
                                     </a>
                                 </li>
-                                <li class="c-item">
-                                    <a class="link">
-                                        <img src="./img/back.jpg">
-                                    </a>
-                                </li>
-                                <li class="c-item">
-                                    <a class="link">
-                                        <img src="./img/back.jpg">
-                                    </a>
-                                </li>
-                                <li class="c-item">
-                                    <a class="link">
-                                        <img src="./img/back.jpg">
-                                    </a>
-                                </li>
+                                {/fzw:sql}
                             </ul>
                         </div>
                     </div>
