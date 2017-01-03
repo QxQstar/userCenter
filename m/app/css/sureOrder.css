@@ -1,0 +1,23 @@
+/*.m-address .m-list{*/
+    /*padding-top: 20px;*/
+    /*overflow: hidden;*/
+/*}*/
+/*.m-address .c-item{*/
+    /*width: 100%;*/
+    /*padding: 5px;*/
+    /*border: 1px solid #bebebe;*/
+    /*border-radius: 0 0 15px;*/
+    /*background-color: #ffffff;*/
+/*}*/
+/*.m-address .c-item+.c-item{*/
+    /*margin-top: 20px;*/
+/*}*/
+/*.m-address .m-body .info{*/
+    /*font-size: 13px;*/
+    /*border-radius: 0 0 5px 5px;*/
+    /*color: #fff;*/
+    /*height: 30px;*/
+    /*line-height: 30px;*/
+    /*display: none;*/
+    /*background-color: #ff4400;*/
+/*}*/

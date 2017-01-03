@@ -1,0 +1,196 @@
+
+
+.g-container .m-order{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+
+.m-order .m-list{
+    margin: 60px 0;
+    width: 100%;
+}
+.m-order .m-list .c-item{
+    position: relative;
+    border: 1px solid #999999;
+    border-top: none;
+    background-color: #ffffff;
+    border-radius: 0 0 15px 0;
+}
+.m-order .m-list .c-item:before{
+    content: "";
+    height: 7px;
+    width: 100%;
+    position: absolute;
+    top:-2px;
+    left: 0;
+    right: 0;
+    border-radius: 3px 3px 0 0;
+    background-color: #ff4400;
+}
+.m-order .m-list .c-item+.c-item{
+    margin-top: 60px;
+}
+.m-order .m-list .m-head{
+    padding: 5px;
+    border-bottom: 1px solid #bebebe;
+    border-radius: 3px 3px 0 0;
+    font-size: 12px;
+}
+.m-order .m-list .status{
+    font-size: 14px;
+    color: #606060;
+    line-height: 1.7;
+}
+.m-order .m-list .info .item{
+    font-size: 12px;
+    color: #404040;
+}
+.m-order .m-list .info .item+.item{
+    position: relative;
+    margin-left: 10px;
+}
+.m-order .m-list .info .item+.item:before{
+    content: '|';
+    position: absolute;
+    color: #202020;
+    font-size: 12px;
+    left: -8px;
+}
+.m-order .m-list .c-item .m-body{
+    padding: 10px 5px;
+}
+.m-order .m-list .u-item{
+    position: relative;
+    padding: 10px 0;
+}
+.m-order .m-list .u-item+.u-item{
+    border-top: 1px solid #ebe6e6;
+}
+.m-order .m-list .u-item .bottom{
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+    right: 20px;
+}
+.m-order .m-list .right{
+    font-size: 14px;
+    color: #404040;
+}
+.m-order .m-list .c-subtotal{
+    font-size: 14px;
+}
+.m-order .m-list .c-desc{
+    text-align: left;
+}
+
+.m-order .img{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+.m-order .m-list .profile{
+    height: 100%;
+}
+
+.m-order .m-list .name{
+    font-size: 14px;
+}
+.m-order .m-list .fold{
+
+
+    color: #bd3337;
+    margin: 0;
+    cursor: pointer;
+}
+.m-order .m-list .fold span{
+    font-size: 12px;
+}
+.m-order .m-list .c-price{
+    font-size: 14px;
+    width: 100%;
+}
+
+.m-order .c-price .additionPirce{
+    color: #be1919;
+    margin-left: 20px;
+}
+.m-order .additionPirce .add{
+    color: #be1919;
+}
+
+
+.m-order .m-list .num{
+    font-size: 14px;
+}
+.m-order .m-list .handle{
+    margin-top: 20px;
+
+}
+
+.m-order .handle .item{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    font-size: 12px;
+    color: #fff;
+    background-color: #ff4400;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+.m-order .handle .item:hover{
+    text-decoration: underline;
+}
+.m-order .handle .item.write:hover{
+    text-decoration: none;
+}
+.m-order .m-list .u-item +.u-item{
+    margin-top: 10px;
+}
+/*物流信息*/
+.m-flowMsg{
+    position: absolute;
+    padding: 16px 28px;
+    width: 90%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 220px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #888;
+}
+
+.m-flowMsg .m-head{
+    height: 30px;
+    border-bottom: 1px solid #969696;
+
+}
+
+.m-flowMsg .title,
+.m-flowMsg .bianhao{
+    font-size: 14px;
+}
+
+.m-flowMsg .m-body{
+    padding: 25px 0;
+    font-size: 14px;
+    line-height: 2.0;
+}
+.m-flowMsg .copy{
+    font-size: 14px;
+    color: #ff4400;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.m-flowMsg .copy:hover{
+    text-decoration: underline;
+}
+
+
+
+

@@ -1,0 +1,94 @@
+.m-sure .m-footer{
+    margin-top: 10px;
+}
+.m-sure .m-footer .word{
+    display: none;
+}
+.m-sure .m-footer .word .name{
+    width: auto;
+}
+.m-pay .m-head{
+    font-size: 14px;
+    color: #101010;
+}
+
+.m-pay .m-default{
+    font-size: 0;
+}
+.m-pay .m-default .c-item{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0 20px;
+}
+.m-pay .m-default .c-item.last:before{
+    position: absolute;
+    content: ' ';
+    height: 100%;
+    width: 2px;
+    top: 0;
+    left: -22px;
+    background-color: #c4c4c4;
+}
+.m-pay .icon{
+    cursor: pointer;
+}
+.m-pay .m-default .icon{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100px;
+    width: 100px;
+    border: 2px solid #b2b2b2;
+}
+.m-pay .m-default .desc{
+    margin-top: 20px;
+    font-size: 12px;
+    color: #898989;
+}
+.m-pay .m-default .title{
+    color: #2d2d2d;
+    font-weight: bold;
+    line-height: 2.0;
+}
+.m-pay .m-bank .status{
+    margin-left: 15px;
+    color: #ff4400;
+    font-size: 14px;
+}
+.m-pay .m-bank .statusIcon{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    vertical-align:middle;
+}
+.m-pay .m-bank .statusIcon.off{
+    border-width: 10px 10px 0;
+    border-color: #ff4400 transparent transparent ;
+}
+.m-pay .m-bank .statusIcon.on{
+    border-width: 0 10px 10px;
+    border-color: transparent transparent #ff4400;
+}
+.m-pay .m-bank .m-body{
+    height: 0;
+}
+.m-pay .m-bank .c-item{
+    margin: 0 12px 15px ;
+    border: 1px solid #d8d8d8;
+    cursor: pointer;
+}
+.m-pay .m-bank .link{
+    display: block;
+    height: 39px;
+    width: 120px;
+}
+.m-pay .m-cash .icon{
+    width: 80%;
+    height: 100px;
+    margin-right:auto ;
+    margin-left: auto;
+   border: 2px solid #b2b2b2;;
+}

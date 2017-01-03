@@ -1,0 +1,188 @@
+
+.m-cash{
+    border-bottom: none;
+}
+.m-cash .m-head{
+    margin: 20px 0;
+}
+.m-cash .m-head .handle{
+    background-color: #ff4400;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 30px;
+}
+.m-cash .m-head .handle:hover{
+    text-decoration: underline;
+}
+.m-cash .m-head .total{
+    font-size: 16px;
+}
+.m-cash .m-head .total .sum{
+    font-size: 16px;
+    color: #ff4400;
+}
+.m-cash #record{
+    display: none;
+    padding: 0 5% 0 5%;
+}
+.recordList .c-item{
+    margin-top: 10px;
+}
+.recordList .c-item .m-head{
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px 5px 0 0;
+    background-color: #ff4400;
+    color: #ffffff;
+    line-height: 30px;
+    margin: 0;
+
+}
+.recordList .c-item .m-head span{
+    font-size: 13px;
+}
+.recordList .c-item .m-body{
+    background-color: #f4f4f4;
+    padding-left: 10px;
+    height: 40px;
+    overflow: hidden;
+}
+.recordList .c-item .m-body .u-item{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ececec;
+    font-size: 14px;
+}
+.recordList .c-item .m-bottom{
+    height: 30px;
+    line-height: 30px;
+    border-radius: 0 0 5px 5px;
+    color: #ff4400;
+    font-size: 13px;
+    background-color: #f4f4f4;
+}
+.m-recharge{
+    display: none;
+}
+.m-recharge .m-content{
+    position: absolute;
+    width: 95%;
+    max-width: 800px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    top:10px;
+    margin: auto;
+
+}
+.m-recharge .m-head a{
+    color: #555555;
+}
+.m-recharge .m-content .m-body{
+    padding:  0 0 20px 0;
+}
+/*现金支付*/
+.m-recharge .inputBox .jine{
+    font-size: 15px;
+    color: #7a7a7a;
+    height: 30px;
+    width: 85%;
+    padding: 0 5px;
+}
+.m-recharge .m-default .c-item{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0 12px;
+}
+.m-recharge .m-default .c-item.last:before{
+    position: absolute;
+    content: ' ';
+    height: 100%;
+    width: 2px;
+    top: 0;
+    left: -10px;
+    background-color: #dfdfdf;
+}
+.m-recharge .m-default .icon{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    border: 2px solid #b2b2b2;
+    cursor: pointer;
+}
+.m-recharge .m-default .desc{
+    margin-top: 20px;
+    font-size: 12px;
+    color: #898989;
+}
+.m-recharge .m-default .title{
+    color: #2d2d2d;
+    font-weight: bold;
+    line-height: 2.0;
+}
+
+.m-recharge .m-bank .status{
+    margin-left: 20px;
+    color: #ff4400;
+    font-size: 14px;
+}
+.m-recharge .m-bank .statusIcon{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    vertical-align:middle;
+}
+.m-recharge .m-bank .statusIcon.off{
+    border-width: 10px 10px 0;
+    border-color: #ff4400 transparent transparent ;
+}
+.m-recharge .m-bank .statusIcon.on{
+    border-width: 0 10px 10px;
+    border-color: transparent transparent #ff4400;
+}
+.m-recharge .m-bank .m-body{
+    height: 0;
+    padding: 0;
+    width: 291px;
+    margin: 20px auto 0 ;
+}
+.m-recharge .m-bank .c-item{
+    margin: 0 5px 10px ;
+    border: 1px solid #d8d8d8;
+    cursor: pointer;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.m-recharge .m-bank .link{
+    display: block;
+    height: 27px;
+    width: 85px;
+}
+
+/*输码支付*/
+.m-recharge .codePay{
+    height: 200px;
+}
+.m-recharge .codePay .code{
+    font-size: 15px;
+    color: #7a7a7a;
+    height: 30px;
+    width: 65%;
+    padding: 0 5px;
+}
+.m-recharge .codePay .button{
+    background-color: #ff4400;
+    color: #ffffff;
+    font-size: 15px;
+    height: 30px;
+    padding: 0 20px;
+    }
+.m-recharge .codePay .button:hover{
+    text-decoration: underline;
+}

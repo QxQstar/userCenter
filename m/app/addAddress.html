@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>编辑地址</title>
+    <link type="text/css" href="/template/m/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/template/m/css/base.css" rel="stylesheet">
+    <link type="text/css" href="/template/m/css/addAddress.css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+    <script src="/inc/layer/layer.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="g-header" id="headTitle">
+        <span id="back" class="f-float-l back">后退</span>
+        <div class="title f-center">编辑地址</div>
+    </div>
+    <div class="g-container" id="container">
+        <div class="m-newAddress f-marTop-60" id="newAddress">
+
+
+            <ul class="m-body container">
+            <li class="row c-item f-pm-0">
+                <div class="col-md-3 col-sm-3 f-pm-0">收货人姓名:</div>
+                <div class="col-md-9 col-sm-9 f-pm-0">
+                    <input type="text" name="address" id="name">
+                </div>
+            </li>
+            <li class="row c-item f-pm-0 c-areaMenu">
+                <div class="col-md-3 col-sm-3 f-pm-0">省/市/区:</div>
+                <div class="col-md-9 col-sm-9 f-pm-0">
+                    <div class="areaItem">
+                        <select id="DropDownList1" name="area">
+
+                        </select>
+                    </div>
+                    <div class="areaItem">
+                        <select id="DropDownList2" name="city">
+
+                        </select>
+                    </div>
+                    <div class="areaItem">
+                        <select id="DropDownList3" name="county">
+
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" name="suozaidiqu" id="suozaidiqu" />
+            <li>
+            <li class="row c-item f-pm-0">
+                <div class="col-md-3 col-sm-3 f-pm-0">详细地址:</div>
+                <div class="col-md-9 col-sm-9 f-pm-0">
+                    <input type="text" name="detail" id="detail" class="detail">
+                </div>
+            </li>
+            <li class="row c-item f-pm-0">
+                <div class="col-md-3 col-sm-3 f-pm-0">联系电话:</div>
+                <div class="col-md-9 col-sm-9 f-pm-0">
+                    <input type="text" name="tel" id="tel">
+                </div>
+            </li>
+        </ul>
+            <div class="m-footer f-center">
+                <button type="button" class="btn" id="submit">保存地址</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/inc/area.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        function settouxiang(imgurl) {
+            $.ajax({
+                type: "POST",
+                url: "/Execution.aspx?type=user_edit&t=user",
+                data: "touxiang=" + imgurl + "",
+                success: function () {
+                    // layer.alert('头像更新成功');
+                }, error: function () {
+
+                }
+            });
+        }
+        var s = ["DropDownList1", "DropDownList2", "DropDownList3"]; //三个select的name
+        var opt0 = ["省份", "地级市", "市、县级市"]; //初始值
+        // 如果有默认值 第一个参数是默认值，
+        // 第二个参数是默认值以什么分割 默认为一个空格
+        function _init_area(def, spstr) {  //初始化函数
+            for (i = 0; i < s.length - 1; i++) {
+                document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ")");
+            }
+            if (def != null && def.length > 0) {
+                if (spstr == null || spstr.length < 1) { spstr = ' '; }
+                var areadata = def.split(spstr);
+                if (def.length > 0) {
+                    for (var areai = 0; areai < areadata.length; areai++) {
+                        change(areai);
+                        document.getElementById(s[areai]).value = areadata[areai];
+                    }
+                }
+            } else {
+                change(0);
+            }
+        }
+
+        _init_area("", "-");
+    </script>
+    <script type="text/javascript" src="/template/m/js/ajax.js"></script>
+    <script type="text/javascript" src="/template/m/js/base.js"></script>
+</body>
+</html>

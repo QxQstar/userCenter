@@ -1,0 +1,443 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+    font-family: arial,'Hiragino Sans GB','\5FAE\8F6F\96C5\9ED1',sans-serif;
+}
+img{
+    vertical-align:middle;
+}
+ol,ul,h1,h2,h3,a{
+    list-style: none;
+    text-decoration: none;
+    font-weight: normal;
+    outline: none;
+}
+a:focus{
+    outline: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.clearfix:after{
+    content: ".";
+    display: block;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+header nav{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #272727;
+}
+a{
+    outline: none;
+}
+img{
+    outline: none;
+    border: none;
+    max-height: 100%;
+    max-width: 100%;
+
+}
+a:focus{
+    outline: none;
+}
+header nav .myNav{
+    width: 95%;
+    margin: 0 auto;
+    height: 100%;
+}
+.myNav .logo{
+    position: absolute;
+    top:0;
+    left: 5%;
+}
+.myNav .logo img{
+    height: 50px;
+}
+.myNav .outer{
+    display: none;
+    list-style: none;
+}
+.myNav .outerList .inter li{
+    margin-top: 10px;
+    width: 130px;
+}
+.myNav .outerList .inter li a{
+    display: block;
+    color: #333;
+    font-size: 13px;
+    text-align: center;
+}
+.myNav .outerList .inter strong span{
+    border-right: 1px solid #333;
+    padding-right: 3px;
+    margin-right: 3px;
+    color: #333333;
+}
+.myNav .userOp{
+    position: absolute;
+    right: 5%;
+    top:0;
+}
+.myNav .userOp li{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    line-height: 50px;
+
+}
+.myNav .userOp li a{
+    display: inline-block;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    padding-left: 18px;
+}
+.myNav .userOp .denglu a{
+    background: url(../img/denglu.png) 0 17px no-repeat;
+    background-size: 16px;
+    margin-right: 10px;
+}
+.myNav .userOp .zhuce a{
+    background: url(../img/zhuce.png) 0 17px no-repeat;
+    background-size: 16px;
+    margin-right: 10px;
+}
+.myNav .userOp .gouwu a{
+    background: url(../images/resizeApi.png) 0 20px no-repeat;
+    background-size: 16px;
+    margin-right: 10px;
+}
+
+
+
+
+
+.myNav .userOp .denglu:hover,
+.myNav .userOp .zhuce:hover,
+.myNav .userOp .gouwu:hover{
+    background-color: #2a2a2a;
+}
+.myNav .userOp .cart-menu,
+.myNav .userOp .center-menu{
+    position: absolute;
+    top:64px ;
+    right : 0;
+    text-align: left;
+}
+.myNav .userOp .cart-menu{
+    height: 0;
+    width: 380px;
+    overflow: hidden;
+}
+.myNav .userOp .center-menu{
+    height: 0;
+    width: 162px;
+    text-align: center;
+    overflow: hidden;
+}
+.myNav .userOp .center-menu a{
+    padding: 0;
+    color: #898989;
+    font-size: 14px;
+}
+.myNav .userOp .cart-menu:hover{
+    overflow: auto;
+}
+.myNav .userOp .c-item{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    line-height: normal;
+    border-bottom: 1px solid #4b4b4b;
+    background: #2a2a2a;
+}
+.myNav .userOp .c-item:hover{
+    background-color: #202020;
+}
+.myNav .userOp .c-item:hover a{
+    color: #fefefe;
+}
+.myNav .userOp .empty{
+    text-align: center;
+    padding: 30px 0;
+}
+.myNav .userOp .empty:hover{
+    background: #2a2a2a;
+}
+.myNav .userOp .empty p{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    color: #ffffff;
+    font-size: 16px;
+    height: 30px;
+    padding: 10px 0 0 40px;
+    background: url(./../img/noGoods.png) no-repeat 0 0;
+}
+.myNav .userOp .cart-menu .img{
+    height: 70px;
+    width: 70px;
+    margin-right: 10px;
+    float: left;
+}
+.myNav .userOp .cart-menu .c-item .desc{
+    width: 200px;
+    margin-right: 10px;
+    float: left;
+}
+.myNav .userOp .cart-menu .c-item .handle{
+    width: 30px;
+    float: left;
+    text-align: right;
+}
+.myNav .userOp .cart-menu .delete{
+    background-color: transparent;
+    border: none;
+    color: #ff4400;
+    font-size: 14px;
+    visibility: hidden;
+}
+.myNav .userOp .c-item:hover .delete{
+    visibility: visible;
+}
+.myNav .userOp .cart-menu .delete:focus{
+    outline: none;
+}
+.myNav .userOp .cart-menu .price{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #ffffff;
+    font-size: 15px;
+}
+.userOp .cart-menu .name{
+    color: #dddddd;
+    font-size: 14px;
+    line-height: 1.75;
+}
+.userOp .cart-menu .pic,
+.userOp .cart-menu .num{
+    color: #898989;
+    font-size: 13px;
+}
+.userOp .cart-menu .num{
+    position: absolute;
+    bottom: 10px;
+    left: 95px;
+}
+
+
+
+
+
+
+@media all and (min-width:768px){
+    header nav{
+        height: 64px;
+    }
+    header nav .myNav{
+        width: 85%;
+        max-width: 1250px;
+        height: 100%;
+    }
+    header nav .myNav{
+        text-align: center;
+    }
+    .myNav .logo{
+        display: block;
+    }
+    .myNav .logo img{
+        height: 64px;
+    }
+    .myNav .outerList .inter li{
+        margin-top: 20px;
+        width: 150px;
+        height: 115px;
+        border-right: 1px solid #cccccc;
+    }
+    .myNav .outerList .inter li a .menu{
+        display: inline-block;
+        height: 100px;
+        /*background: url(../img/menuDefault.png) no-repeat;*/
+        background: url(../img/menu2.png) no-repeat;
+    }
+    .myNav .outerList .inter li a .chp1{
+        width: 57px;
+        background-position: 0 0;
+    }
+    .myNav .outerList .inter li a .chp1:hover{
+        background-position: -627px 0;
+    }
+    .myNav .outerList .inter li a .chp2{
+        /*width: 56px;*/
+        width: 53px;
+        /*background-position: -57px 0;*/
+        background-position: -57px 0;
+    }
+    .myNav .outerList .inter li a .chp2:hover{
+        /*background-position: -684px 0;*/
+        background-position: -685px 0;
+    }
+    .myNav .outerList .inter li a .chp3{
+        width: 29px;
+        /*background-position: -113px;*/
+        background-position: -110px;
+    }
+    .myNav .outerList .inter li a .chp3:hover{
+        background-position: -738px 0;
+    }
+    .myNav .outerList .inter li a .chp4{
+        width: 100px;
+        /*background-position: -142px 0;*/
+        background-position: -139px 0;
+    }
+    .myNav .outerList .inter li a .chp4:hover{
+        background-position: -767px 0;
+    }
+    .myNav .outerList .inter li a .fw1{
+        width: 100px;
+        /*background-position: -242px 0;*/
+        background-position: -239px 0;
+    }
+    .myNav .outerList .inter li a .fw1:hover{
+        background-position: -869px 0;
+    }
+    .myNav .outerList .inter li a .fw2{
+        width: 100px;
+        /*background-position: -342px 0;*/
+        background-position: -339px 0;
+    }
+    .myNav .outerList .inter li a .fw2:hover{
+        /*background-position: -969px 0;*/
+        background-position: -971px 1px;
+    }
+    .myNav .outerList .inter li a .fw3{
+        width: 85px;
+        /*background-position: -442px 0;*/
+        background-position: -439px 0;
+    }
+    .myNav .outerList .inter li a .fw3:hover{
+        /*background-position: -1069px 0;*/
+        background-position: -1072px 1px;
+    }
+    .myNav .outerList .inter li a .fw4{
+        /*width: 100px;*/
+        width: 103px;
+        /*background-position: -527px 0;*/
+        background-position: -527px 0;
+    }
+    .myNav .outerList .inter li a .fw4:hover{
+        /*background-position: -1154px 0;*/
+        background-position: -1157px -1px;
+    }
+    .myNav .outerList .inter strong{
+        display:block;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        margin-top: -20px;
+        font-weight: normal;
+        color: #333333;
+    }
+    .myNav .outer li{
+        display: inline-block;
+        width: 49%;
+    }
+    .myNav .outer{
+        display: inline-block;
+        width: 50%;
+    }
+    .myNav .outerList{
+        height: 64px;
+        line-height: 64px;
+    }
+    .myNav .outerList a{
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 0 15px;
+        font-size: 16px;
+        line-height: 64px;
+    }
+    .myNav .userOp li{
+        line-height: 64px;
+
+    }
+    .myNav .outerList .inter{
+        position: absolute;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        top: 60px;
+        right: 0;
+        background-color:#fff;
+        z-index: 2;
+    }
+    .myNav .link:hover{
+        background-color: #2a2a2a;
+    }
+    .myNav #outerList1 .link{
+        position: relative;
+        text-align: right;
+
+    }
+    .myNav #outerList2 .link{
+        position: relative;
+        text-align: left;
+    }
+    .myNav #outerList1 .link span{
+        display: block;
+        height: 0;
+        width: 2em;
+        position: absolute;
+        bottom: 7px;
+        right: 15px;
+        background-color: #fff;
+
+    }
+    .myNav #outerList2 .link span{
+        display: block;
+        height: 0;
+        width: 2em;
+        position: absolute;
+        bottom: 7px;
+        left: 15px;
+        background-color: #fff;
+
+    }
+
+    .myNav #outerList1:hover .link span{
+        height: 1px;
+    }
+    .myNav #outerList2:hover .link span{
+        height: 1px;
+    }
+    .myNav .userOp li a{
+        display: inline-block;
+        color: #fff;
+        font-size: 13px;
+        text-decoration: none;
+        padding-left: 20px;
+    }
+    .myNav .userOp .denglu a{
+        background: url(../img/denglu.png) 0 22px no-repeat;
+        background-size: 20px;
+        margin-right: 10px;
+    }
+    .myNav .userOp .zhuce a{
+        background: url(../img/zhuce.png) 0 22px no-repeat;
+        background-size: 20px;
+    }
+}
+

@@ -1,0 +1,47 @@
+.g-header {
+    position: relative;
+}
+.g-header .back{
+    position: absolute;
+}
+.g-header .title{
+    color: #ffffff;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+}
+.m-newAddress{
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 30px;
+    background-color: #fff
+}
+.m-newAddress .m-head{
+    color: #ff4400;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.m-newAddress .m-body .c-item{
+    margin-bottom: 15px;
+}
+.m-newAddress .c-item .detail{
+    width: 100%;
+}
+.m-newAddress .m-footer .btn{
+    border: 1px solid #ff4400;
+    color: #ff4400;
+    height: auto;
+    border-radius: 0;
+    padding: 0 10px;
+}
+.m-newAddress .c-item input,
+.m-newAddress .c-item select{
+    height: 30px;
+    width: 100%;
+}
+.m-newAddress .c-item .areaItem{
+    margin-bottom: 10px;
+}

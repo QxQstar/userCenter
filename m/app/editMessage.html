@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>修改个人资料</title>
+    <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/template/m/css/base.css" rel="stylesheet">
+    <link type="text/css" href="/template/m/css/message.css" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+    <script src="/inc/layer/layer.js" type="text/javascript"></script>
+    <script src="/inc/layer/layer.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="g-header" id="headTitle">
+    <span id="back" class="f-float-l back">后退</span>
+    <div class="f-mask"></div>
+    <div class="rightNav f-float-r">
+        <div class='show'>
+            <span ></span>
+            <span ></span>
+            <span ></span>
+        </div>
+        <ul>
+            <li>
+                <a href="http://www.xiaoyu4.com/">首页</a>
+            </li>
+            <li><a href="/single.aspx?m=message">个人设置</a></li>
+            <li id="user_left_1"><a href="/search.aspx?m=order1">我的订单</a></li>
+            <li id="user_left_2"><a href="/single.aspx?m=cart2">我的购物车</a></li>
+            <li id="user_left_4"><a href="/single.aspx?m=coupons">优惠券</a></li>
+            <li id="user_left_12"><a href="/single.aspx?m=Cash">现金券</a></li>
+            <li id="user_left_8"><a href="/search.aspx?m=inform">通知<em class="sms_num"></em></a></li>
+            <li><a href="/inc/out_login.aspx" onclick="return confirm('你确认将该信息删除到回收站?   注意：相关图片和资源也将一起删除到回收站');">退出登录</a></li>
+        </ul>
+    </div>
+</div>
+    <div class="g-container f-marTop-20">
+
+        <div class="container m-message m-editMessage f-pm-0" id="message">
+            <!--三级导航-->
+            <div class="row m-navThird f-borTB-5">
+                <div class="container m-navContent f-pm-0">
+                    <div class="row f-pm-0">
+                        <ul class="f-pm-0 col-md-10 col-sm-10 col-xs-8 f-clearfix">
+                            <!--三级导航中的导航项-->
+                            <li class="c-item f-float-l on">个人资料</li>
+                        </ul>
+                        <div class="f-pm-0 col-md-2 col-sm-2 col-xs-4 f-text-r handle">
+                            <a id="save"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--个人信息-->
+            <div class="row m-content">
+                {fzw:sql="select top 1 * from sl_user where yonghuming='{fzw:cookie name="user_name" /}'" id="p1"}
+                <div class="col-md-2 col-sm-3 col-xs-4 f-pm-0">
+                    <div class="img">
+                        <img src="{fzw:p1:touxiang /}" onerror="this.src = '/template/default/images/u_tx.jpg'" id="touxiang_" class="u_tx_img" onclick="    window.open('/inc/touxiang/index.aspx?editname=touxiang&avatar_sizes=126*126&imgurl=touxiang_', '', 'status=no,scrollbars=no,top=20,left=110,width=660,height=450');" />
+                        <div class="setImg f-center"><a style="color: #000000;" href="javascript:void();" onclick="    window.open('/inc/touxiang/index.aspx?editname=touxiang&avatar_sizes=126*126&imgurl=touxiang_', '', 'status=no,scrollbars=no,top=20,left=110,width=660,height=450');"></a></div>
+                        <input type="hidden" id="touxiang" name="touxiang" value="{fzw:p1:touxiang /}" />
+                    </div>
+
+                </div>
+                <ul class="col-md-10 col-sm-9 col-xs-8 m-detail f-pm-0">
+                    <li class="m-head">
+                        <div class="name">
+                            用户名:{fzw:p1:yonghuming/}
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="container f-pm-0 m-body f-marTop-20" id="body">
+                <div class="row f-pm-0 tel">
+                    <div class="col-md-1 col-sm-2 col-xs-3 f-pm-0 col-1">手机号：</div>
+                    <div class="col-md-11 col-sm-10 col-xs-9 f-pm-0 col-2">
+                        <input type="text" name="shouji" id="shouji" value="{fzw:p1:shouji/}">
+                    </div>
+                </div>
+                <div class="row f-pm-0 email">
+                    <div class="col-md-1 col-sm-2 col-xs-3 f-pm-0 col-1">邮箱：</div>
+                    <div class="col-md-11 col-sm-10 col-xs-9 f-pm-0 col-2">
+                        <input type="email" name="email" id="email" value="{fzw:p1:youxiang/}">
+                    </div>
+                </div>
+                <div class="row f-pm-0 sex">
+                    <div class="col-md-1 col-sm-2 col-xs-3 f-pm-0 col-1">性别：</div>
+                    <div class="col-md-11 col-sm-10 col-xs-9 f-pm-0 col-2">
+                        <select name="sex" id="sex">
+                            {if value1="{fzw:p1:xingbie/}" value2="保密" bi="=="}
+                            <option selected="selected" value="保密">保密</option>
+                            {else}
+                            <option value="保密">保密</option>
+                            {/if}
+                            {if value1="{fzw:p1:xingbie/}" value2="男" bi="=="}
+                            <option selected="selected" value="男">男</option>
+                            {else}
+                            <option value="男">男</option>
+                            {/if}
+                            {if value1="{fzw:p1:xingbie/}" value2="女" bi="=="}
+                            <option selected="selected" value="女">女</option>
+                            {else}
+                            <option value="女">女</option>
+                            {/if}
+                        </select>
+                    </div>
+                </div>
+                <div class="row f-pm-0 birth">
+                    <div class="col-md-1 col-sm-2 col-xs-3 f-pm-0 col-1">生日：</div>
+                    <div class="col-md-11 col-sm-10 col-xs-9 f-pm-0 col-2">
+                        <input type="text" name="shengri" id="shengri" value="{fzw:p1:shengri/}">
+                    </div>
+                </div>
+            </div>
+            {/fzw:sql}
+            <div class="m-address f-clearfix f-marTop-20" id="address">
+                <p class="f-clearfix">收货信息：<a href="/template/m/addAddress.html" class="f-float-r addAddr" id="addAddr"></a></p>
+                <div class="m-body f-clearfix">
+                    {fzw:sql="select count(*) as tongji from sl_add where yonghuming = '{fzw:cookie name="user_name" /}'" id="p1"}
+                    <ul class="m-list  f-clearfix" id="addressList" data-count="{fzw:p1:tongji/}">
+                            {/fzw:sql}
+                            <!--<li class=" c-item desc addDesc">-->
+                                <!--<div class="detail f-center">-->
+                                    <!--<span class="add" id="addAddr">+</span><br>-->
+                                    <!--添加新地址-->
+                                <!--</div>-->
+                            <!--</li>-->
+                            {fzw:sql="select * from sl_add where yonghuming = '{fzw:cookie name="user_name" /}' order by moren desc" id="p1"}
+                            <li class="c-item desc setDefault ">
+                                <div class="title f-clearfix">
+                                    <div class="name f-float-l">{fzw:p1:shoujianrenxingming/}</div>
+                                    <div class="tel f-float-r">{fzw:p1:shoujihaoma/}</div>
+                                </div>
+                                <div class="detail f-marTop-20">
+                                    <p class="bigAddr">{fzw:p1:suozaidiqu/}</p>
+                                    <p class="smallAddr">{fzw:p1:jiedaodizhi/}</p>
+                                </div>
+                                <div class="f-clearfix" data-id="{fzw:p1:id/}">
+                                    {if value1="{fzw:p1:moren/}" value2="是" bi="=="}
+                                    <div class="f-float-l moren">默认地址</div>
+                                    {else}
+                                    <div class="status f-float-l">设为默认地址</div>
+                                    {/if}
+                                    <div class="handle f-float-r">
+                                        <!--<span class="edit"></span>-->
+                                        <a href="/template/m/addAddress.html#{fzw:p1:id/}" class="edit"></a>
+                                        <span class="delete"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            {/fzw:sql}
+
+                        </ul>
+                    <!--<p class="info f-center on" id="spread"></p>-->
+                </div>
+            </div>
+
+
+        </div>
+        <!--新地址-->
+        <div class="f-mask addressMask" id="mask">
+            <div class="m-newAddress" id="newAddress">
+                <span class="f-maskDelate " id="maskDelate"></span>
+                <div class="m-head">
+                    添加新地址
+                </div>
+                <ul class="m-body container">
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">收货人姓名:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="address" id="name">
+                        </div>
+                    </li>
+                    <li class="row c-item f-pm-0 c-areaMenu">
+                        <div class="col-md-3 col-sm-3 f-pm-0">省/市/区:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <div class="areaItem">
+                                <select id="DropDownList1" name="area">
+
+                                </select>
+                             </div>
+                            <div class="areaItem">
+                                <select id="DropDownList2" name="city">
+
+                                </select>
+                            </div>
+                            <div class="areaItem">
+                                <select id="DropDownList3" name="county">
+
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" name="suozaidiqu" id="suozaidiqu" />
+                    <li>
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">详细地址:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="detail" id="detail" class="detail">
+                        </div>
+                    </li>
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">联系电话:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="tel" id="tel">
+                        </div>
+                    </li>
+                </ul>
+                <div class="m-footer f-center">
+                    <button type="button" class="btn" id="submit">保存地址</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+<script type="text/javascript" src="/inc/area.js" charset="utf-8"></script>
+<script type="text/javascript">
+    function settouxiang(imgurl) {
+        $.ajax({
+            type: "POST",
+            url: "/Execution.aspx?type=user_edit&t=user",
+            data: "touxiang=" + imgurl + "",
+            success: function () {
+                // layer.alert('头像更新成功');
+            }, error: function () {
+
+            }
+        });
+    }
+    var s = ["DropDownList1", "DropDownList2", "DropDownList3"]; //三个select的name
+    var opt0 = ["省份", "地级市", "市、县级市"]; //初始值
+    // 如果有默认值 第一个参数是默认值，
+    // 第二个参数是默认值以什么分割 默认为一个空格
+    function _init_area(def, spstr) {  //初始化函数
+        for (i = 0; i < s.length - 1; i++) {
+            document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ")");
+        }
+        if (def != null && def.length > 0) {
+            if (spstr == null || spstr.length < 1) { spstr = ' '; }
+            var areadata = def.split(spstr);
+            if (def.length > 0) {
+                for (var areai = 0; areai < areadata.length; areai++) {
+                    change(areai);
+                    document.getElementById(s[areai]).value = areadata[areai];
+                }
+            }
+        } else {
+            change(0);
+        }
+    }
+
+    _init_area("", "-");
+</script>
+<script type="text/javascript" src="/template/m/js/ajax.js"></script>
+<script type="text/javascript" src="/template/m/js/base.js"></script>
+
+
+</body>
+</html>

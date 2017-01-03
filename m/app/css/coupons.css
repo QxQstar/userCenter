@@ -1,0 +1,85 @@
+.m-coupons{
+    padding: 19px 0;
+}
+.m-coupons .c-item{
+    width: 100%;
+    padding: 0 0 30px;
+    height: 136px;
+}
+.m-coupons .couponBox{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    height: 100%;
+    width: 100%;
+    max-width: 297px;
+    background: url(./../img/yhj1.png) no-repeat;
+}
+.m-coupons .couponBox.unused{
+    background-color: #ff4144;
+}
+.m-coupons .couponBox.used{
+    background-color: #ff4400;
+}
+.m-coupons .couponBox.overdue{
+    background-color: #999999;
+}
+.m-coupons .couponBox .status{
+    width: 75px;
+}
+
+.m-coupons .couponBox .status span{
+    display: inline-block;
+    width: 25px;
+    height: 90px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.m-coupons .couponBox .m-body{
+    position: relative;
+    width: 222px;
+    height: 100%;
+    padding: 20px 55px 0 15px;
+}
+.m-coupons .couponBox .title{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+.m-coupons .couponBox .title .money{
+    font-size: 22px;
+    vertical-align: 0;
+}
+.m-coupons .unused .title{
+    color: #ff4144;
+    border-bottom: 1px solid #ff4144;
+}
+.m-coupons .used .title{
+    color: #ff4400;
+    border-bottom: 1px solid #ff4400;
+}
+.m-coupons .overdue .title{
+    color: #999999;
+    border-bottom: 1px solid #999999;
+}
+.m-coupons .m-body .notice{
+    position: absolute;
+    bottom: 5px;
+    right: 55px;
+}
+.m-coupons .unused .notice{
+    color: #ff4144;
+}
+.m-coupons .used .notice{
+    color: #ff4400;
+}
+.m-coupons .overdue .notice{
+    color: #999999;
+}
+.m-coupons .m-body .notice div,
+.m-coupons .m-body .product_cont
+{
+    font-size: 11px;
+    line-height: 1.5;
+}
