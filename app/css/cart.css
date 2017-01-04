@@ -1,7 +1,19 @@
 .g-container .m-cart{
-    opacity: 0;
     position: relative;
     padding: 0;
+    display: none;
+}
+.g-container .m-empty{
+    display: none;
+    width: 800px;
+    margin: 100px auto 0 auto;
+    padding: 0 0 100px 120px;
+    background: url(./../img/empty.png) no-repeat;
+}
+.g-container .m-empty .word{
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
 }
 .m-cart .m-head{
     padding-bottom: 15px;

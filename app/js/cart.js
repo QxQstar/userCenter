@@ -6,6 +6,22 @@ function Cart(){
     this.cartModule = $('#cart');
 
 }
+Cart.prototype.setProfileW = function(){
+    var profile;
+    profile = this.cartModule.find('.profile');
+    if(profile.length > 0) {
+        //在分辨率大于1100px时，不管名称的字数多少都要保证产品的图片和名称要水平显示
+        if ($(window).width() > 1100) {
+            profile.each(function (index, elem) {
+                parent = $(elem).parent();
+                sibling = parent.find('.img');
+                console.log(parent.outerWidth());
+                $(elem).css('width', ( parent.width() - sibling.width() - parseInt(sibling.css('margin-right'))) + 'px');
+            });
+        }
+    }
+    return this;
+};
 /**
  * 如果存在购物列表，才显示列表
  * @returns {Cart}
@@ -14,7 +30,9 @@ Cart.prototype.showCartList = function(){
     var cart;
     cart = this.cartModule;
     if(cart.children().length > 0){
-        cart.parents('.m-cart').css('opacity',1);
+        cart.parents('.m-cart').show();
+    }else{
+        $('#empty').show();
     }
     return this;
 };
@@ -253,12 +271,14 @@ Cart.prototype.pay = function(){
 var ajaxObj = new Ajax();
 var cartObj = new Cart();
 cartObj
+    .showCartList()
+    .setProfileW()
     .setNumPrice()
     .deleteItem()
     .selection()
     .setNum()
-    .pay()
-    .showCartList();
+    .pay();
+
 
 
 
