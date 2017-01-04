@@ -56,9 +56,7 @@
                 {fzw:for:sql="select  gouwuchehao,count(*) as tongji,shuliang from sl_cart where yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='') and leixing='相框' group by gouwuchehao,shuliang" id="p1"}
                 <li class="c-item row f-padBtm-30" data-code="{fzw:p1:gouwuchehao/}" data-type="相框">
                     <div class=" row f-pm-0 head">
-                        <!--<div class="col-md-1 col-sm-1 col-xs-6 f-pm-0">-->
 
-                        <!--</div>-->
                         <div class="f-pm-0 f-text-r col-md-2 col-sm-2 col-xs-12 c-handle">
                             <div class="delete"></div>
                         </div>
@@ -89,9 +87,9 @@
                                     </div>
                                 </div>
                                 <div class="handleNum f-float-r">
-                                    <span class="sub"> - </span>
-                                    <input type="text"  class="num f-center" value="{fzw:p1:shuliang/}">
-                                    <span class="add" > + </span>
+                                    <span class="add f-float-r f-center" > + </span>
+                                    <input type="text"  class="num f-float-r f-center" value="{fzw:p1:shuliang/}">
+                                    <span class="sub f-float-r f-center"> - </span>
                                 </div>
                             </div>
                         </div>
@@ -107,10 +105,7 @@
                 {fzw:for:sql="select * from sl_cart where leixing='产品' and yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='')  " id="p1"}
                 <li class="c-item row f-padBtm-30" data-code="{fzw:p1:gouwuchehao/}" data-id="{fzw:p1:id/}" data-type="产品">
                     <div class="row f-pm-0 head">
-                        <!--<div class="col-md-1 col-sm-1 col-xs-6 f-pm-0">-->
-                            <!--<span class="selectIcon"></span>-->
-                            <!--<input type="checkbox" class="curBox select">-->
-                        <!--</div>-->
+
                         <div class="f-pm-0 f-text-r col-md-2 col-xs-12 col-sm-2 c-handle">
                             <div class="delete"></div>
                         </div>
@@ -174,10 +169,7 @@
         </div>
         <!--购物车脚-->
         <div class="m-footer f-clearfix" id="footer">
-            <!--<div class="f-float-l all">-->
-                <!--<span class="selectIcon"></span>-->
-                <!--<input type="checkbox" id="all" class="select">全选-->
-            <!--</div>-->
+
             <div class="f-float-r">
                 <div class="submit f-float-r" >
                     <button type="button" id="submit">结算
@@ -190,6 +182,9 @@
 
         </div>
     </div>
+    <div class="m-empty" id="empty">
+            <p class="word">您的购物车还是空的，赶紧行动吧！</p>
+        </div>
     <!--商品推荐-->
     <div class="m-recommend f-center">
         <div class="m-head ">

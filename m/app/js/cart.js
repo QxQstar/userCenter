@@ -18,6 +18,8 @@ Cart.prototype.showAllSelect = function(){
         footer = $('#footer');
         all.css('display','inline');
         footer.show();
+    }else{
+        $('#empty').show();
     }
     return this;
 };

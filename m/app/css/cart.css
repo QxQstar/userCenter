@@ -2,6 +2,11 @@
     position: relative;
     padding: 0;
 }
+.g-container .m-empty{
+    display: none;
+    padding: 0 0 100px 90px;
+    background: url(./../img/empty.png) no-repeat;
+}
 .m-cart .m-head{
     background-color: #f3eeee;
     height: 20px;
