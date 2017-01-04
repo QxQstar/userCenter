@@ -24,7 +24,8 @@
     <div class="container m-cart f-marTop-80">
         <!--购物车头部-->
         <div class="row f-pm-0 m-head f-borTB-5">
-            <div class="col-md-1 col-sm-1 f-pm-0 ">
+            <div class="col-md-1 col-sm-1 f-pm-0 all">
+                <span class="selectIcon"></span>
                 <input type="checkbox" id="all" class="select">全选
             </div>
             <div class="col-md-3 col-sm-3 f-pm-0 f-center">商品</div>
@@ -39,6 +40,7 @@
                 {fzw:for:sql="select  gouwuchehao,count(*) as tongji,shuliang from sl_cart where yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='') and leixing='相框' group by gouwuchehao,shuliang" id="p1"}
                 <li class="c-item row f-pm-0" data-code="{fzw:p1:gouwuchehao/}" data-type="相框">
                     <div class="col-md-1 col-sm-1 f-pm-0">
+                        <span class="selectIcon"></span>
                         <input type="checkbox" class="curBox select">
                     </div>
                     <div class="col-md-3 col-sm-3 f-pm-0 f-clearfix c-desc">
@@ -79,6 +81,7 @@
                 {fzw:for:sql="select * from sl_cart where leixing='产品' and yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='')  " id="p1"}
                 <li class="c-item row f-pm-0" data-code="{fzw:p1:gouwuchehao/}" data-id="{fzw:p1:id/}" data-type="产品">
                     <div class="col-md-1 col-sm-1 f-pm-0">
+                        <span class="selectIcon"></span>
                         <input type="checkbox" class="curBox select">
                     </div>
                     <div class="col-md-3 col-sm-3 f-pm-0 f-clearfix c-desc">
@@ -139,6 +142,7 @@
             </div>
         </div>
     </div>
+
     <!--商品推荐-->
     <div class="m-recommend f-center">
         <div class="m-head ">

@@ -6,7 +6,18 @@ function Cart(){
     this.cartModule = $('#cart');
 
 }
-
+/**
+ * 如果存在购物列表，才显示列表
+ * @returns {Cart}
+ */
+Cart.prototype.showCartList = function(){
+    var cart;
+    cart = this.cartModule;
+    if(cart.children().length > 0){
+        cart.parents('.m-cart').css('opacity',1);
+    }
+    return this;
+};
 /**
  * 删除
  */
@@ -53,30 +64,49 @@ Cart.prototype.selection = function(){
             event.stopPropagation();
             selectHandle( $(event.target),cart.find('.select') );
         });
-
     function selectHandle($target,allSelect){
-        var all,selectNum,selectPrice;
+        var all,selectNum,selectPrice,prevSib;
         all = $('#all');
         selectNum = $('#selectNum');
         selectPrice = $('#selectPrice');
+        prevSib = $($target.prev('span')[0]);
+        prevSib.toggleClass('on');
 
         //如果是全选
         if( typeof $target.attr('id') === 'string'){
+
             allSelect.each(function(index,select){
-                var $select = $(select);
+                var $select;
+                $select = $(select);
                 if(all.prop('checked')){
-                    $select.prop('checked',true);
+                    $select
+                        .prop('checked',true)
+                        .parents('.c-item')
+                        .addClass('on');
+                    $($select.prev()[0]).addClass('on');
                 }else{
-                    $select.prop('checked',false);
+                    $select
+                        .prop('checked',false)
+                        .parents('.c-item')
+                        .removeClass('on');
+                    $($select.prev()[0]).removeClass('on');
                 }
             });
 
         }else{
-            $target.attr('checked',!$target.attr('checked'));
+
+            $target.parents('.c-item').toggleClass('on');
+
             if(me.getSelected().length === cart.find('.c-item').length){
-                all.prop('checked',true);
+                all
+                    .prop('checked',true);
+
+                $(all.prev()[0]).addClass('on');
+
+
             }else{
                 all.prop('checked',false);
+                $(all.prev()[0]).removeClass('on');
             }
         }
         me.setNumPrice();
@@ -227,7 +257,8 @@ cartObj
     .deleteItem()
     .selection()
     .setNum()
-    .pay();
+    .pay()
+    .showCartList();
 
 
 
