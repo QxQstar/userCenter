@@ -95,7 +95,7 @@ Cash.prototype.isSpread = function(){
                 var $target;
                 event.stopPropagation();
                 $target = $(event.target);
-                if($target.html.trim() === '展开'){
+                if($target.html().trim() === '展开'){
                     $target.html('收起');
                     $target.prev().height('auto');
                 }else{
