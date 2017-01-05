@@ -43,11 +43,12 @@ Cash.prototype.tabSelect = function(){
 };
 
 /**
- * 收起或者展开网银支付
+ * 收起/展开
  * @returns {Cash}
  */
 Cash.prototype.isSpread = function(){
-    var status,bank;
+    var status,bank,recordList,spread;
+    recordList = $('#record').find('.recordList');
     if(this.payMethod){
         status = this.payMethod.find('#status');
         bank = this.payMethod.find('#bank');
@@ -84,7 +85,27 @@ Cash.prototype.isSpread = function(){
                 }
 
             });
+
     }
+    if(recordList.children().length > 0){
+        spread = recordList.find('.m-bottom');
+        spread
+            .unbind('click')
+            .on('click',function(event){
+                var $target;
+                event.stopPropagation();
+                $target = $(event.target);
+                if($target.html.trim() === '展开'){
+                    $target.html('收起');
+                    $target.prev().height('auto');
+                }else{
+                    $target.html('展开');
+                    $target.prev().height(40);
+                }
+
+            });
+    }
+
     return this;
 };
 /**
@@ -168,12 +189,14 @@ Cash.prototype.showDetail =function(){
     }
     return this;
 };
+
 var ajaxObj = new Ajax();
 var cashObj = new Cash();
     cashObj
         .init()
+        .showDetail()
         .tabSelect()
         .isSpread()
         .codeRecharge()
-        .cashRecharge()
-        .showDetail();
+        .cashRecharge();
+

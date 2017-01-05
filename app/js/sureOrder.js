@@ -114,17 +114,18 @@ SureOrder.prototype.setCoupons = function(result){
     bianhao = [];
     me = this;
 
-    if(result.data.order !== null){
+
+    if(result.data && result.data.order){
         orderyhq.show();
         reduce.show();
         order = parseFloat( result.data.order.mianzhi);
-        items = '<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ order.toFixed(2) +'" data-bianhao="'+ result.data.order.youhuiquanbianhao +'"> '+ result.data.order.biaoti + order +'</div>';
+        items = '<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ order.toFixed(2) +'" data-bianhao="'+ result.data.order.youhuiquanbianhao +'"> '+ result.data.order.biaoti +" ￥ "+ order +'</div>';
         orderyhq.find('.item').html(items);
         items = '';
     }
 
 
-    if(result.data.product){
+    if(result.data && result.data.product){
         productyhq.show();
         reduce.show();
         product = parseFloat( result.data.product.sum );
@@ -132,7 +133,7 @@ SureOrder.prototype.setCoupons = function(result){
         $.each(result.data.product.data,function(index,item){
             bianhao.push( item.youhuiquanbianhao );
         });
-        items +='<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ product.toFixed(2) +'" data-bianhao="'+ bianhao +'">'+ '组合优惠' + product +'</div>';
+        items +='<div class="col-md-2 col-sm-3 f-pm-0 f-center on" data-price="'+ product.toFixed(2) +'" data-bianhao="'+ bianhao +'">'+ '组合优惠￥' + product +'</div>';
         productyhq.find('.item').html(items);
 
     }

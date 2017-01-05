@@ -5,8 +5,8 @@
 }
 .g-container .m-empty{
     display: none;
-    width: 800px;
-    margin: 100px auto 0 auto;
+    width: 600px;
+    margin: 100px auto 80px auto;
     padding: 0 0 100px 120px;
     background: url(./../img/empty.png) no-repeat;
 }
@@ -176,7 +176,7 @@
     display: inline-block;
     *display: inline;
     zoom: 1;
-    width: 200px;
+    width: 600px;
     border-bottom: 1px solid #a5a5a5;
 }
 
@@ -186,6 +186,6 @@
     background-color: #ffffff;
     top:-10px ;
     padding : 0 10px;
-    left: 65px;
+    left: 265px;
     color: #404040;
 }

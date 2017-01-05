@@ -1,0 +1,33 @@
+{
+  "name": "usercenter",
+  "version": "1.0.0",
+  "description": "网站个人中心",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-build": "webpack-dev-server --hot --inline --content-base ./app/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QxQstar/userCenter.git"
+  },
+  "author": "qxq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QxQstar/userCenter/issues"
+  },
+  "homepage": "https://github.com/QxQstar/userCenter#readme",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "html-webpack-plugin": "^2.24.1",
+    "jquery": "^3.1.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

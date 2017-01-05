@@ -66,7 +66,9 @@ Base.prototype.init = function(){
             addressList.width('auto');
         }
     }
-
+    if($('#cart').length > 0){
+        return this;
+    }
     profile = $('.profile');
 
     if(profile.length > 0) {
@@ -75,6 +77,7 @@ Base.prototype.init = function(){
             profile.each(function (index, elem) {
                 parent = $(elem).parent();
                 sibling = parent.find('.img');
+                console.log(parent.outerWidth());
                 $(elem).css('width', ( parent.width() - sibling.width() - parseInt(sibling.css('margin-right'))) + 'px');
             });
         }
@@ -443,11 +446,13 @@ Base.prototype.setSubtotal = function(){
  * @returns {Base}
  */
 Base.prototype.getNum = function(){
-    var cart,order,sure,container,num,curWarp;
+    var cart,order,sure,container,num,curWarp,cartMenu;
+    cartMenu = $('#header').find('#cartMenu');
     container = $('#container');
     cart = container.find('#cart');
     order = container.find('#order');
     sure = container.find('#sure');
+
 
     if(sure.length > 0){
         curWarp = sure;

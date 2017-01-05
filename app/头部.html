@@ -1,0 +1,160 @@
+<link type="text/css" href="./css/header.css" rel="stylesheet">
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?b8177464b0d85dde42e1abcdec01ddff";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<header id="header">
+    <nav>
+        <div class="myNav clearfix">
+            <div class='logo'>
+                <a href="/"><img src='/template/default/img/logo.png'></a>
+            </div>
+            <ul class='outer' id='outer'>
+                <li class='outerList' id='outerList1'>
+                    <a href='javascript:void(0)' id='link1' class='link'>产品
+                        <span></span>
+                    </a>
+                    <ul class='inter' id='inter1'>
+                        <li>
+                            <a target="_blank" href='http://www.xiaoyu4.com/page.aspx?id=27&classid=1'>
+                                <div class='menu chp chp1'></div>
+                                <strong><span>纳斯缓温杯</span>光择</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href='http://www.xiaoyu4.com/page.aspx?id=28&classid=1'>
+                                <div class='menu chp chp2'></div>
+                                <strong><span>纳斯缓温杯</span>原版</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href='http://www.xiaoyu4.com/page.aspx?id=26&classid=1'>
+                                <div class='menu chp chp3'></div>
+                                <strong><span>纯色保温杯</span>光择</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#plate" >
+                                <div class='menu chp chp4'></div>
+                                <strong>创意饰品</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class='outerList' id='outerList2'><a href='javascript:void(0)' id='link2' class='link'>服务<span></span></a>
+                    <ul class='inter' id = 'inter2'>
+                        <li>
+                            <a target="_blank" href='http://www.xiaoyu4.com/single.aspx?m=index-1'>
+                                <div class='menu fw fw1'></div>
+                                <strong>激光雕刻</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href='http://www.xiaoyu4.com/single.aspx?m=article#content5'>
+                                <div class='menu fw fw2'></div>
+                                <strong>签约设计</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href='http://www.xiaoyu4.com/Single.aspx?m=help#BDBridgeFixedWrap'>
+                                <div class='menu fw fw3'></div>
+                                <strong>在线客服</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href='http://www.xiaoyu4.com/Single.aspx?m=help'>
+                                <div class='menu fw fw4'></div>
+                                <strong>服务支持</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class='userOp clearfix'>
+                {if value1="{fzw:cookie name="user_name" /}" value2="" bi="=="}
+                <li class='denglu'><a href='/?login.html&tipurl={fzw:key:siteurl/}'>登录</a></li>
+                <li class='zhuce'><a href='/?reg.html'>注册</a></li>
+                {else}
+                <li class='denglu' id="center">
+                    <a href="/search.aspx?m=order1" >个人中心</a>
+                    <ul class="center-menu">
+                        <li class="c-item">
+                            <a href="/search.aspx?m=order1">我的订单</a>
+                        </li>
+                        <li class="c-item">
+                            <a href="/search.aspx?m=coupons">优惠券</a>
+                        </li>
+                        <li class="c-item">
+                            <a href="/search.aspx?m=cash">现金券</a>
+                        </li>
+                        <li class="c-item">
+                            <a href="/search.aspx?m=infrom">通知</a>
+                        </li>
+                        <li class="c-item">
+                            <a href="/single.aspx?m=message">个人设置</a>
+                        </li>
+                        <li class="c-item">
+                            <a href="/inc/out_login.aspx" onclick="return confirm('你确认将该信息删除到回收站?   注意：相关图片和资源也将一起删除到回收站');">退出登录</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class='gouwu' id="cartMenu">
+                    <a href="/single.aspx?m=cart">购物车</a>
+                    <ul class="cart-menu">
+                        <!--还没有商品-->
+                        <li class="c-item empty">
+                        <p>购物车还没有商品噢</p>
+                        </li>
+                        <!--有商品-->
+                        {fzw:for:sql="select  gouwuchehao,count(*) as tongji,shuliang from sl_cart where yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='') and leixing='相框' group by gouwuchehao,shuliang" id="p1"}
+                        <li class="c-item clearfix haveGoods" data-code="{fzw:p1:gouwuchehao/}" data-type="相框">
+                            <div class="img">
+                                <img src="./img/testImg.jpg">
+                            </div>
+                            <div class="desc">
+                                <p class="name">照片墙diy创意</p>
+                                <p class="pic">相框数量:<span class="picNum">{fzw:p1:tongji/}</span></p>
+                                <p class="num">数量:<span>{fzw:p1:shuliang/}套</span></p>
+                            </div>
+                            <div class="handle">
+                                <button type="button" class="delete">X</button>
+                                <div class="price">
+                                    {fzw:for:sql="select sum(danjia) as danjia from sl_cart where gouwuchehao = '{fzw:p1:gouwuchehao/}'" id="p2"}
+                                    ￥{fzw:p2:danjia/}
+                                    {/fzw:for:sql}
+                                </div>
+                            </div>
+
+                        </li>
+                        {/fzw:for:sql}
+                        {fzw:sql="select * from sl_cart where leixing='产品' and yonghuming='{fzw:cookie name="user_name" /}' and (dingdanbianhao is null or dingdanbianhao ='')  " id="p1"}
+                        <li class="c-item clearfix haveGoods" data-code="{fzw:p1:gouwuchehao/}" data-id="{fzw:p1:id/}" data-type="产品">
+                            <div class="img">
+                                <img src="{fzw:p1:laiyuanbianhao sql="sl_product|where&nbsp;id=&dangqian|suoluetu" string="zutu"/}">
+                            </div>
+                            <div class="desc">
+                                <p class="name">{fzw:p1:biaoti/}</p>
+                                <p class="pic">
+                                    印图:<span class="picNum shuliang" data-code="{fzw:p1:gouwuchehao/}"></span>
+                                </p>
+                                <p class="num">数量:<span>{fzw:p1:shuliang/}件</span></p>
+                            </div>
+                            <div class="handle">
+                                <button type="button" class="delete">X</button>
+                                <div class="price">￥ {fzw:p1:danjia/}</div>
+                            </div>
+                        </li>
+                        {/fzw:sql}
+                    </ul>
+                </li>
+                {/if}
+            </ul>
+        </div>
+    </nav>
+</header>
+

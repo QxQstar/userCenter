@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="gb2312">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>修改个人资料</title>
+    <link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="./css/base.css" rel="stylesheet">
+    <link type="text/css" href="./css/message.css" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    <div class="g-container">
+        <!--二级导航-->
+        <ul class="m-subNav f-marTop-120 f-clearfix f-marBom-66">
+            <li class="c-item f-float-l">我的订单</li>
+            <li class="c-item f-float-l">优惠券</li>
+            <li class="c-item f-float-l">通知</li>
+            <li class="c-item on f-float-l last">个人设置</li>
+        </ul>
+        <div class="container m-message f-pm-0" id="message">
+            <!--三级导航-->
+            <div class="row m-navThird f-borTB-5">
+                <div class="container m-navContent f-pm-0">
+                    <div class="row f-pm-0">
+                        <ul class="f-pm-0 col-md-10 f-clearfix">
+                            <!--三级导航中的导航项-->
+                            <li class="c-item f-float-l on">个人资料</li>
+                        </ul>
+                        <div class="f-pm-0 col-md-2 handle">
+                            <span class="icon"></span><a href="#">保存修改</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--个人信息-->
+            <div class="row m-content">
+                <div class="col-md-2 col-sm-3 f-pm-0">
+                    <div class="img">
+                        <img src="./img/testImg.jpg">
+                        <div class="setImg f-center">[设置头像]</div>
+                    </div>
+
+                </div>
+                <ul class="col-md-10 col-sm-9 m-detail f-pm-0">
+                    <li class="m-head">
+                        <div class="name">
+                            有户名:<input type="text" name="name" id="name">
+                        </div>
+
+                    </li>
+                    <li class="container f-pm-0 m-body">
+                        <div class="row f-pm-0 tel">
+                            <div class="col-md-1 col-sm-2 f-pm-0 col-1">手机号：</div>
+                            <div class="col-md-11 col-sm-10 f-pm-0 col-2">
+                                12335567780
+                            </div>
+                        </div>
+                        <div class="row f-pm-0 email">
+                            <div class="col-md-1 col-sm-2 f-pm-0 col-1">邮箱：</div>
+                            <div class="col-md-11 col-sm-10 f-pm-0 col-2">
+                                <input type="email" name="email" id="email">
+                            </div>
+                        </div>
+                        <div class="row f-pm-0 sex">
+                            <div class="col-md-1 col-sm-2 f-pm-0 col-1">性别：</div>
+                            <div class="col-md-11 col-sm-10 f-pm-0 col-2">
+                                <select name="sex" id="sex">
+                                    <option value="保密">保密</option>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row f-pm-0 birth">
+                            <div class="col-md-1 col-sm-2 f-pm-0 col-1">生日：</div>
+                            <div class="col-md-11 col-sm-10 f-pm-0 col-2">
+                                <select name="year" id="year">
+                                    <option value="default">年</option>
+                                    <option value="1994">1994</option>
+                                </select>
+                                <select name="month" id="month">
+                                    <option value="default">月</option>
+                                    <option value="8">8</option>
+                                </select>
+                                <select name="day" id="day">
+                                    <option value="default">日</option>
+                                    <option value="23">23</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="m-address f-clearfix">
+                        <p>收货信息：</p>
+                        <div class="c-item desc f-float-l">
+                            <div class="title f-clearfix">
+                                <div class="name f-float-l">dfhdj</div>
+                                <div class="tel f-float-r">12345678900</div>
+                            </div>
+                            <div class="detail">
+                                <p class="bigAddr">四川成都</p>
+                                <p class="smallAddr">xx区xxx路xxx号</p>
+                            </div>
+                            <div class="footer f-clearfix">
+                                <div class="status f-float-l">默认地址</div>
+                                <div class="handle f-float-r">
+                                    <span class="edit">编辑</span>
+                                    <span class="delete">删除</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-item desc setDefault f-float-l">
+                            <div class="title f-clearfix">
+                                <div class="name f-float-l">dfhdj</div>
+                                <div class="tel f-float-r">12345678900</div>
+                            </div>
+                            <div class="detail">
+                                <p class="bigAddr">四川成都</p>
+                                <p class="smallAddr">xx区xxx路xxx号dhfdh地方接电话</p>
+                            </div>
+                            <div class="footer f-clearfix">
+                                <div class="status f-float-l">设为默认地址</div>
+                                <div class="handle f-float-r">
+                                    <span class="edit">编辑</span>
+                                    <span class="delete">删除</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" c-item desc addDesc f-float-l">
+                            <div class="detail f-center">
+                                <span class="add" id="addAddr">+</span><br>
+                                添加新地址
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+        <!--新地址-->
+        <div class="f-mask addressMask" id="addressMask">
+            <div class="m-newAddress">
+                <span class="f-maskDelate"></span>
+                <div class="m-head">
+                    添加新地址
+                </div>
+                <ul class="m-body container">
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">收货人姓名:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="address">
+                        </div>
+                    </li>
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">省/市/区:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <select name="province">
+                                <option value="default">省</option>
+                            </select>
+                            <select name="city">
+                                <option value="default">市</option>
+                            </select>
+                            <select name="area">
+                                <option value="default">区</option>
+                            </select>
+                        </div>
+                    <li>
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">详细地址:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="detail" id="detail" class="detail">
+                        </div>
+                    </li>
+                    <li class="row c-item f-pm-0">
+                        <div class="col-md-3 col-sm-3 f-pm-0">联系电话:</div>
+                        <div class="col-md-9 col-sm-9 f-pm-0">
+                            <input type="text" name="tel" id="tel">
+                        </div>
+                    </li>
+                </ul>
+                <div class="m-footer f-center">
+                    <button type="button" class="btn">保存地址</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="./js/base.js"></script>
+</body>
+</html>
