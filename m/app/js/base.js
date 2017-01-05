@@ -336,7 +336,7 @@ Base.prototype.back = function(){
     back = $('#back');
     back
         .on('click',function(){
-            history.back();
+            location.href = document.referrer;
         });
     return this;
 };
