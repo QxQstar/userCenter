@@ -103,6 +103,18 @@ header nav .myNav{
     text-decoration: none;
     padding-left: 18px;
 }
+.myNav .userOp .denglu,
+.myNav .userOp .zhuce,
+.myNav .userOp .gouwu{
+    height: 64px;
+}
+@media all and (max-width: 700px) {
+    .myNav .userOp .denglu,
+    .myNav .userOp .zhuce,
+    .myNav .userOp .gouwu{
+        height: 50px;
+    }
+}
 .myNav .userOp .denglu a{
     background: url(../img/denglu.png) 0 17px no-repeat;
     background-size: 16px;

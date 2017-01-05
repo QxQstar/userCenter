@@ -43,7 +43,7 @@
     zoom: 1;
     height: 130px;
     width: 130px;
-    border: 2px solid #b2b2b2;
+    /*border: 2px solid #b2b2b2;*/
 }
 .m-pay .m-default .desc{
     margin-top: 40px;
@@ -94,6 +94,17 @@
     height: 130px;
     margin-right:auto ;
     margin-left: auto;
-   border: 2px solid #b2b2b2;;
+   border: 2px solid #b2b2b2;
+}
+.m-pay .icon{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.m-pay .alipay{
+    background-image:url(./../img/alipay.png) ;
+}
+.m-pay .weixinpay{
+    background-image: url(./../img/wechatpay.jpg);
 }
 

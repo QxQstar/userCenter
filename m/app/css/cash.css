@@ -111,7 +111,6 @@
     display: inline-block;
     *display: inline;
     zoom: 1;
-    border: 2px solid #b2b2b2;
     cursor: pointer;
 }
 .m-recharge .m-default .desc{
@@ -185,4 +184,15 @@
     }
 .m-recharge .codePay .button:hover{
     text-decoration: underline;
+}
+.m-recharge .icon{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.m-recharge .alipay{
+    background-image:url(./../img/alipay.png) ;
+}
+.m-recharge .weixinpay{
+    background-image: url(./../img/wechatpay.jpg);
 }
