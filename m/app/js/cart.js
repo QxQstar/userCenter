@@ -69,7 +69,8 @@ Cart.prototype.selection = function(){
             event.stopPropagation();
             selectHandle( $(this),cart.find('.select') );
         });
-
+    //д╛хох╚я║
+    $('#all').trigger('click');
     function selectHandle($target,allSelect){
         var all,selectNum,selectPrice,prevSib;
         all = $('#all');

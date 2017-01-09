@@ -75,6 +75,7 @@ Cart.prototype.selection = function(){
     me = this;
     cart = me.cartModule;
     selects = $('.select');
+
     //给所有的选择框绑定事件
     selects
         .unbind('click')
@@ -82,6 +83,8 @@ Cart.prototype.selection = function(){
             event.stopPropagation();
             selectHandle( $(event.target),cart.find('.select') );
         });
+    //默认全选
+    $('#all').trigger('click');
     function selectHandle($target,allSelect){
         var all,selectNum,selectPrice,prevSib;
         all = $('#all');
