@@ -97,8 +97,8 @@
     background-repeat: no-repeat;
 }
 .m-pay .alipay{
-    background-image:url(./../img/alipay.png) ;
+    background-image:url(/template/default/img/alipay.png) ;
 }
 .m-pay .weixinpay{
-    background-image: url(./../img/wechatpay.jpg);
+    background-image: url(/template/default/img/wechatpay.png);
 }

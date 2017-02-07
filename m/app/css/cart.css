@@ -135,9 +135,9 @@
     display: inline-block;
     *display: inline;
     zoom: 1;
-    width: 19px;
+    width: 18px;
     height: 20px;
-    background: url(/template/m/img/userIcon.png) no-repeat -120px 0;
+    background: url(/template/m/img/userIcon.png) no-repeat -121px 0;
 
 }
 

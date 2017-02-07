@@ -77,7 +77,6 @@ Base.prototype.init = function(){
             profile.each(function (index, elem) {
                 parent = $(elem).parent();
                 sibling = parent.find('.img');
-                console.log(parent.outerWidth());
                 $(elem).css('width', ( parent.width() - sibling.width() - parseInt(sibling.css('margin-right'))) + 'px');
             });
         }
